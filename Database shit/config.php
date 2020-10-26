@@ -1,5 +1,5 @@
 <?php
-	
+/* change database name to whatever we called it  */	
 
 $mysqli = new mysqli('localhost', 'root', '', 'reviews');
 
