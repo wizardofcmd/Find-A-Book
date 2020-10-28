@@ -1,12 +1,12 @@
 <!DOCTYPE:html>
 <html>
 	<head>
-		<title>About</title>
+		<title>Feeling Lucky</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../css/style.css">
 	</head>
-	<body>
+	<body data-spy="scroll" data-target=".navbar" data-offset="50">
 		<!--Nav Bar-->
 		<nav class="navbar navbar-inverse">
 			<div class="container">
@@ -23,27 +23,49 @@
 						<li><a href="../Contact/Contact.html"><span class="glyphicon glyphicon-envelope"></span>Contact</a></li>
 					</ul>
 				</div>
+			</div>
 		</nav>
 		<!--Nav Bar-->
-		<!--About Us-->
-		
-		<div class="jumbotron">
+		<!--Tite-->
+		<div class="container ">
 			<div class="container">
-				<h1>About Us</h1>
-				<p>Based on our existing competitors, ‘FindABook’ seeks to fill the opened gap by delivering a modern take through SaaS (Software as a Service). Our objective is to provide an interface for users to find books based on criteria they choose. This will be achieved with a contemporary and minimalist design, taking advantage of what our competitors are lacking in terms of comfortable UX. Why would someone use this? This site simply provides books, reviews, and also suggests similar books. Its simplistic and straightforward nature exceeds what is currently on the market.</p>
+			<h2>Have you Read...</h2>
+			</div>
+		<!--Display Book-->
+			<div class="container">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				</br>
+					<div id="result"></div>
+				<form id="myform">
+					<button class="btn-dark">
+						<input type="search" id="books">
+						<label for="search"></label>
+					</button>
+				</form>	
+				</br>
+					<a href="#"><span class="glyphicon glyphicon-thumbs-up"></span>See Reviews</a>
+			</div>
+			<div class="col-md-2"></div>
+
+<!--Book Description-->
 			</div>
 		</div>
-		<!--About Us-->
-		<!--Footer-->
-			<div class="container">
-				
-				<footer class="page-footer font-small  pt-4 special-color-dark">
-					 <div class="footer-copyright text-center py-3">&copy; FindABook<br/>
-					</div>
-				</footer>
+		<!--Display Book-->
+			</br>
+			<!--Footer-->
+			<div class="alt">
+				<div class="container fixed-bottom">	
+					<footer class="page-footer font-small  pt-4 special-color-dark">
+						 <div class="footer-copyright text-center py-3">&copy; FindABook<br/>
+						</div>
+					</footer>
+				</div>
 			</div>
+		
 		<!--Footer-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<script src="../scripts/script.js"></script>
 	</body>
 </html>
