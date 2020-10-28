@@ -19,3 +19,7 @@ tokens = [word for word in tokens if word.isalpha()]
 # Removing all stop words in text
 stop_words = stopwords.words("english")
 tokens = [word for word in tokens if not word in stop_words]
+
+print(stop_words)
+print()
+print(tokens)
