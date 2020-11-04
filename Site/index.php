@@ -22,7 +22,7 @@
 			
 			$.ajax({type: "POST",
 			url: './php/bookhandler.php',
-			data: {book_data: book_data},
+			data: {bookdata: book_data},
 			dataType: 'json',
 			
 			success: function(data){
@@ -80,12 +80,12 @@
 					<ul class ="nav navbar-nav navbar-right">
 						<li><a href="index.html"><span class="glyphicon glyphicon-home"></span>Home</a></li>
 						<li><a href="About/About.html"><span class="glyphicon glyphicon-info-sign"></span>About</a></li>
-						<li><a href="Review/review.html"><span class="glyphicon glyphicon-envelope"></span>Reviews</a></li>
+						<li><a href="Contact/Contact.html"><span class="glyphicon glyphicon-envelope"></span>Contact</a></li>
 					</ul>
 				</div>
 			</nav>
 			<div class="container ">
-				<form id="myform" >
+				
 					<div class="row btn-group btn-group-justified">
 						<div class="col-md-4">
 							<div class="container">		
@@ -103,7 +103,7 @@
 							</div>
 						</div>
 					</div>
-				</form>
+				
 			</div>
 			<select id="bookselect">Books</select>
 		</body>
