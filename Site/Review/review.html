@@ -1,0 +1,55 @@
+<!DOCTYPE:html>
+<html>
+	<head>
+		<title>Contact</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">FindABook</a>
+				</div>
+				<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse"> 
+				Menu
+				</button>
+				<div class="collapse navbar-collapse navHeaderCollapse">
+					<ul class ="nav navbar-nav navbar-right">
+						<li><a href="../index.html"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+						
+						<li><a href="review.html"><span class="glyphicon glyphicon-envelope"></span>Review</a></li>
+					</ul>
+				</div>
+		</nav>
+			<h1>Please enter only real book names and appropriate reviews</h1>
+			
+			
+			<p>
+  
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Click to enter review
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <form action="../../DatabaseScripts/register.php" method="POST">
+  <div class="form-group">
+    <label for="bookInput">Book name</label>
+    <input type="text" class="form-control" id="bookInput" placeholder="Book name goes here" name="bName">
+    <small id="emailHelp" class="form-text text-muted">Enter a real book name.</small>
+  </div>
+  <div class="form-group">
+    <label for="reviewInput">Review</label>
+    <input type="text" class="form-control" id="reviewInput" placeholder="Review comes here" name="uComment">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Enter your review!</button>
+</form>
+  </div>
+</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	</body>
+</html>

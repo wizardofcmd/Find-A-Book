@@ -1,0 +1,7 @@
+PYTHON LINKS - Sentiment Analysis
+Cleaning text in Python using NLTK
+https://machinelearningmastery.com/clean-text-machine-learning-python/
+https://towardsdatascience.com/creating-the-twitter-sentiment-analysis-program-in-python-with-naive-bayes-classification-672e5589a7ed
+
+Naive Bayes Classifier
+https://www.datacamp.com/community/tutorials/simplifying-sentiment-analysis-python
