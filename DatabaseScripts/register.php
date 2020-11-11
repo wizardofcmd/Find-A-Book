@@ -11,8 +11,8 @@ else{
 echo"success      ";}
 
 //grabs the input from the form and stores them in 2 vars as below
-$bookName = $_POST['bName'];
-$userComment = $_POST['uComment'];
+$bookName = mysqli_real_escape_string($mysqli, $_POST['bName']);
+$userComment = mysqli_real_escape_string($mysqli, $_POST['uComment']);
 //the sql query to insert
 $sql = "INSERT INTO `usersreviews` (`bookName`, `userComment`) VALUES ('$bookName', '$userComment')";
 
