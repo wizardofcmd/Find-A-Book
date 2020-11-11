@@ -16,6 +16,39 @@
 			$( "#btn_fic_id" ).click(function() {
 			//alert("asd");
 			var book_data = "fiction";
+			console.log(book_data);
+			
+			
+			$.ajax({type: "POST",		
+			url: './php/bookhandler.php',
+			data: {bookdata: book_data},
+			dataType: 'json',
+			
+			success: function(data){
+			console.log(data);
+			
+			}});
+			});
+			$( "#btn_ran_id" ).click(function() {
+			
+			var book_data = "please index.php line 34"; // Needs a randomizer that saves 'book_data' as a random string 
+			alert(book_data);
+			console.log(book_data);
+			
+			
+			/*$.ajax({type: "POST",
+			url: './php/bookhandler.php',
+			data: {bookdata: book_data},  
+			dataType: 'json',
+			
+			success: function(data){
+			console.log(data);
+			
+			}}); */
+			});
+			$( "#btn_nonfic_id" ).click(function() {
+			//alert("asd");
+			var book_data = "Nonfiction";
 			alert(book_data);
 			console.log(book_data);
 			
@@ -30,36 +63,6 @@
 			
 			}});
 			});
-			
-			$( "#btn_ran_id" ).click(function() {
-			var book_data = "random";
-			alert(book_data);
-			$.ajax({type: "POST",
-			url: './php/bookhandler.php',
-			data: {book_data: book_data},
-			dataType: 'json',
-			
-			success: function(data){
-			console.log(data);
-			
-							
-			}});
-			});
-			
-			$( "#btn_nonfic_id" ).click(function() {
-			var book_data = "non fiction";
-			alert(book_data);
-			$.ajax({type: "POST",
-			url: './php/bookhandler.php',
-			data: {book_data: book_data},
-			dataType: 'json',
-			
-			success: function(data){
-			console.log(data);
-			
-			}});
-			});
-			
 			
 			
 			
