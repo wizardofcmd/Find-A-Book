@@ -80,7 +80,7 @@
 					<ul class ="nav navbar-nav navbar-right">
 						<li><a href="index.html"><span class="glyphicon glyphicon-home"></span>Home</a></li>
 						<li><a href="About/About.html"><span class="glyphicon glyphicon-info-sign"></span>About</a></li>
-						<li><a href="Contact/Contact.html"><span class="glyphicon glyphicon-envelope"></span>Contact</a></li>
+						<li><a href="Review/review.html"><span class="glyphicon glyphicon-envelope"></span>Reviews</a></li>
 					</ul>
 				</div>
 			</nav>
