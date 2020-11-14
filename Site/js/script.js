@@ -1,5 +1,5 @@
 //Generate Random letter 
-	document.getElementById('randomiser').innerHTML=random(1)
+	document.getElementById('btn_ran_id').innerHTML=random(1)
 	  function random(string_length){
 		var random_string='';
 		var character="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
@@ -10,7 +10,7 @@
 	  }
 //insert Random letter into search
 	function findString({
-   	  random();
+   	  random(13);
 	  var url = "";
    	  var img = "";
       var title = "";

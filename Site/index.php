@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 		<title>FindABook Home</title>
@@ -38,7 +39,7 @@
 							var select = document.getElementById('opt_books'); // create javascript variable based on existing html tag
 							$(select).html('');
 							for (var i in data) { // move through data sent from bookhandler.php
-								$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>'); // for every index create HTML as follows and append to chosen html tag							
+								$(select).append('<option value=' + data[i] + '>' + data[i]['volumeInfo'] + '</option>'); // for every index create HTML as follows and append to chosen html tag							
 							}
 							
 						}});
@@ -46,14 +47,19 @@
 				});
 				/*$( "#btn_ran_id" ).click(function() {
 					
-					var book_data = "please read index.php line"; // Needs a randomizer that saves 'book_data' as a random string 
+					
+					
+					var book_data = "romance"; // Needs a randomizer that saves 'book_data' as a random string 
+					
+					
+					
 					alert(book_data);
 					console.log(book_data);
 					
 					
-					/*$.ajax({type: "POST",
+					$.ajax({type: "POST",
 						url: './php/bookhandler.php',
-						data: {bookdata: book_data},  
+						data: {ran_data: book_data},  
 						dataType: 'json',
 						
 						success: function(data){
@@ -132,7 +138,9 @@
 					</div>
 					<div class="col-md-4">
 						<div class="container">	
+						<a href="FeelingLucky/FeelingLucky.html">
 							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="Images/Feeling Lucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
+						</a>
 						</div>
 					</div>
 					<div class="col-md-4">
