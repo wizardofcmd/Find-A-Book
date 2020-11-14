@@ -22,6 +22,8 @@
 				$("#viewport").hide();
 				
 				$( "#btn_fic_id" ).click(function() { //if button clicked, do something
+					
+					
 					var book_data = "fantasy"; //creates a new variable and saves it as a hardcoded string
 					alert(book_data + " button was clicked"); // for testing purposes
 					console.log(book_data);					  // for testing purposes
@@ -34,12 +36,14 @@
 						success: function(data){
 							$("#sl_books").show();
 							$("#viewport").show();
+							
+							
 							console.log(data);
 							
 							var select = document.getElementById('opt_books'); // create javascript variable based on existing html tag
 							$(select).html('');
 							for (var i in data) { // move through data sent from bookhandler.php
-								$(select).append('<option value=' + data[i] + '>' + data[i]['volumeInfo'] + '</option>'); // for every index create HTML as follows and append to chosen html tag							
+								$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>'); // for every index create HTML as follows and append to chosen html tag							
 							}
 							
 						}});
@@ -122,7 +126,7 @@
 				</button>
 				<div class="collapse navbar-collapse navHeaderCollapse">
 					<ul class ="nav navbar-nav navbar-right">
-						<li><a href="index.html"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+						<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
 						<li><a href="About/About.html"><span class="glyphicon glyphicon-info-sign"></span>About</a></li>
 						<li><a href="Review/review.html"><span class="glyphicon glyphicon-envelope"></span>Reviews</a></li>
 					</ul>
@@ -155,11 +159,14 @@
 				<optgroup id="opt_books" label="test_book_titles"></optgroup>
 			</select>
 			<!-- Arbor.js -->
+			
+			
 				<canvas id="viewport" width="800" height="600"></canvas>
 				<script language="javascript" type="text/javascript">
 					var sys = arbor.ParticleSystem(1000, 400,1);
 					sys.parameters({gravity:true});
 					sys.renderer = Renderer("#viewport");
+					
 					
 					var data = {
 						nodes:{
@@ -174,7 +181,7 @@
 						}
 					};
 					sys.graft(data);
-					
+					var testic= 'TEST';
 					setTimeout(function(){
 						var postLoadData = {
 							nodes:{
@@ -183,9 +190,9 @@
 								fluffy:{'color':'blue','shape':'dot','label':':D'}
 							},
 							edges:{
-								dog:{ fido:{} },
+								testic:{ fido:{} },
 								cat:{ fluffy:{} },
-								joe:{ fluffy:{},fido:{} }
+								joe:{ fluffy:{},fido:{}}
 							}
 						};
 					sys.graft(postLoadData);});
