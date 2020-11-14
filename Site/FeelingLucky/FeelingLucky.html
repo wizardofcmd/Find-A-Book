@@ -5,6 +5,43 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../css/style.css">
+		<script src="../scripts/jquery-1.6.1.min.js"></script>
+		<script>
+		$(document).ready(function() {
+		$( "#btn_ran_id" ).click(function() {
+					
+					document.getElementById('btn_ran_id').innerHTML=random(1)
+					function random(string_length){
+						var random_string='';
+						var character="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+					for (var i,i=0;i<string_length;i++){
+						random_string+=character.charAt(Math.floor(Math.random()*character.length))
+					}
+					return random_string;
+					}
+					var book_data = random; // Needs a randomizer that saves 'book_data' as a random string 
+					alert(book_data);
+					console.log(book_data);
+					
+					
+					$.ajax({type: "POST",
+						url: './php/randhandler.php',
+						data: {bookdata: book_data},  
+						dataType: 'json',
+						
+						success: function(data){
+						console.log(data);
+						
+						var select = document.getElementById('opt_books'); // create javascript variable based on existing html tag
+						$(select).html('');
+						for (var i in data) { // move through data sent from bookhandler.php
+							$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>'); // for every index create HTML as follows and append to chosen html tag							
+						}
+					}}); 
+					
+				});
+			});
+		</script>
 	</head>
 	<body data-spy="scroll" data-target=".navbar" data-offset="50">
 		<!--Nav Bar-->
@@ -36,7 +73,7 @@
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
 				</br>
-				<button id="btn_ran_id" type="button" class="btn-dark" onClick='random,findString()'id="books">Have You Read...</button>
+				<button value="btn_ran_val"  class="btn btn-info-dark " id="btn_ran_id" >Have You Read...</button>
 				<div id="result"></div>
 				</br>
 			<!--<a href="#"><span class="glyphicon glyphicon-thumbs-up"></span>See Reviews</a>-->
@@ -61,6 +98,6 @@
 		<!--Footer-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-		<script src="../js/script.js"></script>
+		
 	</body>
 </html>
