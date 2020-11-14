@@ -16,12 +16,12 @@
 		<script src="./scripts/renderer.js"></script>
 		<script> 
 			
-			$(document).ready(function() {
+			$(document).ready(function(){
 				$("#sl_books").hide(); 
 				$("#viewport").hide();
 				
 				$( "#btn_fic_id" ).click(function() { //if button clicked, do something
-					var book_data = "fiction"; //creates a new variable and saves it as a hardcoded string
+					var book_data = "fantasy"; //creates a new variable and saves it as a hardcoded string
 					alert(book_data + " button was clicked"); // for testing purposes
 					console.log(book_data);					  // for testing purposes
 					
@@ -42,10 +42,11 @@
 							}
 							
 						}});
+						
 				});
-				$( "#btn_ran_id" ).click(function() {
+				/*$( "#btn_ran_id" ).click(function() {
 					
-					var book_data = "please read index.php line 34"; // Needs a randomizer that saves 'book_data' as a random string 
+					var book_data = "please read index.php line"; // Needs a randomizer that saves 'book_data' as a random string 
 					alert(book_data);
 					console.log(book_data);
 					
@@ -58,8 +59,8 @@
 						success: function(data){
 						console.log(data);
 						
-					}}); */
-				});
+					}}); 
+				});*/
 				$( "#btn_nonfic_id" ).click(function() {
 					var book_data = "nonfiction";
 					alert(book_data + " button was clicked");
@@ -75,10 +76,10 @@
 							$("#viewport").show();
 							console.log(data);
 							
-							var select = document.getElementById('opt_books'); // new var select
+							var select = document.getElementById('opt_books'); // create javascript variable based on existing html tag
 							$(select).html('');
-							for (var i in data) { // move through array of data which you can get from test.php
-								$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>'); // for every index create HTML as follows and append to #routes							
+							for (var i in data) { // move through data sent from bookhandler.php
+								$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>'); // for every index create HTML as follows and append to chosen html tag							
 							}
 						}});
 				});
