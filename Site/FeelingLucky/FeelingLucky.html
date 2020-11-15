@@ -10,7 +10,15 @@
 		<script src="../scripts/jquery-1.6.1.min.js"></script>
 		<script>
 		$(document).ready(function() {
-		
+				var bk_desc[i] = "";
+				var bk_author[i] = "";
+				var bk_categ[i] = "";
+				var bk_img_link[i] = "";
+				var bk_inf_link[i] = "";
+				var bk_prvw_link[i] = "";
+				var bk_rating[i] = "";
+				var bk_pg_count[i] = "";
+				
 		$( "#btn_ran_id" ).click(function() {
 					var book_data = "";
 						var random_string='';
@@ -35,7 +43,17 @@
 						var select = document.getElementById('opt_books'); // create javascript variable based on existing html tag
 						$(select).html('');
 						for (var i in data) { // move through data sent from bookhandler.php
-							$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>'); // for every index create HTML as follows and append to chosen html tag							
+						//	$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>'); // for every index create HTML as follows and append to chosen html tag
+							bk_desc[i] = data[i]['descrption'];
+							bk_author[i] = data[i]['author'];
+							bk_categ[i] = data[i]['categories'][i];
+							bk_img_link[i] = data[i]['imageLinks']['smallThumbnail'];
+							bk_inf_link[i] = data[i]['infoLink'];
+							bk_prvw_link[i] = data[i]['previewLink'];
+							bk_rating[i] = data[i]['maturityRating'];
+							bk_pg_count[i] = data[i]['pageCount'];
+							
+							bk_desc.appendTo('#result');
 						}
 					}}); 
 					
@@ -73,6 +91,7 @@
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
 				</br>
+				<select id="opt_books"></select>
 				<button value="btn_ran_val"  class="btn btn-info-dark " id="btn_ran_id" >Have You Read...</button>
 				<div id="result"></div>
 				</br>
