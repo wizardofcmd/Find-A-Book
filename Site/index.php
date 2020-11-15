@@ -20,7 +20,16 @@
 			$(document).ready(function(){
 				$("#sl_books").hide(); 
 				$("#viewport").hide();
+				var bk_desc[i] = "";
+				var bk_author;
+				var bk_categ;
+				var bk_img_link;
+				var bk_inf_link;
+				var bk_prvw_link;
+				var bk_rating;
+				var bk_pg_count;
 				
+
 				$( "#btn_fic_id" ).click(function() { //if button clicked, do something
 					
 					
@@ -43,34 +52,14 @@
 							var select = document.getElementById('opt_books'); // create javascript variable based on existing html tag
 							$(select).html('');
 							for (var i in data) { // move through data sent from bookhandler.php
-								$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>'); // for every index create HTML as follows and append to chosen html tag							
+								$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>'); // for every index create HTML as follows and append to chosen html tag
+								bk_desc[i] = data[i]['description'];
 							}
 							
 						}});
 						
 				});
-				/*$( "#btn_ran_id" ).click(function() {
-					
-					
-					
-					var book_data = "romance"; // Needs a randomizer that saves 'book_data' as a random string 
-					
-					
-					
-					alert(book_data);
-					console.log(book_data);
-					
-					
-					$.ajax({type: "POST",
-						url: './php/bookhandler.php',
-						data: {ran_data: book_data},  
-						dataType: 'json',
-						
-						success: function(data){
-						console.log(data);
-						
-					}}); 
-				});*/
+				
 				$( "#btn_nonfic_id" ).click(function() {
 					var book_data = "nonfiction";
 					alert(book_data + " button was clicked");

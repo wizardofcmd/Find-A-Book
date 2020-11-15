@@ -1,31 +1,31 @@
-<!DOCTYPE:html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 		<title>Feeling Lucky</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta charset="UTF-8">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../css/style.css">
 		<script src="../scripts/jquery-1.6.1.min.js"></script>
 		<script>
 		$(document).ready(function() {
+		
 		$( "#btn_ran_id" ).click(function() {
-					
-					document.getElementById('btn_ran_id').innerHTML=random(1)
-					function random(string_length){
+					var book_data = "";
 						var random_string='';
-						var character="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
-					for (var i,i=0;i<string_length;i++){
+						var character="abcdefghijklmnopqrstuvwxyz";
+						for (var i,i=0;i<1;i++){
 						random_string+=character.charAt(Math.floor(Math.random()*character.length))
 					}
-					return random_string;
-					}
-					var book_data = random; // Needs a randomizer that saves 'book_data' as a random string 
+					book_data = random_string;
+					
 					alert(book_data);
 					console.log(book_data);
 					
-					
+					// broken link, book_data value changed
 					$.ajax({type: "POST",
-						url: './php/randhandler.php',
+						url: '../php/randhandler.php',
 						data: {bookdata: book_data},  
 						dataType: 'json',
 						
