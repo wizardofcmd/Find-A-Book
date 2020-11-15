@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
+"http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 		<title>Feeling Lucky</title>
@@ -9,114 +9,126 @@
 		<link rel="stylesheet" href="../css/style.css">
 		<script src="../scripts/jquery-1.6.1.min.js"></script>
 		<script>
-		$(document).ready(function() {
-				var bk_desc[i] = "";
-				var bk_author[i] = "";
-				var bk_categ[i] = "";
-				var bk_img_link[i] = "";
-				var bk_inf_link[i] = "";
-				var bk_prvw_link[i] = "";
-				var bk_rating[i] = "";
-				var bk_pg_count[i] = "";
+			$(document).ready(function() {
+			
+			
+			$( "#btn_ran_id" ).click(function() {
+			
+			var random_string='';
+			var character="abcdefghijklmnopqrstuvwxyz";
+			for (var i,i=0;i<1;i++){
+				random_string+=character.charAt(Math.floor(Math.random()*character.length))
+			}
+			book_data = random_string;
+			
+			alert(book_data);
+			console.log(book_data);
+			
+			// broken link, book_data value changed
+			$.ajax({type: "POST",
+				url: '../php/randhandler.php',
+				data: {bookdata: book_data},  
+				dataType: 'json',
 				
-		$( "#btn_ran_id" ).click(function() {
+				success: function(data){
+					console.log(data);
 					var book_data = "";
-						var random_string='';
-						var character="abcdefghijklmnopqrstuvwxyz";
-						for (var i,i=0;i<1;i++){
-						random_string+=character.charAt(Math.floor(Math.random()*character.length))
+					/*var bk_desc= [];
+					var bk_author = [];
+					var bk_categ = [];
+					var bk_img_link = [];
+					var bk_inf_link = [];
+					var bk_prvw_link = [];
+					var bk_rating = [];
+					var bk_pg_count= [];*/
+					var title = document.getElementById('opt_books');
+					var category = document.getElementById('opt_book1');// create javascript variable based on existing html tag
+					$(title).html('');
+					$(category).html('');
+					for (var i in data) { // move through data sent from bookhandler.php
+						$(title).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>');
+						$(category).append('<option value=' + data[i] + '>' + data[i]['contentVersion'] + '</option>');
+						/*$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>');
+						$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>');
+						$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>');
+						$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>');
+						$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>');// for every index create HTML as follows and append to chosen html tag
+						
+						
+						bk_desc = data[i]['description'][i];
+						bk_author = data[i]['author'];
+						bk_categ= data[i]['categories'][i];
+						bk_img_link = data[i]['imageLinks']['smallThumbnail'];
+						bk_inf_link = data[i]['infoLink'];
+						bk_prvw_link = data[i]['previewLink'];
+						bk_rating = data[i]['maturityRating'];
+						bk_pg_count = data[i]['pageCount'];
+						
+						bk_desc.appendTo('#result');*/
 					}
-					book_data = random_string;
-					
-					alert(book_data);
-					console.log(book_data);
-					
-					// broken link, book_data value changed
-					$.ajax({type: "POST",
-						url: '../php/randhandler.php',
-						data: {bookdata: book_data},  
-						dataType: 'json',
-						
-						success: function(data){
-						console.log(data);
-						
-						var select = document.getElementById('opt_books'); // create javascript variable based on existing html tag
-						$(select).html('');
-						for (var i in data) { // move through data sent from bookhandler.php
-						//	$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>'); // for every index create HTML as follows and append to chosen html tag
-							bk_desc[i] = data[i]['descrption'];
-							bk_author[i] = data[i]['author'];
-							bk_categ[i] = data[i]['categories'][i];
-							bk_img_link[i] = data[i]['imageLinks']['smallThumbnail'];
-							bk_inf_link[i] = data[i]['infoLink'];
-							bk_prvw_link[i] = data[i]['previewLink'];
-							bk_rating[i] = data[i]['maturityRating'];
-							bk_pg_count[i] = data[i]['pageCount'];
-							
-							bk_desc.appendTo('#result');
-						}
-					}}); 
-					
-				});
-			});
-		</script>
-	</head>
-	<body data-spy="scroll" data-target=".navbar" data-offset="50">
-		<!--Nav Bar-->
-		<nav class="navbar navbar-inverse">
-			<div class="container">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="#">FindABook</a>
-				</div>
-				<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse"> 
-				Menu
-				</button>
-				<div class="collapse navbar-collapse navHeaderCollapse">
-					<ul class ="nav navbar-nav navbar-right">
-						<li><a href="../index.html"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-						<li><a href="About.html"><span class="glyphicon glyphicon-info-sign"></span>About</a></li>
-						<li><a href="../Review/review.html"><span class="glyphicon glyphicon-envelope"></span>Contact</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<!--Nav Bar-->
-		<!--Tite-->
-		<div class="container ">
-			<div class="container">
-			<h2>Feeling Lucky!!!</h2>
-			</div>
-		<!--Display Book-->
-			<div class="container">
-			<div class="col-md-2"></div>
-			<div class="col-md-8">
-				</br>
-				<select id="opt_books"></select>
-				<button value="btn_ran_val"  class="btn btn-info-dark " id="btn_ran_id" >Have You Read...</button>
-				<div id="result"></div>
-				</br>
-			<!--<a href="#"><span class="glyphicon glyphicon-thumbs-up"></span>See Reviews</a>-->
-			</div>
-			<div class="col-md-2"></div>
-
-<!--Book Description-->
-			</div>
-		</div>
-		<!--Display Book-->
+				}}); 
+				
+		});
+	});
+</script>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+	<!--Nav Bar-->
+	<nav class="navbar navbar-inverse">
+	<div class="container">
+	<div class="navbar-header">
+	<a class="navbar-brand" href="#">FindABook</a>
+	</div>
+	<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse"> 
+	Menu
+	</button>
+	<div class="collapse navbar-collapse navHeaderCollapse">
+	<ul class ="nav navbar-nav navbar-right">
+<li><a href="../index.html"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+<li><a href="About.html"><span class="glyphicon glyphicon-info-sign"></span>About</a></li>
+<li><a href="../Review/review.html"><span class="glyphicon glyphicon-envelope"></span>Contact</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<!--Nav Bar-->
+<!--Tite-->
+<div class="container ">
+	<div class="container">
+		<h2>Feeling Lucky!!!</h2>
+	</div>
+	<!--Display Book-->
+	<div class="container">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
 			</br>
-			<!--Footer-->
-			<div class="alt">
-				<div class="container fixed-bottom">	
-					<footer class="page-footer font-small  pt-4 special-color-dark">
-						 <div class="footer-copyright text-center py-3">&copy; FindABook<br/>
-						</div>
-					</footer>
-				</div>
+			<select id="opt_books"></select>
+			<select id="opt_books1"></select>
+			<button value="btn_ran_val"  class="btn btn-info-dark " id="btn_ran_id" >Have You Read...</button>
+			<div id="result"></div>
+			</br>
+			<!--<a href="#"><span class="glyphicon glyphicon-thumbs-up"></span>See Reviews</a>-->
+		</div>
+		<div class="col-md-2"></div>
+		
+		<!--Book Description-->
+	</div>
+</div>
+<!--Display Book-->
+</br>
+<!--Footer-->
+<div class="alt">
+	<div class="container fixed-bottom">	
+		<footer class="page-footer font-small  pt-4 special-color-dark">
+			<div class="footer-copyright text-center py-3">&copy; FindABook<br/>
 			</div>
-		
-		<!--Footer-->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-		
-	</body>
-</html>
+		</footer>
+	</div>
+</div>
+
+<!--Footer-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>			
