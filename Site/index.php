@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
+"http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 		<title>FindABook Home</title>
@@ -20,21 +20,14 @@
 			$(document).ready(function(){
 				$("#sl_books").hide(); 
 				$("#viewport").hide();
-				var bk_desc[i] = "";
-				var bk_author;
-				var bk_categ;
-				var bk_img_link;
-				var bk_inf_link;
-				var bk_prvw_link;
-				var bk_rating;
-				var bk_pg_count;
 				
-
+				var ar;
+				
 				$( "#btn_fic_id" ).click(function() { //if button clicked, do something
 					
 					
 					var book_data = "fantasy"; //creates a new variable and saves it as a hardcoded string
-					alert(book_data + " button was clicked"); // for testing purposes
+					//alert(book_data + " button was clicked"); // for testing purposes
 					console.log(book_data);					  // for testing purposes
 					
 					$.ajax({type: "POST",		
@@ -53,7 +46,6 @@
 							$(select).html('');
 							for (var i in data) { // move through data sent from bookhandler.php
 								$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>'); // for every index create HTML as follows and append to chosen html tag
-								bk_desc[i] = data[i]['description'];
 							}
 							
 						}});
@@ -62,7 +54,7 @@
 				
 				$( "#btn_nonfic_id" ).click(function() {
 					var book_data = "nonfiction";
-					alert(book_data + " button was clicked");
+					//alert(book_data + " button was clicked");
 					console.log(book_data);
 					
 					$.ajax({type: "POST",
@@ -73,31 +65,45 @@
 						success: function(data){
 							$("#sl_books").show();
 							$("#viewport").show();
-							console.log(data);
+							//console.log(data);
+							
+							var title_arr; // where array of titles are going to be saved from data
+							var auth_arr;
+							var categ_arr;
+							var img_link_arr;
+							var info_link_arr;
+							
+							// for # of books retrieved, create long string of all titles/authors/categories/etc.
+							for (var i = 0; i < data.length ; i++) {
+								title_arr += data[i].title+"//"; //gets data from json for every variable
+								auth_arr += JSON.stringify(data[i].authors)+"//"; // have to stringify because its an object
+								categ_arr += JSON.stringify(data[i].categories)+"//";
+								img_link_arr += data[i].imageLinks.thumbnail+"||";
+								info_link_arr += data[i].infoLink+"||"; 
+							}
 							
 							var select = document.getElementById('opt_books'); // create javascript variable based on existing html tag
 							$(select).html('');
 							for (var i in data) { // move through data sent from bookhandler.php
 								$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>'); // for every index create HTML as follows and append to chosen html tag							
 							}
+							
+							var titles = title_arr.split('//');
+							var authors = auth_arr.split('//'); // split long string into array elements
+							var categories = categ_arr.split('//');
+							var image_links = img_link_arr.split('||')
+							var info_links = info_link_arr.split('||')
+							
+							console.log(titles);
+							console.log(authors);
+							console.log(categories);
+							console.log(image_links);
+							console.log(data);
+							console.log(info_links);
+							document.getElementById("demo").innerHTML = titles;
 						}});
 				});
 				
-				/*
-					TO BE OPTIMIZED
-					if(document.getElementById('btn_fic_id').clicked == true)
-					{
-					var book_data = "fiction";
-					alert(" fiction button was clicked");
-					} else if (document.getElementById('btn_ran_id').clicked == true)
-					{
-					var book_data = "please read index.php line 34";
-					alert("button was clicked");
-					} else if(document.getElementById('btn_nonfic_id').clicked == true)
-					{
-					var book_data = "Nonfiction";
-					alert(" nonfic button was clicked");
-				}*/ 
 				
 				
 				
@@ -131,9 +137,9 @@
 					</div>
 					<div class="col-md-4">
 						<div class="container">	
-						<a href="FeelingLucky/FeelingLucky.html">
-							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="Images/Feeling Lucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
-						</a>
+							<a href="FeelingLucky/FeelingLucky.html">
+								<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="Images/Feeling Lucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
+							</a>
 						</div>
 					</div>
 					<div class="col-md-4">
@@ -148,43 +154,43 @@
 				<optgroup id="opt_books" label="test_book_titles"></optgroup>
 			</select>
 			<!-- Arbor.js -->
+			<p id="demo"></p>
 			
-			
-				<canvas id="viewport" width="800" height="600"></canvas>
-				<script language="javascript" type="text/javascript">
-					var sys = arbor.ParticleSystem(1000, 400,1);
-					sys.parameters({gravity:true});
-					sys.renderer = Renderer("#viewport");
-					
-					
-					var data = {
-						nodes:{
-							animals:{'color':'red','shape':'dot','label':'This'},
-							dog:{'color':'green','shape':'dot','label':'is'},
-							cat:{'color':'blue','shape':'dot','label':'for'},
-							toy:{'color':'pink','shape':'dot','label':'testing'}
-						},
-						edges:{
-							animals:{ dog:{'color':'green'}, cat:{},toy:{}},
-							dog:{ cat:{}}
-						}
+			<canvas id="viewport" width="800" height="600"></canvas>
+			<script language="javascript" type="text/javascript">
+				var sys = arbor.ParticleSystem(1000, 400,1);
+				sys.parameters({gravity:true});
+				sys.renderer = Renderer("#viewport");
+				
+				
+				var data = {
+					nodes:{
+						animals:{'color':'red','shape':'dot','label':'This'},
+						dog:{'color':'green','shape':'dot','label':'is'},
+						cat:{'color':'blue','shape':'dot','label':'for'},
+						toy:{'color':'pink','shape':'dot','label':'testing'}
+					},
+					edges:{
+					animals:{ dog:{'color':'green'}, cat:{},toy:{}},
+					dog:{ cat:{}}
+					}
 					};
 					sys.graft(data);
 					var testic= 'TEST';
 					setTimeout(function(){
-						var postLoadData = {
-							nodes:{
-								joe:{'color':'orange','shape':'dot','label':'purposes'},
-								fido:{'color':'green','shape':'dot','label':'only'},
-								fluffy:{'color':'blue','shape':'dot','label':':D'}
-							},
-							edges:{
-								testic:{ fido:{} },
-								cat:{ fluffy:{} },
-								joe:{ fluffy:{},fido:{}}
-							}
-						};
+					var postLoadData = {
+					nodes:{
+					joe:{'color':'orange','shape':'dot','label':'purposes'},
+					fido:{'color':'green','shape':'dot','label':'only'},
+					fluffy:{'color':'blue','shape':'dot','label':':D'}
+					},
+					edges:{
+					testic:{ fido:{} },
+					cat:{ fluffy:{} },
+					joe:{ fluffy:{},fido:{}}
+					}
+					};
 					sys.graft(postLoadData);});
-				</script>
-		</body>
-	</html>																		
+					</script>
+					</body>
+					</html>																											
