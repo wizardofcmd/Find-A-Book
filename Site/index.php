@@ -186,5 +186,12 @@
 						};
 					sys.graft(postLoadData);});
 				</script>
+				<div class="alt">
+					<div class="container fixed-bottom">	
+						<footer class="page-footer font-small  pt-4 special-color-dark">
+							<div class="footer-copyright text-center py-3"></br>&copy;  FindABook<br/></div>
+						</footer>
+					</div>
+				</div>
 		</body>
 	</html>																		
