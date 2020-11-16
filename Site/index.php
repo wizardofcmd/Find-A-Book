@@ -77,7 +77,7 @@
 							for (var i = 0; i < data.length - 1 ; i++) {
 								title_arr += data[i].title+"//"; //gets data from json for every variable
 								auth_arr += JSON.stringify(data[i].authors)+"//"; // have to stringify because its an object
-								categ_arr += JSON.stringify(data[i].categories)+"//";
+								categ_arr += JSON.stringify(data[i].categories)+"||";
 								img_link_arr += data[i].imageLinks.thumbnail+"||";
 								info_link_arr += data[i].infoLink+"||"; 
 							}
@@ -99,7 +99,7 @@
 							authors_undef = authors_undef.substring(9);
 							authors[0] = authors_undef;
 							
-							var categories = categ_arr.split('//');
+							var categories = categ_arr.split('||');
 							var categories_undef = categories[0];
 							categories_undef = categories_undef.substring(9);
 							categories[0] = categories_undef;
@@ -114,11 +114,15 @@
 							info_links_undef = info_links_undef.substring(9);
 							info_links[0] = info_links_undef;
 							
-							var books = [];
-							
-							for (var i=0;i <= 10;i++){
-								books = {title:JSON.stringify(titles[i]),author: JSON.stringify(authors[i])};
-							}
+							var items = titles.map((title, i) => {
+								return {
+									title: title,
+									author: authors[i],
+									category: categories[i],
+									imageLinks: image_links[i],
+									infoLink: info_links[i]
+								}
+							});
 							
 							
 							console.log(titles);
@@ -126,8 +130,8 @@
 							console.log(categories);
 							console.log(image_links);
 							console.log(data);
-							console.log(books);
 							
+							console.log(items);
 							document.getElementById("demo").innerHTML = titles;
 						}});
 				});
@@ -135,90 +139,90 @@
 				
 				
 				
-			});
-		</script>
-	</head>
-	<body>
-		<nav class="navbar navbar-inverse">
-			<div class="container">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="#">FindABook</a>
-				</div>
-				<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse"> 
-					Menu
-				</button>
-				<div class="collapse navbar-collapse navHeaderCollapse">
-					<ul class ="nav navbar-nav navbar-right">
-						<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-						<li><a href="About/About.html"><span class="glyphicon glyphicon-info-sign"></span>About</a></li>
-						<li><a href="Review/review.html"><span class="glyphicon glyphicon-envelope"></span>Reviews</a></li>
-					</ul>
-				</div>
-			</nav>
-			<div class="container ">
-				
-				<div class="row btn-group btn-group-justified">
-					<div class="col-md-4">
-						<div class="container">		
-							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src="Images/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="container">	
-							<a href="FeelingLucky/FeelingLucky.html">
-								<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="Images/Feeling Lucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
-							</a>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="container">
-							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="Images/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-			<select id="sl_books" name="sl_books"> 
-				<optgroup id="opt_books" label="test_book_titles"></optgroup>
-			</select>
-			<!-- Arbor.js -->
-			<p id="demo"></p>
-			
-			<canvas id="viewport" width="800" height="600"></canvas>
-			<script language="javascript" type="text/javascript">
-				var sys = arbor.ParticleSystem(1000, 400,1);
-				sys.parameters({gravity:true});
-				sys.renderer = Renderer("#viewport");
-				
-				
-				var data = {
-					nodes:{
-						animals:{'color':'red','shape':'dot','label':'This'},
-						dog:{'color':'green','shape':'dot','label':'is'},
-						cat:{'color':'blue','shape':'dot','label':'for'},
-						toy:{'color':'pink','shape':'dot','label':'testing'}
-					},
-					edges:{
-					animals:{ dog:{'color':'green'}, cat:{},toy:{}},
-					dog:{ cat:{}}
-					}
-					};
-					sys.graft(data);
-					var testic= 'TEST';
-					setTimeout(function(){
-					var postLoadData = {
-					nodes:{
-					joe:{'color':'orange','shape':'dot','label':'purposes'},
-					fido:{'color':'green','shape':'dot','label':'only'},
-					fluffy:{'color':'blue','shape':'dot','label':':D'}
-					},
-					edges:{
-					testic:{ fido:{} },
-					cat:{ fluffy:{} },
-					joe:{ fluffy:{},fido:{}}
-					}
-					};
-					sys.graft(postLoadData);});
-					</script>
-					</body>
-					</html>																											
+				});
+				</script>
+							</head>
+							<body>
+								<nav class="navbar navbar-inverse">
+									<div class="container">
+										<div class="navbar-header">
+											<a class="navbar-brand" href="#">FindABook</a>
+										</div>
+										<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse"> 
+											Menu
+										</button>
+										<div class="collapse navbar-collapse navHeaderCollapse">
+											<ul class ="nav navbar-nav navbar-right">
+												<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+												<li><a href="About/About.html"><span class="glyphicon glyphicon-info-sign"></span>About</a></li>
+												<li><a href="Review/review.html"><span class="glyphicon glyphicon-envelope"></span>Reviews</a></li>
+											</ul>
+										</div>
+									</nav>
+									<div class="container ">
+										
+										<div class="row btn-group btn-group-justified">
+											<div class="col-md-4">
+												<div class="container">		
+													<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src="Images/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="container">	
+													<a href="FeelingLucky/FeelingLucky.html">
+														<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="Images/Feeling Lucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
+													</a>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="container">
+													<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="Images/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									<select id="sl_books" name="sl_books"> 
+										<optgroup id="opt_books" label="test_book_titles"></optgroup>
+									</select>
+									<!-- Arbor.js -->
+									<p id="demo"></p>
+									
+									<canvas id="viewport" width="800" height="600"></canvas>
+									<script language="javascript" type="text/javascript">
+										var sys = arbor.ParticleSystem(1000, 400,1);
+										sys.parameters({gravity:true});
+										sys.renderer = Renderer("#viewport");
+										
+										
+										var data = {
+											nodes:{
+												animals:{'color':'red','shape':'dot','label':'This'},
+												dog:{'color':'green','shape':'dot','label':'is'},
+												cat:{'color':'blue','shape':'dot','label':'for'},
+												toy:{'color':'pink','shape':'dot','label':'testing'}
+											},
+											edges:{
+											animals:{ dog:{'color':'green'}, cat:{},toy:{}},
+											dog:{ cat:{}}
+											}
+											};
+											sys.graft(data);
+											var testic= 'TEST';
+											setTimeout(function(){
+											var postLoadData = {
+											nodes:{
+											joe:{'color':'orange','shape':'dot','label':'purposes'},
+											fido:{'color':'green','shape':'dot','label':'only'},
+											fluffy:{'color':'blue','shape':'dot','label':':D'}
+											},
+											edges:{
+											testic:{ fido:{} },
+											cat:{ fluffy:{} },
+											joe:{ fluffy:{},fido:{}}
+											}
+											};
+											sys.graft(postLoadData);});
+											</script>
+											</body>
+											</html>																																						
