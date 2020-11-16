@@ -16,18 +16,21 @@
 		<script src="./scripts/graphics.js"></script>
 		<script src="./scripts/renderer.js"></script>
 		<script> 
-			
 			$(document).ready(function(){
 				$("#sl_books").hide(); 
 				$("#viewport").hide();
 				
 				var items;
-				
+				var title_arr; // where array of titles are going to be saved from data
+				var auth_arr;
+				var categ_arr;
+				var img_link_arr;
+				var info_link_arr;
 				$( "#btn_fic_id" ).click(function() { //if button clicked, do something
 					
 					
 					var book_data = "fantasy"; //creates a new variable and saves it as a hardcoded string
-					//alert(book_data + " button was clicked"); // for testing purposes
+					alert(book_data + " button was clicked"); // for testing purposes
 					console.log(book_data);					  // for testing purposes
 					
 					$.ajax({type: "POST",
@@ -40,11 +43,7 @@
 							$("#viewport").show();
 							//console.log(data);
 							
-							var title_arr; // where array of titles are going to be saved from data
-							var auth_arr;
-							var categ_arr;
-							var img_link_arr;
-							var info_link_arr;
+							
 							
 							// for # of books retrieved, create long string of all titles/authors/categories/etc.
 							for (var i = 0; i < data.length - 1 ; i++) {
@@ -58,7 +57,10 @@
 							var select = document.getElementById('opt_books'); // create javascript variable based on existing html tag
 							$(select).html('');
 							for (var i in data) { // move through data sent from bookhandler.php
+								
 								$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>'); // for every index create HTML as follows and append to chosen html tag							
+								
+								
 							}
 							
 							// list of arrays
@@ -97,7 +99,7 @@
 									category: categories[i],
 									imageLinks: image_links[i],
 									infoLink: info_links[i]
-
+									
 								}
 							});
 							
@@ -117,7 +119,7 @@
 				
 				$( "#btn_nonfic_id" ).click(function() {
 					var book_data = "nonfiction";
-					//alert(book_data + " button was clicked");
+					alert(book_data + " button was clicked");
 					console.log(book_data);
 					
 					$.ajax({type: "POST",
@@ -128,28 +130,14 @@
 						success: function(data){
 							$("#sl_books").show();
 							$("#viewport").show();
-							//console.log(data);
-							
-							var title_arr; // where array of titles are going to be saved from data
-							var auth_arr;
-							var categ_arr;
-							var img_link_arr;
-							var info_link_arr;
-							
-							// for # of books retrieved, create long string of all titles/authors/categories/etc.
-							for (var i = 0; i < data.length - 1 ; i++) {
-								title_arr += data[i].title+"||"; //gets data from json for every variable
-								auth_arr += JSON.stringify(data[i].authors)+"||"; // have to stringify because its an object
-								categ_arr += JSON.stringify(data[i].categories)+"||";
-								img_link_arr += data[i].imageLinks.thumbnail+"||";
-								info_link_arr += data[i].infoLink+"||"; 
-							}
+							console.log(data);
 							
 							var select = document.getElementById('opt_books'); // create javascript variable based on existing html tag
 							$(select).html('');
 							for (var i in data) { // move through data sent from bookhandler.php
 								$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>'); // for every index create HTML as follows and append to chosen html tag							
 							}
+							
 							
 							// list of arrays
 							var titles = title_arr.split('||');
@@ -197,9 +185,25 @@
 							
 							console.log(items);
 							document.getElementById("demo").innerHTML = titles;
+							
 						}});
 				});
 				
+				/*
+					TO BE OPTIMIZED
+					if(document.getElementById('btn_fic_id').clicked == true)
+					{
+					var book_data = "fiction";
+					alert(" fiction button was clicked");
+					} else if (document.getElementById('btn_ran_id').clicked == true)
+					{
+					var book_data = "please read index.php line 34";
+					alert("button was clicked");
+					} else if(document.getElementById('btn_nonfic_id').clicked == true)
+					{
+					var book_data = "Nonfiction";
+					alert(" nonfic button was clicked");
+				}*/ 
 				
 				var sys = arbor.ParticleSystem(1000, 400,1);
 				sys.parameters({gravity:true});
@@ -207,14 +211,14 @@
 				
 				
 				var data = {
-				
+					
+					
 					nodes:{
 						/*for (var i = 0; i < items.length - 1 ; i++) {
-							items[i]['title']:{'color':'red','shape':'dot',}
-							}*/
-						dog:{'color':'green','shape':'dot','label':items[i]['title'][i]},
-						cat:{'color':'blue','shape':'dot','label':'for'},
-						toy:{'color':'pink','shape':'dot','label':'testing'}
+							items[i]['title']:{'color':'red','shape':'dot'}
+							
+						}*/
+						
 					},
 					edges:{
 						animals:{ dog:{'color':'green'}, cat:{},toy:{}},
@@ -239,8 +243,9 @@
 					};
 					sys.graft(postLoadData);
 				});
-				
 			});
+			
+			
 		</script>
 	</head>
 	<body>
@@ -270,9 +275,11 @@
 					</div>
 					<div class="col-md-4">
 						<div class="container">	
+							
 							<a href="FeelingLucky/FeelingLucky.html">
 								<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="Images/Feeling Lucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
 							</a>
+							
 						</div>
 					</div>
 					<div class="col-md-4">
@@ -288,6 +295,7 @@
 			</select>
 			
 			
+			
 			<p id="demo"></p>
 			
 			<!-- Arbor.js -->
@@ -295,3 +303,5 @@
 			
 		</body>
 	</html>																																							
+	
+	
