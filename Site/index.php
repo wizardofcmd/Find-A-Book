@@ -74,7 +74,7 @@
 							var info_link_arr;
 							
 							// for # of books retrieved, create long string of all titles/authors/categories/etc.
-							for (var i = 0; i < data.length ; i++) {
+							for (var i = 0; i < data.length - 1 ; i++) {
 								title_arr += data[i].title+"//"; //gets data from json for every variable
 								auth_arr += JSON.stringify(data[i].authors)+"//"; // have to stringify because its an object
 								categ_arr += JSON.stringify(data[i].categories)+"//";
@@ -88,18 +88,46 @@
 								$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>'); // for every index create HTML as follows and append to chosen html tag							
 							}
 							
+							// list of arrays
 							var titles = title_arr.split('//');
+							var titles_undef = titles[0]; // to remove 'undefined' as part of string
+							titles_undef = titles_undef.substring(9); // removes 9 characters from the start: u n d e f i n e d
+							titles[0] = titles_undef; // replaces first index
+							
 							var authors = auth_arr.split('//'); // split long string into array elements
+							var authors_undef = authors[0];
+							authors_undef = authors_undef.substring(9);
+							authors[0] = authors_undef;
+							
 							var categories = categ_arr.split('//');
-							var image_links = img_link_arr.split('||')
-							var info_links = info_link_arr.split('||')
+							var categories_undef = categories[0];
+							categories_undef = categories_undef.substring(9);
+							categories[0] = categories_undef;
+							
+							var image_links = img_link_arr.split('||');
+							var image_links_undef = image_links[0];
+							image_links_undef = image_links_undef.substring(9);
+							image_links[0] = image_links_undef;
+							
+							var info_links = info_link_arr.split('||');
+							var info_links_undef = info_links[0];
+							info_links_undef = info_links_undef.substring(9);
+							info_links[0] = info_links_undef;
+							
+							var books = [];
+							
+							for (var i=0;i <= 10;i++){
+								books = {title:JSON.stringify(titles[i]),author: JSON.stringify(authors[i])};
+							}
+							
 							
 							console.log(titles);
 							console.log(authors);
 							console.log(categories);
 							console.log(image_links);
 							console.log(data);
-							console.log(info_links);
+							console.log(books);
+							
 							document.getElementById("demo").innerHTML = titles;
 						}});
 				});
