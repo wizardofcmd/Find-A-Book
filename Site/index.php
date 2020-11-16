@@ -21,7 +21,7 @@
 				$("#sl_books").hide(); 
 				$("#viewport").hide();
 				
-				var ar;
+				var items;
 				
 				$( "#btn_fic_id" ).click(function() { //if button clicked, do something
 					
@@ -75,8 +75,8 @@
 							
 							// for # of books retrieved, create long string of all titles/authors/categories/etc.
 							for (var i = 0; i < data.length - 1 ; i++) {
-								title_arr += data[i].title+"//"; //gets data from json for every variable
-								auth_arr += JSON.stringify(data[i].authors)+"//"; // have to stringify because its an object
+								title_arr += data[i].title+"||"; //gets data from json for every variable
+								auth_arr += JSON.stringify(data[i].authors)+"||"; // have to stringify because its an object
 								categ_arr += JSON.stringify(data[i].categories)+"||";
 								img_link_arr += data[i].imageLinks.thumbnail+"||";
 								info_link_arr += data[i].infoLink+"||"; 
@@ -89,12 +89,12 @@
 							}
 							
 							// list of arrays
-							var titles = title_arr.split('//');
+							var titles = title_arr.split('||');
 							var titles_undef = titles[0]; // to remove 'undefined' as part of string
 							titles_undef = titles_undef.substring(9); // removes 9 characters from the start: u n d e f i n e d
 							titles[0] = titles_undef; // replaces first index
 							
-							var authors = auth_arr.split('//'); // split long string into array elements
+							var authors = auth_arr.split('||'); // split long string into array elements
 							var authors_undef = authors[0];
 							authors_undef = authors_undef.substring(9);
 							authors[0] = authors_undef;
@@ -114,7 +114,8 @@
 							info_links_undef = info_links_undef.substring(9);
 							info_links[0] = info_links_undef;
 							
-							var items = titles.map((title, i) => {
+							// creates book objects aka maps using title as the 'primary key'
+							items = titles.map((title, i) => {
 								return {
 									title: title,
 									author: authors[i],
@@ -125,11 +126,11 @@
 							});
 							
 							
-							console.log(titles);
+							/*console.log(titles);
 							console.log(authors);
 							console.log(categories);
 							console.log(image_links);
-							console.log(data);
+							console.log(data);*/
 							
 							console.log(items);
 							document.getElementById("demo").innerHTML = titles;
@@ -207,8 +208,9 @@
 											dog:{ cat:{}}
 											}
 											};
+											
 											sys.graft(data);
-											var testic= 'TEST';
+											
 											setTimeout(function(){
 											var postLoadData = {
 											nodes:{
