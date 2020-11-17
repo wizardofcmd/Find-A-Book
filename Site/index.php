@@ -20,14 +20,7 @@
 			$(document).ready(function(){
 				$("#sl_books").hide(); 
 				$("#viewport").hide();
-				var bk_desc[i] = "";
-				var bk_author;
-				var bk_categ;
-				var bk_img_link;
-				var bk_inf_link;
-				var bk_prvw_link;
-				var bk_rating;
-				var bk_pg_count;
+				
 				
 
 				$( "#btn_fic_id" ).click(function() { //if button clicked, do something

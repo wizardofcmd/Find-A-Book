@@ -24,7 +24,7 @@ if($mysqli->query($sql)=== TRUE ){
 else{
 echo "failed to put in data";
 }
-$page = '../Site/Review/review.html';
+$page = 'review.html';
 header('Location: '.$page, true, 303);
 exit;
 

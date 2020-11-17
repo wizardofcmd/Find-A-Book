@@ -1,4 +1,0 @@
-The database script will not work unless you have the exact db 
-installed locally and the exact same tables and columns 
-the connection details will need to be changed for the actual online db
-and also change the query elements to match the real database tables :-)

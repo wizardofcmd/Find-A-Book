@@ -5,10 +5,33 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="style.css">
+		<script>
+		 /*$(document).ready(function(){
+		$( "#mybuttone" ).click(function() { 
+		
+		$.ajax({type: "GET",		
+						url: 'display.php',
+						
+						dataType: 'json',
+						
+						success: function(data){
+						console.log(data);}
+		
+		}
+		};
+		
+		
+		
+		
+		} */
+		
+		</script>
 	</head>
+	
 	<body>
-		<nav class="navbar navbar-inverse">
-			<div class="container">
+	
+	 <nav class="navbar navbar-inverse">
+			<div class="container"> 
 				<div class="navbar-header">
 					<a class="navbar-brand" href="#">FindABook</a>
 				</div>
@@ -22,10 +45,10 @@
 						<li><a href="review.html"><span class="glyphicon glyphicon-envelope"></span>Review</a></li>
 					</ul>
 				</div>
-		</nav>
+		</nav> 
 			<h1>Please enter only real book names and appropriate reviews</h1>
 			
-			
+	
 			
 			<p>
   
@@ -35,7 +58,7 @@
 </p>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
-    <form action="../../DatabaseScripts/register.php" method="POST">
+    <form action="register.php" method="POST">
   <div class="form-group">
     <label for="bookInput">Book name</label>
     <input type="text" class="form-control" id="bookInput" placeholder="Book name goes here" name="bName">
@@ -59,23 +82,43 @@
 	
 	 
 	 <div class="card card-body">
-    <form action="display.php" method="POST">
-  
-  
+   <button id="displaydata" class="btn btn-success">View reviews</button>
+</div>
+	
+	<div>
+	<table class="table table-striped table-bordered table-hover">
+	<thead>
+	<th>Book Name</th>
+	<th>The review</th>
+	
+	
+	</thead>
+	<tbody id="response">
+	
+	</tbody>
+	
+	</table>
+	
+	</div>
+	<script>
+	$('#displaydata').click(function(){
+	$.ajax({
+	url: 'display.php',
+	type:'post',
+	
+	success:function(responsedata){
+		$('#response').html(responsedata);
+		
+	}
+	
+	});
+});
+	
+	
+	
+	
+	</script>
 
-  <button type="submit" class="btn btn-primary">View reviews</button>
-</form>
-  </div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	</body>
 	
 	
