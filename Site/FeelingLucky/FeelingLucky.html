@@ -33,14 +33,7 @@
 				success: function(data){
 					console.log(data);
 					var book_data = "";
-					/*var bk_desc= [];
-					var bk_author = [];
-					var bk_categ = [];
-					var bk_img_link = [];
-					var bk_inf_link = [];
-					var bk_prvw_link = [];
-					var bk_rating = [];
-					var bk_pg_count= [];*/
+					
 					var title = document.getElementById('opt_books');
 					var category = document.getElementById('opt_book1');// create javascript variable based on existing html tag
 					$(title).html('');
@@ -48,23 +41,7 @@
 					for (var i in data) { // move through data sent from bookhandler.php
 						$(title).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>');
 						$(category).append('<option value=' + data[i] + '>' + data[i]['contentVersion'] + '</option>');
-						/*$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>');
-						$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>');
-						$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>');
-						$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>');
-						$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>');// for every index create HTML as follows and append to chosen html tag
 						
-						
-						bk_desc = data[i]['description'][i];
-						bk_author = data[i]['author'];
-						bk_categ= data[i]['categories'][i];
-						bk_img_link = data[i]['imageLinks']['smallThumbnail'];
-						bk_inf_link = data[i]['infoLink'];
-						bk_prvw_link = data[i]['previewLink'];
-						bk_rating = data[i]['maturityRating'];
-						bk_pg_count = data[i]['pageCount'];
-						
-						bk_desc.appendTo('#result');*/
 					}
 				}}); 
 				
