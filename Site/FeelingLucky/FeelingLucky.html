@@ -13,15 +13,21 @@
 			
 			
 			$( "#btn_ran_id" ).click(function() {
+			var items;
+			var title_arr; // where array of titles are going to be saved from data
+			var auth_arr;
+			var categ_arr;
+			var img_link_arr;
+			var info_link_arr;
 			
 			var random_string='';
-			var character="acdefghilmnpqrstuvwxz";
+			var character="abcdefghijklmnopqrstuvwxyz1234567890";
 			for (var i,i=0;i<1;i++){
 				random_string+=character.charAt(Math.floor(Math.random()*character.length))
 			}
 			book_data = random_string;
 			
-			alert(book_data);
+			//alert(book_data);//for testing Purposes
 			console.log(book_data);
 			
 			// broken link, book_data value changed
@@ -31,41 +37,28 @@
 				dataType: 'json',
 				
 				success: function(data){
-					console.log(data);
-					var book_data = "";
-					/*var bk_desc= [];
-					var bk_author = [];
-					var bk_categ = [];
-					var bk_img_link = [];
-					var bk_inf_link = [];
-					var bk_prvw_link = [];
-					var bk_rating = [];
-					var bk_pg_count= [];*/
-					var title = document.getElementById('opt_books');
-					var category = document.getElementById('opt_book1');// create javascript variable based on existing html tag
-					$(title).html('');
-					$(category).html('');
-					for (var i in data) { // move through data sent from bookhandler.php
-						$(title).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>');
-						$(category).append('<option value=' + data[i] + '>' + data[i]['contentVersion'] + '</option>');
-						/*$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>');
-						$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>');
-						$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>');
-						$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>');
-						$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>');// for every index create HTML as follows and append to chosen html tag
+					$("#sl_books").show();
+					$("#viewport").show();
+					//console.log(data);
+							
+					// for # of books retrieved, create long string of all titles/authors/categories/etc.
+					for (var i = 0; i < data.length - 1 ; i++) {
+						title_arr += data[i].title+"||"; //gets data from json for every variable
+						auth_arr += JSON.stringify(data[i].authors)+"||"; // have to stringify because its an object
+						categ_arr += JSON.stringify(data[i].categories)+"||";
+						img_link_arr += data[i].imageLinks.thumbnail+"||";
+						info_link_arr += data[i].infoLink+"||"; 
+						}
+							
+					var select = document.getElementById('result'); // create javascript variable based on existing html tag
+					$(select).html('');
+						for (var i in data) { // move through data sent from bookhandler.php
+								
+						$(select).append('<option value=' + data[i] + '>' + data[i]['title'] + '</option>'); // for every index create HTML as follows and append to chosen html tag	
 						
 						
-						bk_desc = data[i]['description'][i];
-						bk_author = data[i]['author'];
-						bk_categ= data[i]['categories'][i];
-						bk_img_link = data[i]['imageLinks']['smallThumbnail'];
-						bk_inf_link = data[i]['infoLink'];
-						bk_prvw_link = data[i]['previewLink'];
-						bk_rating = data[i]['maturityRating'];
-						bk_pg_count = data[i]['pageCount'];
-						
-						bk_desc.appendTo('#result');*/
-					}
+						//$('.thumbnail').attr('src', img_link_arr);
+							}
 				}}); 
 				
 		});
@@ -92,20 +85,22 @@
 </div>
 </nav>
 <!--Nav Bar-->
-<!--Tite-->
+<!--Display Book-->
 <div class="container ">
-	<div class="container">
-		<h2>Feeling Lucky!!!</h2>
-	</div>
-	<!--Display Book-->
+<!--Tite-->
+		<div class="container">
+			<h2>Feeling Lucky!!!</h2>
+		</div>
+<!--Title-->
 	<div class="container">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
 			</br>
-			<select id="opt_books"></select>
-			<!--select id="opt_books1"></select-->
+			<!--select id="opt_books"></select-->
 			<button value="btn_ran_val"  class="btn btn-info-dark " id="btn_ran_id" >Have You Read...</button>
-			<div id="result"></div>
+			<div id="result">
+				
+			</div>
 			</br>
 			<!--<a href="#"><span class="glyphicon glyphicon-thumbs-up"></span>See Reviews</a>-->
 		</div>

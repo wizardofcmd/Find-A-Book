@@ -6,20 +6,25 @@ $mysqli = new mysqli('localhost', 'root', '', 'reviews');
 
 
 
-$sql = "SELECT * FROM `usersreviews`";
-$result= $mysqli->query($sql);
+$q = "SELECT * FROM `usersreviews`";
+$query= $mysqli->query($q);
 
-if($result->num_rows>0){
-	
-	echo "<table><tr><th>book name </th><th>comment</th></tr> ";
-	while($row = $result->fetch_assoc()){
-		echo "<tr><td>" .$row["bookName"].
-		"</td><td>" .$row["userComment"].
-		"</td></tr>";
+if(mysqli_num_rows($query)	>0	){
+	while( $result = mysqli_fetch_array($query)	){
+		?>
+		<tr>
+			<td> <?php echo $result['bookName']	?> </td>
+			<td> <?php echo $result['userComment']	?>	 </td>
 		
-	}
-}else{
-	echo "0 results";
+	
+
+		</tr>
+
+
+
+<?php 	
 }
+}
+
 ?>
 
