@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="style.css">
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 		<script>
 		 /*$(document).ready(function(){
 		$( "#mybuttone" ).click(function() { 
@@ -68,9 +69,11 @@
     <label for="reviewInput">Review</label>
     <input type="text" class="form-control" id="reviewInput" placeholder="Review comes here" name="uComment">
   </div>
+	<div class="g-recaptcha" data-sitekey="6LeEYOcZAAAAADJSQnG1g7aRho-2ACiGXK3fP3K4"><?php include 'verify.php';?></div>
+	<button type="submit" name="submit-review "class="btn btn-primary">Enter your review!</button>
 
-  <button type="submit" class="btn btn-primary">Enter your review!</button>
 </form>
+
   </div>
 </div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
