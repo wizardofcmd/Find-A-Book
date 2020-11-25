@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
+"http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 		<title>FindABook Home</title>
@@ -20,18 +20,7 @@
 			$(document).ready(function(){
 				$("#sl_books").hide(); 
 				$("#viewport").hide();
-
-				var bk_desc[i] = "";
-				var bk_author;
-				var bk_categ;
-				var bk_img_link;
-				var bk_inf_link;
-				var bk_prvw_link;
-				var bk_rating;
-				var bk_pg_count;
 				
-
-
 				var sys = arbor.ParticleSystem(1000, 400,1);
 				sys.parameters({gravity:true});
 				sys.renderer = Renderer("#viewport");
@@ -44,7 +33,7 @@
 				var img_link_arr;
 				var info_link_arr;
 				
-
+				
 				$( "#btn_fic_id" ).click(function() { //if button clicked, do something
 					
 					
@@ -109,28 +98,8 @@
 								
 								
 							}
-
-						}});
-				});
-				
-				/*
-					TO BE OPTIMIZED
-					if(document.getElementById('btn_fic_id').clicked == true)
-					{
-					var book_data = "fiction";
-					alert(" fiction button was clicked");
-					} else if (document.getElementById('btn_ran_id').clicked == true)
-					{
-					var book_data = "please read index.php line 34";
-					alert("button was clicked");
-					} else if(document.getElementById('btn_nonfic_id').clicked == true)
-					{
-					var book_data = "Nonfiction";
-					alert(" nonfic button was clicked");
-				}*/ 
-				
-				
-
+							
+							
 							
 							
 							// list of arrays
@@ -159,8 +128,7 @@
 							info_links_undef = info_links_undef.substring(9);
 							info_links[0] = info_links_undef;
 							
-							var shape_arr = ['dot'];
-							var colour_arr = ['red'];
+							
 							// creates book objects aka maps using title as the 'primary key'
 							var i;
 							var book_item={};
@@ -185,17 +153,7 @@
 									}
 								});
 							}
-							function arrayToObject(arr) {
-								var obj = {};
-								for (var i = 0; i < arr.length; ++i){
-									obj[i] = arr[i];
-								}
-								return obj;
-							}
-							var colors=["red","blue","green"];
-							var items=arrayToObject(b_data.nodes);
 							
-							console.log(items);
 							sys.graft(b_data);
 							
 							
@@ -256,63 +214,64 @@
 			<select id="sl_books" name="sl_books"> 
 				<optgroup id="opt_books" label="test_book_titles"></optgroup>
 			</select>
-			<!-- Arbor.js -->
-			
-			
-				<canvas id="viewport" width="800" height="600"></canvas>
-				<script language="javascript" type="text/javascript">
-					var sys = arbor.ParticleSystem(1000, 400,1);
-					sys.parameters({gravity:true});
-					sys.renderer = Renderer("#viewport");
-					
-					
-					var data = {
-						nodes:{
-							animals:{'color':'red','shape':'dot','label':'This'},
-							dog:{'color':'green','shape':'dot','label':'is'},
-							cat:{'color':'blue','shape':'dot','label':'for'},
-							toy:{'color':'pink','shape':'dot','label':'testing'}
-						},
-						edges:{
-							animals:{ dog:{'color':'green'}, cat:{},toy:{}},
-							dog:{ cat:{}}
-						}
-					};
-					sys.graft(data);
-					var testic= 'TEST';
-					setTimeout(function(){
-						var postLoadData = {
-							nodes:{
-								joe:{'color':'orange','shape':'dot','label':'purposes'},
-								fido:{'color':'green','shape':'dot','label':'only'},
-								fluffy:{'color':'blue','shape':'dot','label':':D'}
-							},
-							edges:{
-								testic:{ fido:{} },
-								cat:{ fluffy:{} },
-								joe:{ fluffy:{},fido:{}}
-							}
-						};
-					sys.graft(postLoadData);});
-				</script>
-				<div class="alt">
-					<div class="container fixed-bottom">	
-						<footer class="page-footer font-small  pt-4 special-color-dark">
-							<div class="footer-copyright text-center py-3"></br>&copy;  FindABook<br/></div>
-						</footer>
-					</div>
-				</div>
+		<!-- Arbor.js -->
+		
+		
+		<canvas id="viewport" width="800" height="600"></canvas>
+		<script language="javascript" type="text/javascript">
+		/*var sys = arbor.ParticleSystem(1000, 400,1);
+		sys.parameters({gravity:true});
+		sys.renderer = Renderer("#viewport");
+		
+		
+		var data = {
+		nodes:{
+		animals:{'color':'red','shape':'dot','label':'This'},
+		dog:{'color':'green','shape':'dot','label':'is'},
+		cat:{'color':'blue','shape':'dot','label':'for'},
+		toy:{'color':'pink','shape':'dot','label':'testing'}
+		},
+		edges:{
+		animals:{ dog:{'color':'green'}, cat:{},toy:{}},
+		dog:{ cat:{}}
+		}
+		};
+		sys.graft(data);
+		var testic= 'TEST';
+		setTimeout(function(){
+		var postLoadData = {
+		nodes:{
+		joe:{'color':'orange','shape':'dot','label':'purposes'},
+		fido:{'color':'green','shape':'dot','label':'only'},
+		fluffy:{'color':'blue','shape':'dot','label':':D'}
+		},
+		edges:{
+		testic:{ fido:{} },
+		cat:{ fluffy:{} },
+		joe:{ fluffy:{},fido:{}}
+		}
+		};
+		sys.graft(postLoadData);});*/
+		</script>
+		<div class="alt">
+		<div class="container fixed-bottom">	
+		<footer class="page-footer font-small  pt-4 special-color-dark">
+		<div class="footer-copyright text-center py-3"></br>&copy;  FindABook<br/></div>
+		</footer>
+		</div>
+		</div>
 		</body>
-	</html>																				
-			<p id="demo"></p>
-			<canvas id="viewport" width="800" height="600"></canvas>
-			
-			<div class="alt">
-				<div class="container fixed-bottom">	
-					<footer class="page-footer font-small  pt-4 special-color-dark">
-						<div class="footer-copyright text-center py-3"></br>&copy;  FindABook<br/></div>
-					</footer>
-				</div>
-			</div>
+		</html>																				
+		<p id="demo"></p>
+		<canvas id="viewport" width="800" height="600"></canvas>
+		
+		<div class="alt">
+		<div class="container fixed-bottom">	
+		<footer class="page-footer font-small  pt-4 special-color-dark">
+		<div class="footer-copyright text-center py-3"></br>&copy;  FindABook<br/></div>
+		</footer>
+		</div>
+		</div>
 		</body>
-	</html>																			
+		</html>																			
+				
