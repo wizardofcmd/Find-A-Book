@@ -162,13 +162,42 @@
 	
 	 
 	 <div class="card card-body">
-    <form action="display.php" method="POST">
-  
-  
-
-  <button type="submit" class="btn btn-primary">View reviews</button>
-</form>
-  </div>
+   <button id="displaydata" class="btn btn-success">View reviews</button>
+</div>
+	
+	<div>
+	<table class="table table-striped table-bordered table-hover">
+	<thead>
+	<th>Book Name</th>
+	<th>The review</th>
+	
+	
+	</thead>
+	<tbody id="response">
+	
+	</tbody>
+	
+	</table>
+	
+	</div>
+	<script>
+	$('#displaydata').click(function(){
+	$.ajax({
+	url: '../php/display.php',
+	type:'post',
+	
+	success:function(responsedata){
+		$('#response').html(responsedata);
+		
+	}
+	
+	});
+});
+	
+	
+	
+	
+	</script>
 	
             </div>
         </section>
