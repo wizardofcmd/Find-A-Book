@@ -6,24 +6,28 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>FindYourBook</title>
+		<!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+		<!-- Arbor.js ss -->
+		<script src="../js/jquery-1.6.1.min.js"></script>
+		<script src="../js/arbor.js"></script>
+		<script src="../js/graphics.js"></script>
+		<script src="../js/renderer.js"></script>
+		
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 		
-		<!-- Arbor.js ss -->
-		<script src="./scripts/jquery-1.6.1.min.js"></script>
-		<script src="./scripts/arbor.js"></script>
-		<script src="./scripts/graphics.js"></script>
-		<script src="./scripts/renderer.js"></script>
+		
 		
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../css/styles.css" rel="stylesheet" />
+        
+       
 		
 		
 		
@@ -50,7 +54,7 @@
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="" />
+                <img class="masthead-avatar mb-5" src="../assets/img/avataaars.svg" alt="" />
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase mb-0">FindYourBook</h1>
                 <!-- Icon Divider-->
@@ -82,7 +86,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="" />
+                            <img class="img-fluid" src="../assets/img/portfolio/cabin.png" alt="" />
                         </div>
                     </div>
                     <!-- Portfolio Item 2-->
@@ -91,7 +95,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/cake.png" alt="" />
+                            <img class="img-fluid" src="../assets/img/portfolio/cake.png" alt="" />
                         </div>
                     </div>
                     <!-- Portfolio Item 3-->
@@ -100,7 +104,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/circus.png" alt="" />
+                            <img class="img-fluid" src="../assets/img/portfolio/circus.png" alt="" />
                         </div>
                     </div>
 
@@ -130,7 +134,7 @@
 </p>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
-    <form action="../../DatabaseScripts/register.php" method="POST">
+    <form action="../php/register.php" method="POST">
   <div class="form-group">
     <label for="bookInput">Book name</label>
     <input type="text" class="form-control" id="bookInput" placeholder="Book name goes here" name="bName">
@@ -282,7 +286,7 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cabin.png" alt="" />
+                                    <img class="img-fluid rounded mb-5" src="../assets/img/portfolio/cabin.png" alt="" />
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                     <button class="btn btn-primary" data-dismiss="modal">
@@ -320,17 +324,17 @@
 				<div class="row btn-group btn-group-justified">
 					<div class="col-md-4">
 						<div class="container">		
-							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src="Images/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
+							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src="../assets/img/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="container">	
-							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="Images/Feeling Lucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
+							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="../assets/img/FeelingLucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="container">
-							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="Images/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
+							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="../assets/img/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
 						</div>
 					</div>
 				</div>		
@@ -347,17 +351,17 @@
 				<div class="row btn-group btn-group-justified">
 					<div class="col-md-4">
 						<div class="container">		
-							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src="Images/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
+							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src="../assets/img/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="container">	
-							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="Images/Feeling Lucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
+							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="../assets/img/FeelingLucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="container">
-							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="Images/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
+							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="../assets/img/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
 						</div>
 					</div>
 				</div>		
@@ -396,7 +400,7 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/circus.png" alt="" />
+                                    <img class="img-fluid rounded mb-5" src="../assets/img/portfolio/circus.png" alt="" />
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                     <button class="btn btn-primary" data-dismiss="modal">
@@ -430,7 +434,7 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/game.png" alt="" />
+                                    <img class="img-fluid rounded mb-5" src="../assets/img/portfolio/game.png" alt="" />
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                     <button class="btn btn-primary" data-dismiss="modal">
@@ -464,7 +468,7 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/safe.png" alt="" />
+                                    <img class="img-fluid rounded mb-5" src="../assets/img/portfolio/safe.png" alt="" />
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                     <button class="btn btn-primary" data-dismiss="modal">
@@ -498,7 +502,7 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png" alt="" />
+                                    <img class="img-fluid rounded mb-5" src="../assets/img/portfolio/submarine.png" alt="" />
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                     <button class="btn btn-primary" data-dismiss="modal">
@@ -518,9 +522,9 @@
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Contact form JS-->
-        <script src="assets/mail/jqBootstrapValidation.js"></script>
-        <script src="assets/mail/contact_me.js"></script>
+        <script src="../assets/mail/jqBootstrapValidation.js"></script>
+        <script src="../assets/mail/contact_me.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="../js/scripts.js"></script>
     </body>
 </html>
