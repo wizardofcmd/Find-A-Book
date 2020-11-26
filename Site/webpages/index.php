@@ -71,7 +71,6 @@
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
                 <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Realistic &nbsp;&nbsp;&nbsp; . &nbsp; Get Lucky &nbsp; . &nbsp; Fiction &nbsp;&nbsp;&nbsp;</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -82,6 +81,9 @@
                 <div class="row justify-content-center">
                     <!-- Portfolio Item 1-->
                     <div class="col-md-6 col-lg-4 mb-5">
+
+                    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Realistic </h2>
+
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -91,6 +93,7 @@
                     </div>
                     <!-- Portfolio Item 2-->
                     <div class="col-md-6 col-lg-4 mb-5">
+                    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Get Lucky </h2>
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -100,6 +103,7 @@
                     </div>
                     <!-- Portfolio Item 3-->
                     <div class="col-md-6 col-lg-4 mb-5">
+                    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Fiction </h2>
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -285,8 +289,62 @@
                                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
+<<<<<<< Updated upstream
                                     <!-- Portfolio Modal - Image-->
                                     <img class="img-fluid rounded mb-5" src="../assets/img/portfolio/cabin.png" alt="" />
+=======
+<<<<<<< HEAD
+                                    <!-- Portfolio Modal - The things you want to display/hide go here-->
+                                    <div class="container ">
+				<div class="row btn-group btn-group-justified">
+					<div class="col-md-4">
+						<div class="container">		
+							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src="Images/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="container">	
+							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="Images/Feeling Lucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="container">
+							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="Images/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
+						</div>
+					</div>
+				</div>		
+            </div>
+            
+                                        <!-- Icon Divider-->
+                                       <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        
+                                        <div class="divider-custom-line"></div>
+                                       </div>
+								
+			<div class="container ">
+				<div class="row btn-group btn-group-justified">
+					<div class="col-md-4">
+						<div class="container">		
+							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src="Images/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="container">	
+							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="Images/Feeling Lucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="container">
+							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="Images/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
+						</div>
+					</div>
+				</div>		
+			</div>
+                                    <div class="divider-custom">
+                                    </div>			
+
+>>>>>>> Stashed changes
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                     <button class="btn btn-primary" data-dismiss="modal">
@@ -324,17 +382,17 @@
 				<div class="row btn-group btn-group-justified">
 					<div class="col-md-4">
 						<div class="container">		
-							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src="../assets/img/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
+							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src=".a./assets/img/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="container">	
-							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="../assets/img/FeelingLucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
+							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="a../assets/img/FeelingLucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="container">
-							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="../assets/img/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
+							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="a../assets/img/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
 						</div>
 					</div>
 				</div>		
@@ -351,17 +409,17 @@
 				<div class="row btn-group btn-group-justified">
 					<div class="col-md-4">
 						<div class="container">		
-							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src="../assets/img/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
+							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src="a../assets/img/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="container">	
-							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="../assets/img/FeelingLucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
+							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="a../assets/img/FeelingLucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="container">
-							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="../assets/img/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
+							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="a../assets/img/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
 						</div>
 					</div>
 				</div>		
@@ -399,6 +457,7 @@
                                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
+<<<<<<< Updated upstream
                                     <!-- Portfolio Modal - Image-->
                                     <img class="img-fluid rounded mb-5" src="../assets/img/portfolio/circus.png" alt="" />
                                     <!-- Portfolio Modal - Text-->
@@ -503,8 +562,60 @@
                                     </div>
                                     <!-- Portfolio Modal - Image-->
                                     <img class="img-fluid rounded mb-5" src="../assets/img/portfolio/submarine.png" alt="" />
+=======
+
+                                    <!-- Portfolio Modal - The things you want to display/hide go here-->
+                                    <div class="container ">
+				<div class="row btn-group btn-group-justified">
+					<div class="col-md-4">
+						<div class="container">		
+							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src="Images/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="container">	
+							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="Images/Feeling Lucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="container">
+							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="Images/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
+						</div>
+					</div>
+				</div>		
+            </div>
+            
+                                        <!-- Icon Divider-->
+                                       <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        
+                                        <div class="divider-custom-line"></div>
+                                       </div>
+								
+			<div class="container ">
+				<div class="row btn-group btn-group-justified">
+					<div class="col-md-4">
+						<div class="container">		
+							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src="Images/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="container">	
+							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="Images/Feeling Lucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="container">
+							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="Images/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
+						</div>
+					</div>
+				</div>		
+			</div>
+                                    <div class="divider-custom">
+                                    </div>	
+
+>>>>>>> Stashed changes
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                     <button class="btn btn-primary" data-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Close Window
@@ -516,6 +627,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
