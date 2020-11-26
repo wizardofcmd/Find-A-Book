@@ -64,7 +64,7 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Cyril - Roberto - Sorin - Sthephen - Filip</p>
+                <p class="masthead-subheading font-weight-light mb-0">Cyril - Roberto - Sorin - Stephen - Filip</p>
             </div>
         </header>
         <!-- Portfolio Section-->
