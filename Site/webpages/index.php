@@ -13,15 +13,16 @@
 		<script src="../js/arbor.js"></script>
 		<script src="../js/graphics.js"></script>
 		<script src="../js/renderer.js"></script>
-		
+		<script src="../js/buttons.js"></script>
+		<script src="../js/captcha.js"></script>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-		
-		
+		<!--ReCaptcha-->
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 		
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
@@ -137,18 +138,22 @@
 </p>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
-    <form action="../php/register.php" method="POST">
+<form action="../php/register.php" method="POST">
+  <div class="container" id="reviewForm">
   <div class="form-group">
-    <label for="bookInput">Book name</label>
-    <input type="text" class="form-control" id="bookInput" placeholder="Book name goes here" name="bName">
     <small id="emailHelp" class="form-text text-muted">Enter a real book name.</small>
+	<label for="bookInput">Book name</label>
+    <input type="text" class="form-control" id="bookInput" placeholder="Book name goes here" name="bName">
+    
   </div>
   <div class="form-group">
     <label for="reviewInput">Review</label>
     <input type="text" class="form-control" id="reviewInput" placeholder="Review comes here" name="uComment">
   </div>
+	<div id="norobot" class="g-recaptcha" data-sitekey="6LeEYOcZAAAAADJSQnG1g7aRho-2ACiGXK3fP3K4"data-callback="correctCaptcha"><?php include '../php/verify.php';?></div>
+	</div>
+	<button type="submit" name="submit-review "class="btn btn-primary">Enter your review!</button>
 
-  <button type="submit" class="btn btn-primary">Enter your review!</button>
 </form>
   </div>
 </div>
@@ -269,23 +274,7 @@
 
                                     <!-- Portfolio Modal - The things you want to display/hide go here-->
                                     <div class="container ">
-				<div class="row btn-group btn-group-justified">
-					<div class="col-md-4">
-						<div class="container">		
-							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src="Images/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="container">	
-							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="Images/Feeling Lucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="container">
-							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="Images/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
-						</div>
-					</div>
-				</div>		
+						
             </div>
             
                                         <!-- Icon Divider-->
@@ -295,25 +284,7 @@
                                         <div class="divider-custom-line"></div>
                                        </div>
 								
-			<div class="container ">
-				<div class="row btn-group btn-group-justified">
-					<div class="col-md-4">
-						<div class="container">		
-							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src="Images/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="container">	
-							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="Images/Feeling Lucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="container">
-							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="Images/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
-						</div>
-					</div>
-				</div>		
-			</div>
+			
                                     <div class="divider-custom">
                                     </div>			
 
@@ -349,25 +320,7 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-            <div class="container ">
-				<div class="row btn-group btn-group-justified">
-					<div class="col-md-4">
-						<div class="container">		
-							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src=".a./assets/img/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="container">	
-							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="a../assets/img/FeelingLucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="container">
-							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="a../assets/img/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
-						</div>
-					</div>
-				</div>		
-			</div>
+            
 			
 									<!-- Icon Divider-->
                                     <div class="divider-custom">
@@ -376,25 +329,7 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
 								
-			<div class="container ">
-				<div class="row btn-group btn-group-justified">
-					<div class="col-md-4">
-						<div class="container">		
-							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src="a../assets/img/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="container">	
-							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="a../assets/img/FeelingLucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="container">
-							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="a../assets/img/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
-						</div>
-					</div>
-				</div>		
-			</div>
+	
                                     <div class="divider-custom">
                                     </div>			
        
@@ -431,24 +366,7 @@
 
                                     <!-- Portfolio Modal - The things you want to display/hide go here-->
                                     <div class="container ">
-				<div class="row btn-group btn-group-justified">
-					<div class="col-md-4">
-						<div class="container">		
-							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src="Images/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="container">	
-							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="Images/Feeling Lucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="container">
-							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="Images/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
-						</div>
-					</div>
-				</div>		
-            </div>
+				
             
                                         <!-- Icon Divider-->
                                        <div class="divider-custom">
