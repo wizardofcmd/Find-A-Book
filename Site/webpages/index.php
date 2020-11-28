@@ -65,13 +65,14 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Hardest part is picking the right one, not any more!</p>
+                <p class="masthead-subheading font-weight-light mb-0">For When You're all curled up with Nothing to Read!</p>
             </div>
         </header>
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
                 <!-- Portfolio Section Heading-->
+				<h2 class="page-section-heading text-center text-uppercase">Genres</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -83,7 +84,7 @@
                     <!-- Portfolio Item 1-->
                     <div class="col-md-6 col-lg-4 mb-5">
 
-                    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Realistic </h2>
+                    <h3 class="page-section-heading text-center text-uppercase text-secondary mb-0">Non-Fiction</h3>
 
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -94,7 +95,7 @@
                     </div>
                     <!-- Portfolio Item 2-->
                     <div class="col-md-6 col-lg-4 mb-5">
-                    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Get Lucky </h2>
+                    <h3 class="page-section-heading text-center text-uppercase text-secondary mb-0">I Feel Lucky!!!</h3>
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -104,7 +105,7 @@
                     </div>
                     <!-- Portfolio Item 3-->
                     <div class="col-md-6 col-lg-4 mb-5">
-                    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Fiction </h2>
+                    <h3 class="page-section-heading text-center text-uppercase text-secondary mb-0"></br>Fiction </h3>
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -121,8 +122,8 @@
         <!-- Reviews Section -->
         <section class="page-section bg-primary text-white mb-0" id="about">
             <div class="container">
-                <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">Please enter only real book names and appropriate reviews</h2>
+                <!-- Review Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-white">Reviews</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -133,8 +134,8 @@
                 <!--  Section Content-->
 			<p>
   
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Click to enter review
+  <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Click to Enter review
   </button>
 </p>
 <div class="collapse" id="collapseExample">
@@ -219,9 +220,9 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Location</h4>
                         <p class="lead mb-0">
-                            2215 John Daniel Drive
+                            Within our respective homes
                             <br />
-                            Clark, MO 65243
+                            because of the 'rona
                         </p>
                     </div>
                     <!-- Footer Social Icons-->
@@ -234,10 +235,10 @@
                     </div>
                     <!-- Footer About Text-->
                     <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <h4 class="text-uppercase mb-4">About Us</h4>
                         <p class="lead mb-0">
-                            Freelance is a free to use, MIT licensed Bootstrap theme created by
-                            <a href="http://startbootstrap.com">Start Bootstrap</a>
+                            Team Kale's attempt Project, Coder can be found here:
+                            <a href="https://github.com/wizardofcmd/Find-A-Book">Our Github</a>
                             .
                         </p>
                     </div>
@@ -253,7 +254,7 @@
             <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a>
         </div>
         <!-- Portfolio Modals-->
-        <!-- Portfolio Modal 1-->
+        <!-- Portfolio Modal 1 NON-FICTION BUTTON-->
         <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
@@ -265,7 +266,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Realistic Genres</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Non-Fiction</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -301,7 +302,7 @@
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 2-->
+        <!-- Portfolio Modal 2 FEELING LUCKY BUTTON -->
         <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
@@ -321,16 +322,17 @@
                                         <div class="divider-custom-line"></div>
 											
                                     </div>
-									<button value="btn_ran_val"  class="btn btn-info-dark " id="btn_ran_id" >Have You Read...</button>
+									<!-- Feeling Lucky Content-->
+									<button value="btn_ran_val"  class="btn btn-info " id="btn_ran_id" >Have You Read...</button>
 											<div id="result"></div>
-											</br>
-                                    <!-- Portfolio Modal - Image-->
-            
-			
-									<!-- Icon Divider-->
+									</br>
+                                    
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
-                                        
+                                         <button class="btn btn-primary" data-dismiss="modal">
+											<i class="fas fa-times fa-fw"></i>
+												Close Window
+										</button>
                                         <div class="divider-custom-line"></div>
                                     </div>
 								
@@ -338,10 +340,7 @@
                                     <div class="divider-custom">
                                     </div>			
        
-                                    <button class="btn btn-primary" data-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        Close Window
-                                    </button>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -349,7 +348,7 @@
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 3-->
+        <!-- Portfolio Modal 3 FICTION BUTTON-->
         <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
@@ -361,7 +360,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal3Label">Circus Tent</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal3Label">Fiction</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -376,37 +375,19 @@
                                         <!-- Icon Divider-->
                                        <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
-                                        
+											<button class="btn btn-primary" data-dismiss="modal">
+												<i class="fas fa-times fa-fw"></i>
+													Close Window
+											</button>
                                         <div class="divider-custom-line"></div>
                                        </div>
 								
-			<div class="container ">
-				<div class="row btn-group btn-group-justified">
-					<div class="col-md-4">
-						<div class="container">		
-							<button value ="btn_fic_val" class="btn btn-info-dark" id="btn_fic_id"><img src="Images/Fiction.jpg" class="img-responsive" alt="Fiction">Fiction</button>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="container">	
-							<button value ="btn_ran_val " class="btn btn-info-dark" id="btn_ran_id"><img src="Images/Feeling Lucky.png" class="img-responsive" alt="Feeling Lucky">Feeling Lucky</button>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="container">
-							<button value="btn_nonfic_val"  class="btn btn-info-dark " id="btn_nonfic_id" ><img src="Images/Non-Fiction.jpg" class="img-responsive" alt="Non-Fiction">Non-Fiction</button>
-						</div>
-					</div>
-				</div>		
-			</div>
+			
                                     <div class="divider-custom">
                                     </div>	
 
                                     <!-- Portfolio Modal - Text-->
-                                    <button class="btn btn-primary" data-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        Close Window
-                                    </button>
+                                    
                                 </div>
                             </div>
                         </div>
