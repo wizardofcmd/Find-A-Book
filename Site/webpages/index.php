@@ -28,8 +28,9 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         
-       
-		
+       <!--Randomiser-->
+		<script src="../js/jquery-1.6.1.min.js"></script>
+		<script src="../js/randomiser.js"></script>
 		
 		
     </head>
@@ -312,13 +313,17 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal2Label">Tasty Cake</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal2Label">Feeling Lucky</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
                                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                         <div class="divider-custom-line"></div>
+											
                                     </div>
+									<button value="btn_ran_val"  class="btn btn-info-dark " id="btn_ran_id" >Have You Read...</button>
+											<div id="result"></div>
+											</br>
                                     <!-- Portfolio Modal - Image-->
             
 			
