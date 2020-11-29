@@ -271,16 +271,16 @@
 								</div>
 								
 								<!-- Portfolio Modal - The things you want to display/hide go here-->
-								 
-									<canvas id="viewport"  class="row justify-content-center"width="400" height="400"></canvas>
+								 <div class="row">
+									<canvas id="viewport"  class="row "width="400" height="400"></canvas>
+								</div>
 									
 									
-									</div>
 								
 								<!-- Icon Divider-->
 								<div class="divider-custom">
 									<div class="divider-custom-line"></div>
-									
+									<div class="divider-custom-icon"><i class="fas fa-star"></i></div>
 									<div class="divider-custom-line"></div>
 								</div>
 								

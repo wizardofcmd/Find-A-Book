@@ -118,32 +118,21 @@ $(document).ready(function(){
 				
 				
 				// creates book objects aka maps using title as the 'primary key'
-				var i;
-				var title;
-				var book_item={
-					title:'a' ,
-					'author':'a' ,
-					'category':'a ',
-					'imageLinks': 'a',
-					'infoLink':'a' ,
-					'label':'a',
-					'shape':'a',
-					'colour':'a'
-				};
+								
 				var b_data={
 					nodes:{}
 					
 				};
 				
 				var nodes ={};
-				for (var i = 0; i <= data.length; i++) {
+				for (var i = 0; i < data.length -1; i++) {
 				 nodes['book_item'+i]={};
 				 nodes['book_item'+i].label=titles[i];
 				 nodes['book_item'+i].author=authors[i];
 				 nodes['book_item'+i].category=categories[i];
 				 nodes['book_item'+i].image=image_links[i];
 				 nodes['book_item'+i].shape='dot';
-				 nodes['book_item'+i].color='red';
+				 
 				 
 				}
 				
