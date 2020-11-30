@@ -2,7 +2,7 @@
 //Sending POST Request
 if(isset($_POST['submit-review']))
 {
-	$review=$POST['uComment'];
+	$POST['uComment'];
 	
 	  $secretKey = "6LeEYOcZAAAAAEkkR7L1pcm_Mx5LEsvFvZsIRM3G";
        $responseKey = $_POST['g-recaptcha-response'];
@@ -13,12 +13,13 @@ if(isset($_POST['submit-review']))
 		
     if ($response->success) {
         //If the user has checked the Captcha box
-        echo "Captcha verified Successfully";
+        echo '<script>console.log("test");</script>';
 		//Put SUBMIT function here
 	
     } else {
         // If the CAPTCHA box wasn't checked
-       echo 'No bots pls';
+       echo 'No bots';
     }
+	
 }
 ?>
