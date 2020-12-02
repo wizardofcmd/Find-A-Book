@@ -7,8 +7,8 @@ $(document).ready(function(){
 	var captcha = document.getElementById("norobot").value;
 	console.log("captcha");
 	$("#reviewInput").hide();
-	$("#bookInput").hide();
-	$("#emailHelp").hide();
+	
+	
 	
 	var sys = arbor.ParticleSystem(1000, 400,1);
 	sys.parameters({gravity:true});
