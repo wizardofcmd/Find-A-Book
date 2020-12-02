@@ -1,7 +1,7 @@
 
 <?php
 //dont forget to change the credentials below for the actual online database
-$mysqli = new mysqli('localhost', 'root', '', 'reviews');
+include config.php;
 
 
 
