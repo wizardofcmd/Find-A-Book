@@ -22,5 +22,5 @@ if(isset($_POST['submit-review']))
     }
 	
 }
- echo '<script>console.log("hi");</script>';
+ 
 ?>
