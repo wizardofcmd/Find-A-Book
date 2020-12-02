@@ -4,7 +4,7 @@
 	$pass='dbsauqmq7lts255i';
 	$db='dzlgt6jdd573rkdc';
 	
-	$mysqli = new mysqli($host, $user, $pass, '');
+	$mysqli = new mysqli($host, $user, $pass, $db);
 	if ($mysqli->connect_error) {
 		die('Connect Error (' . $mysqli->connect_errno . ') '
 		. $mysqli->connect_error);
