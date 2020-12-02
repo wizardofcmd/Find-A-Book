@@ -243,6 +243,8 @@ $(document).ready(function(){
 		$("#finalButtons").show();
 		
 	});
-	
+	function enableBtn(){
+   document.getElementById("submit").disabled = false;
+ }
 
 });

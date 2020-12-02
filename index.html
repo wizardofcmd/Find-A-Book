@@ -293,9 +293,11 @@
 								<label for="reviewInput">Review</label>
 								<input type="text" class="form-control" id="reviewInput" placeholder="Review comes here" name="uComment">
 							</div>
-							<div id="norobot" class="g-recaptcha" data-sitekey="6LeEYOcZAAAAADJSQnG1g7aRho-2ACiGXK3fP3K4"data-callback="correctCaptcha"><?php include './php/verify.php';?></div>
+							<div id="norobot" class="g-recaptcha" data-sitekey="6LeEYOcZAAAAADJSQnG1g7aRho-2ACiGXK3fP3K4"data-callback="enableBtn"><?php include './php/verify.php';?>
+								<button id="submit" name="submit-review "class="btn btn-primary" disabled="disabled">Enter your review!</button>
+							</div>
 						</div>
-						<button id="submit" name="submit-review "class="btn btn-primary">Enter your review!</button>
+						
 					</form>
 				</div>
 			</div>
