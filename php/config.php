@@ -4,4 +4,10 @@
 	$pass'dbsauqmq7lts255i';
 	
 	$mysqli = new mysqli($host, $user, $pass, '');
+	if ($mysqli->connect_error) {
+		die('Connect Error (' . $mysqli->connect_errno . ') '
+		. $mysqli->connect_error);
+	}
+	else{
+	echo"success      ";}
 ?>

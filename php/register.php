@@ -3,12 +3,7 @@
 include config.php;
 
 
-if ($mysqli->connect_error) {
-    die('Connect Error (' . $mysqli->connect_errno . ') '
-            . $mysqli->connect_error);
-}
-else{
-echo"success      ";}
+
 
 //grabs the input from the form and stores them in 2 vars as below
 $bookName = mysqli_real_escape_string($mysqli, $_POST['bName']);
