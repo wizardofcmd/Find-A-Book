@@ -52,7 +52,7 @@
 
           // draw the text
           if (label){
-            ctx.font = "12px Helvetica"
+            ctx.font = "12px Aleo"
             ctx.textAlign = "center"
             ctx.fillStyle = "white"
             if (node.data.color=='none') ctx.fillStyle = '#333333'

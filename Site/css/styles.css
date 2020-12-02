@@ -229,7 +229,13 @@ label {
 }
 
 button {
-  border-radius: 0;
+ background-color: Transparent;
+    background-repeat:no-repeat;
+    border: 0;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none; 
+	padding:0;
 }
 
 button:focus {
@@ -10237,4 +10243,17 @@ form .row:first-child .floating-label-form-group {
 
 .copyright {
   background-color: #1a252f;
+}
+
+.genreButton{
+	background-color: Transparent;
+    background-repeat:no-repeat;
+    border: 0;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none; 
+	padding:0;
+}
+.genreButton:focus{
+border: none;
 }
