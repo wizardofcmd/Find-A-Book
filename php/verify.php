@@ -18,7 +18,7 @@ if(isset($_POST['submit-review']))
 	
     } else {
         // If the CAPTCHA box wasn't checked
-       echo 'No bots';
+       echo '<p>no bots</p>';
     }
 	
 }

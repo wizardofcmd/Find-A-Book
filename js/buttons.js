@@ -4,8 +4,6 @@ $(document).ready(function(){
 	$("#viewport").hide();
 	$("#initialButtons").hide();
 	$("#finalButtons").hide();
-	var captcha = document.getElementById("norobot").value;
-	console.log("captcha");
 	$("#submit-review").hide();
 	
 	

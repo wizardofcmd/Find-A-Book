@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>FindYourBook</title>
+        <title>FindABook</title>
 		<!-- Core theme CSS (includes Bootstrap)-->
         <link href="./css/styles.css" rel="stylesheet" />
 		<!-- Arbor.js ss -->
@@ -43,7 +43,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">FindYourBook</a>
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">FindABook</a>
                 <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -62,7 +62,7 @@
                 <!-- Masthead Avatar Image-->
                 <img class="masthead-avatar mb-5" src="./assets/img/portfolio/fabi.png" alt="" />
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">FindYourBook</h1>
+                <h1 class="masthead-heading text-uppercase mb-0">FindABook</h1>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -70,7 +70,7 @@
                     <div class="divider-custom-line"></div>
 				</div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">For When You're all curled up with Nothing to Read!</p>
+                <p class="masthead-subheading font-weight-light mb-0">When you're all curled up with nothing to read!</p>
 			</div>
 		</header>
         <!-- Portfolio Section-->
@@ -289,13 +289,15 @@
 								<label for="bookInput">Book name</label>
 								<input type="text" class="form-control" id="bookInput" placeholder="Book name goes here" name="bName">
 							</div>
+							<script>document.getElementById("submitbtn").disabled = true;</script>
 							<div class="form-group">
 								<label for="reviewInput">Review</label>
 								<input type="text" class="form-control" id="reviewInput" placeholder="Review comes here" name="uComment">
 							</div>
-							<div id="norobot" class="g-recaptcha" data-sitekey="6LeEYOcZAAAAADJSQnG1g7aRho-2ACiGXK3fP3K4"data-callback="enableBtn">
-								<button id="submit-review" class="btn btn-primary" disabled="disabled">Enter your review!</button>
-							</div>
+							<div class="g-recaptcha" data-sitekey="6LeEYOcZAAAAADJSQnG1g7aRho-2ACiGXK3fP3K4"data-callback="enableAction"></div></br>
+							
+							<input type="button" id="submit" name="submit" value="SUBMIT" class="btn btn-primary" disabled="disabled">Enter your review!</button>
+							
 						</div>
 						
 					</form>
@@ -325,7 +327,8 @@
 					$('#response').html(responsedata);			
 				}			
 				});
-				});		
+				});	
+				
 			</script>			
 		</div>
 	</section>	
@@ -337,7 +340,7 @@
 			<div class="row">
 				<!-- Footer Location-->
 				<div class="col-lg-4 mb-5 mb-lg-0">
-					<h4 class="text-uppercase mb-4">Location</h4>
+					<h4 class="text-uppercase mb-4">Location:</h4>
 					<p class="lead mb-0">
 						Within our respective homes
 						<br />
