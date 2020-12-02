@@ -1,6 +1,6 @@
 <?php
 //dont forget to change the credentials below for the actual online database
-include config.php;
+include 'config.php';
 
 
 
