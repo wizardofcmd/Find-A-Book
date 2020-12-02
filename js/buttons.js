@@ -6,7 +6,7 @@ $(document).ready(function(){
 	$("#finalButtons").hide();
 	var captcha = document.getElementById("norobot").value;
 	console.log("captcha");
-	$("#reviewInput").hide();
+	
 	
 	
 	
