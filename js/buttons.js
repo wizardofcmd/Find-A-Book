@@ -2,8 +2,10 @@
 $(document).ready(function(){
 	$("#sl_books").hide(); 
 	$("#viewport").hide();
-	$("#initialButtons").hide();
-	$("#finalButtons").hide();
+	$("#ficInitialButtons").hide();
+	$("#nonficInitialButtons").hide();
+	$("#ficFinalButtons").hide();
+	$("#nonficFinalButtons").hide();
 	$("#submit-review").hide();
 	
 	
@@ -225,20 +227,36 @@ $(document).ready(function(){
 				
 			}});
 	});
+	
+	var whichgenre;
 	$("#mainFiction").click(function() {
 		console.log("here");
-		$("#initialButtons").show();
+		$("#nonficInitialButtons").hide();
+		$("#nonficShowMore").hide();
+		$("#nonficFinalButtons").hide();
+		$("#ficInitialButtons").show();
+		$("#ficShowMore").show();
 		
 	});
 	$("#mainNonFiction").click(function() {
 		console.log("here");
-		$("#initialButtons").show();
+		$("#ficInitialButtons").hide();
+		$("#ficShowMore").hide();
+		$("#ficFinalButtons").hide();
+		$("#nonficInitialButtons").show();
+		$("#nonficShowMore").show();
 		
 	});
 	$("#showMore1").click(function() {
 		console.log("here");
-		$("#showMore").hide();
-		$("#finalButtons").show();
+		$("#ficShowMore").hide();
+		$("#ficFinalButtons").show();
+		
+	});
+	$("#showMore2").click(function() {
+		console.log("here");
+		$("#nonficShowMore").hide();
+		$("#nonficFinalButtons").show();
 		
 	});
 	function enableBtn(){
