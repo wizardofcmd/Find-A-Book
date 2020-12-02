@@ -13,7 +13,7 @@ if(isset($_POST['submit-review']))
 		
     if ($response->success) {
         //If the user has checked the Captcha box
-        echo '<script>$("#submit-review ").hide();</script>';
+        echo '<script>$("#submit-review ").show();</script>';
 		//Put SUBMIT function here
 	
     } else {
