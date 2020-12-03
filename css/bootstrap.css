@@ -476,10 +476,10 @@ mark,
 }
 
 .img-thumbnail {
-  padding: 0.25rem;
+  padding: 0.35rem;
   background-color: #fff;
   border: 1px solid #dee2e6;
-  border-radius: 0.25rem;
+  border-radius: 0.35rem;
   max-width: 100%;
   height: auto;
 }
