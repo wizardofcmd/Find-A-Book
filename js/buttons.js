@@ -253,6 +253,7 @@ $(document).ready(function(){
 		$("#ficFinalButtons").show();
 		$("#ficShowLess").show();
 		
+		
 	});
 	$("#showMore2").click(function() {
 		console.log("here");
@@ -270,6 +271,7 @@ $(document).ready(function(){
 		$("#nonficFinalButtons").hide();
 		$("#nonficShowLess").hide();
 	});
+	
 	function enableBtn(){
 		document.getElementById("submit").disabled = false;
 	}
