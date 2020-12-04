@@ -251,6 +251,7 @@ $(document).ready(function(){
 		console.log("here");
 		$("#ficShowMore").hide();
 		$("#ficFinalButtons").show();
+		$("#ficShowLess").show();
 		
 	});
 	$("#showMore2").click(function() {
@@ -259,8 +260,18 @@ $(document).ready(function(){
 		$("#nonficFinalButtons").show();
 		
 	});
+	$("#showLess1").click(function(){
+		$("#ficShowMore").show();
+		$("#ficFinalButtons").hide();
+		$("#ficShowLess").hide();
+	});
+	$("#showLess2").click(function(){
+		$("#nonficShowMore").show();
+		$("#nonficFinalButtons").hide();
+		$("#nonficShowLess").hide();
+	});
 	function enableBtn(){
 		document.getElementById("submit").disabled = false;
 	}
-
+	
 });
