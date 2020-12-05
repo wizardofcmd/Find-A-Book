@@ -71,7 +71,7 @@ function ajax($this) {
 				nodes['book_item'+i].category=categories[i];
 				nodes['book_item'+i].image=image_links[i];
 				nodes['book_item'+i].shape='dot';	
-				nodes['book_item'+i].color=[i]*111111;
+				//nodes['book_item'+i].color=;
 			}
 			Object.assign(b_data.nodes,genre);
 			Object.assign(b_data.nodes,nodes);// Insert data from nodes into b_data.nodes
