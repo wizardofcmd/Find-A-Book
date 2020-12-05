@@ -123,8 +123,8 @@
 					<!-- SubGenre Item 1-->
 					<div class="col-md-6 col-lg-4 mb-5">
 						<h3 class="page-section-heading text-center text-uppercase text-secondary mb-0">Juvenile</h3>						
-                        <div class="portfolio-item mx-auto"  data-toggle="modal" data-target="#portfolioModal1">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" id="btn_juvenile_id">
+                        <div class="portfolio-item mx-auto"  data-toggle="modal" data-target="#portfolioModal1"value="Done"id="btn_juvenile_id" name="juvenile" type="submit" onclick="ajax($(this));return false;">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" >
                                 <div class="portfolio-item-caption-content text-center text-white" ><i class="fas fa-child fa-3x"></i></div>
 							</div>
                             <img class="img-fluid" src="./assets/img/portfolio/juvenile.png" alt="" />
@@ -562,7 +562,7 @@
 						<div class="row justify-content-center">
 							<div class="col-lg-8">
 								<!-- Portfolio Modal - Title-->
-								<h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Non-Fiction</h2>
+								<h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">What we can offer</h2>
 								<!-- Icon Divider-->
 								<div class="divider-custom">
 									<div class="divider-custom-line"></div>
@@ -572,7 +572,6 @@
 								
 								<!-- Portfolio Modal - ArborJS Canvas-->
 								<div class="row">
-									
 									<div class="col-sm-5">
 									</div>
 									<canvas id="viewport"  class="row "width="800" height="400"></canvas>
