@@ -19,8 +19,7 @@ function ajax($this) {
         dataType: 'json',
         data: {bookdata: book_data},
         success: function (data) {
-		sys.prune();
-            $("#viewport").show();
+		sys.width += 0;
 			
 			for (var i = 0; i < data.length; i++) {// for # of books retrieved, create long string of all titles/authors/categories/etc.
 				title_arr += data[i].title+"||"; //gets data from json for every variable
@@ -88,8 +87,6 @@ function ajax($this) {
 }
 
 $(document).ready(function(){
-	$("#sl_books").hide(); 
-	$("#viewport").hide();
 	$("#ficInitialButtons").hide();
 	$("#nonficInitialButtons").hide();
 	$("#ficFinalButtons").hide();
