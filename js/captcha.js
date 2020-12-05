@@ -1,6 +1,6 @@
-function enableBtn(){
-		document.getElementById("submit").disabled = false;
-	}
+function enableBtn() {
+	document.getElementById("action").disabled = false; 
+}
 function enableAction() {
   return new Promise(function(resolve, reject) {  
 
@@ -28,7 +28,7 @@ function enableAction() {
     'success' : function(data) {              
         alert('Data: '+data);
         resolve();
-		document.getElementById("submit").disabled = true;
+		document.getElementById("action").disabled = true;
     },
     'error' : function(request,error)
     {
