@@ -1,7 +1,8 @@
-function enableBtn() {
-	document.getElementById("action").disabled = false; 
-}
-function enableAction() {
+
+
+
+function callback(){
+	document.getElementById("action").disabled = false;
   return new Promise(function(resolve, reject) {  
 
     if (grecaptcha === undefined) {
