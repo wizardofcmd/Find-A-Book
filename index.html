@@ -458,19 +458,20 @@
 				<div class="card card-body">
 					<form action="./php/register.php" method="POST">
 						<div class="container" id="reviewForm">
-							<div class="form-group">
-								<small id="emailHelp" class="form-text text-muted">Enter a real book name.</small>
-								<label for="bookInput">Book name</label>
-								<input type="text" class="form-control" id="bookInput" placeholder="Book name goes here" name="bName">
-							</div>
-							<script>document.getElementById("submitbtn").disabled = true;</script>
-							<div class="form-group">
-								<label for="reviewInput">Review</label>
-								<input type="text" class="form-control" id="reviewInput" placeholder="Review comes here" name="uComment">
-							</div>
-							<div class="g-recaptcha" data-sitekey="6LeEYOcZAAAAADJSQnG1g7aRho-2ACiGXK3fP3K4"data-callback="enableAction"></div></br>
 							
-							<input type="button" id="submit" name="submit" value="SUBMIT" class="btn btn-primary" disabled="disabled">Enter your review!</button>
+								<div class="form-group">
+									<small id="emailHelp" class="form-text text-muted">Enter a real book name.</small>
+									<label for="bookInput">Book name</label>
+									<input type="text" class="form-control" id="bookInput" placeholder="Book name goes here" name="bName">
+								</div>
+								
+								<div class="form-group">
+									<label for="reviewInput">Review</label>
+									<input type="text" class="form-control" id="reviewInput" placeholder="Review comes here" name="uComment">
+								</div>
+								<div class="g-recaptcha" data-sitekey="6LeEYOcZAAAAADJSQnG1g7aRho-2ACiGXK3fP3K4"data-callback="enableAction"></div></br>
+								
+								<input type="button" id="submit" name="submit" value="SUBMIT" class="btn btn-primary" disabled="disabled">Enter your review!</button>
 							
 						</div>
 						

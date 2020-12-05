@@ -272,8 +272,6 @@ $(document).ready(function(){
 		$("#nonficShowLess").hide();
 	});
 	
-	function enableBtn(){
-		document.getElementById("submit").disabled = false;
-	}
+	
 	
 });
