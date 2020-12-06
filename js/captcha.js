@@ -21,19 +21,19 @@ function callback(){
     }
 
     $.ajax({
-    'url' : 'verify.php',
+    'url' : 'php/verify.php',
     'type' : 'POST',
     'data' : {
         'response' : response   
     },
     'success' : function(data) {              
-        alert('Data: '+data);
+        console.log("success "+'Data: '+data);
         resolve();
-		document.getElementById("action").disabled = true;
+				document.getElementById("action").disabled = true;
     },
     'error' : function(request,error)
     {
-        alert("Request: "+JSON.stringify(request));
+        alert("error"+"Request: "+JSON.stringify(request));
         reject();   
     }
     });

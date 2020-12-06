@@ -1,27 +1,31 @@
+
 <?php
-//Sending POST Request
-if(isset($_POST['submit']))
-{
-	$title=$_POST['bName']
-	$review=$_POST['uComment'];
-	
-	  $secretKey = "6LeEYOcZAAAAAEkkR7L1pcm_Mx5LEsvFvZsIRM3G";
-       $responseKey = $_POST['g-recaptcha-response'];
-       $userIP = $_SERVER['REMOTE_ADDR']; //optional    
-       $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$responseKey&remoteip=$userIP";
-       $response = file_get_contents($url);
-       $response = json_decode($response);
-		echo$response;
-    if ($response->success) {
-        //If the user has checked the Captcha box
-        echo 'success';
-		
-	
-    } else {
-        // If the CAPTCHA box wasn't checked
-       echo 'error';
-    }
-	
+if (empty($_POST['recaptcha'])) {
+    exit('Please set recaptcha variable');
 }
- 
-?>
+// validate recaptcha
+$response = $_POST['submit'];
+$post = http_build_query(
+    array (
+        'response' => $response,
+        'secret' => '6LeEYOcZAAAAAEkkR7L1pcm_Mx5LEsvFvZsIRM3G',
+        'remoteip' => $_SERVER['REMOTE_ADDR']
+    )
+);
+$opts = array('http' => 
+    array (
+        'method' => 'POST',
+        'header' => 'application/x-www-form-urlencoded',
+        'content' => $post
+    )
+);
+$context = stream_context_create($opts);
+$serverResponse = @file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
+if (!$serverResponse) {
+    exit('Failed to validate Recaptcha');
+}
+$result = json_decode($serverResponse);
+if (!$result -> success) {
+    exit('Invalid Recaptcha');
+}
+exit('Recaptcha Validated');
