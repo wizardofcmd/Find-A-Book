@@ -4,7 +4,7 @@ function ajax($this) {
 	var sys = arbor.ParticleSystem(1000, 400,1);
 	sys.parameters({gravity:true});
 	sys.renderer = Renderer("#viewport");
-	
+
 	var items;
 	var title_arr; // where array of titles are going to be saved from data
 	var auth_arr;
@@ -12,15 +12,15 @@ function ajax($this) {
 	var img_link_arr;
 	var info_link_arr;
 	var isbn_arr;
-    
+
 	$.ajax({
         type: "POST",
-        url: './php/bookhandler.php',
+        url: 'static/php/bookhandler.php',
         dataType: 'json',
         data: {bookdata: book_data},
         success: function (data) {
 		sys.width += 0;
-			
+
 			for (var i = 0; i < data.length; i++) {// for # of books retrieved, create long string of all titles/authors/categories/etc.
 				title_arr += data[i].title+"||"; //gets data from json for every variable
 				auth_arr += JSON.stringify(data[i].authors)+"||"; // have to stringify because its an object
@@ -29,7 +29,7 @@ function ajax($this) {
 				info_link_arr += data[i].infoLink+"||";
 				isbn_arr += JSON.stringify(data[i].industryIdentifiers)+"||";
 			}
-			
+
 			// list of arrays
 			var titles = title_arr.split('||');var titles_undef = titles[0]; // to remove 'undefined' as part of string
 			titles_undef = titles_undef.substring(9); // removes 9 characters from the start: u n d e f i n e d
@@ -46,14 +46,14 @@ function ajax($this) {
 			var image_links_undef = image_links[0];
 			image_links_undef = image_links_undef.substring(9);
 			image_links[0] = image_links_undef;
-			
+
 			var info_links = info_link_arr.split('||');
 			var info_links_undef = info_links[0];
 			info_links_undef = info_links_undef.substring(9);
 			info_links[0] = info_links_undef;
 		//var isbns = isbn_arr.split('||');
 		//var isbns_undef = isbns
-			
+
 			var b_data={nodes:{},}; // Declare variables with nested childs, ready to be grafted
 			var genre={
 				genre:{
@@ -69,16 +69,16 @@ function ajax($this) {
 				nodes['book_item'+i].author=authors[i];
 				nodes['book_item'+i].category=categories[i];
 				nodes['book_item'+i].image=image_links[i];
-				nodes['book_item'+i].shape='dot';	
+				nodes['book_item'+i].shape='dot';
 				//nodes['book_item'+i].color=;
 			}
 			Object.assign(b_data.nodes,genre);
 			Object.assign(b_data.nodes,nodes);// Insert data from nodes into b_data.nodes
-			
+
 			sys.graft(b_data);// Draw b_data and its data into canvas
 			sys.prune(b_data);
 			console.log(b_data);// for testing
-			
+
 		},
 		fail: function(xhr, textStatus, errorThrown){
 			alert('request failed');
@@ -92,7 +92,7 @@ $(document).ready(function(){
 	$("#ficFinalButtons").hide();
 	$("#nonficFinalButtons").hide();
 	$("#submit-review").hide();
-	
+
 	var whichgenre;
 	$("#mainFiction").click(function() {
 		console.log("here");
@@ -101,7 +101,7 @@ $(document).ready(function(){
 		$("#nonficFinalButtons").hide();
 		$("#ficInitialButtons").show();
 		$("#ficShowMore").show();
-		
+
 	});
 	$("#mainNonFiction").click(function() {
 		console.log("here");
@@ -110,21 +110,21 @@ $(document).ready(function(){
 		$("#ficFinalButtons").hide();
 		$("#nonficInitialButtons").show();
 		$("#nonficShowMore").show();
-		
+
 	});
 	$("#showMore1").click(function() {
 		console.log("here");
 		$("#ficShowMore").hide();
 		$("#ficFinalButtons").show();
 		$("#ficShowLess").show();
-		
-		
+
+
 	});
 	$("#showMore2").click(function() {
 		console.log("here");
 		$("#nonficShowMore").hide();
 		$("#nonficFinalButtons").show();
-		
+
 	});
 	$("#showLess1").click(function(){
 		$("#ficShowMore").show();
@@ -136,7 +136,7 @@ $(document).ready(function(){
 		$("#nonficFinalButtons").hide();
 		$("#nonficShowLess").hide();
 	});
-	
-	
-	
+
+
+
 });

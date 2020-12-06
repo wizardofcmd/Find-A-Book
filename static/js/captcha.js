@@ -3,10 +3,10 @@
 
 function callback(){
 	document.getElementById("action").disabled = false;
-  return new Promise(function(resolve, reject) {  
+  return new Promise(function(resolve, reject) {
 
     if (grecaptcha === undefined) {
-        alert('Recaptcha undefined'); 
+        alert('Recaptcha undefined');
         //return;
         reject();
     }
@@ -15,18 +15,18 @@ function callback(){
     console.log(response);
 
     if (!response) {
-        alert('Coud not get recaptcha response'); 
+        alert('Coud not get recaptcha response');
         //return;
         reject();
     }
 
     $.ajax({
-    'url' : 'verify.php',
+    'url' : './php/verify.php',
     'type' : 'POST',
     'data' : {
-        'response' : response   
+        'response' : response
     },
-    'success' : function(data) {              
+    'success' : function(data) {
         alert('Data: '+data);
         resolve();
 		document.getElementById("action").disabled = true;
@@ -34,7 +34,7 @@ function callback(){
     'error' : function(request,error)
     {
         alert("Request: "+JSON.stringify(request));
-        reject();   
+        reject();
     }
     });
     grecaptcha.reset();
