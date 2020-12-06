@@ -29,7 +29,7 @@ function callback(){
     'success' : function(data) {              
         console.log("success "+'Data: '+data);
         resolve();
-				document.getElementById("action").disabled = true;
+				
     },
     'error' : function(request,error)
     {
@@ -40,4 +40,11 @@ function callback(){
     grecaptcha.reset();
 
   }); //end promise
+}
+function enableBtn(){
+	if (!response===success){
+		document.getElementById("action").disabled = true;
+		
+	}
+	
 }
