@@ -4,7 +4,7 @@ include 'config.php';
 $bookName = mysqli_real_escape_string($mysqli, $_POST['bName']);
 $userComment = mysqli_real_escape_string($mysqli, $_POST['uComment']);
 //the sql query to insert
-$sql = "INSERT INTO `usersreviews` (`bookName`, `userComment`) VALUES ('$bookName', '$userComment')";
+$sql = "INSERT INTO `usersreviews` (`book`, `review`) VALUES ('$bookName', '$userComment')";
 
 if($mysqli->query($sql)=== TRUE ){
 	echo "
@@ -14,7 +14,7 @@ if($mysqli->query($sql)=== TRUE ){
 else{
 echo "failed to put in data";
 }
-$page = '../webpages/index.php';
+$page = './index.html;
 header('Location: '.$page, true, 303);
 exit;
 ?>
