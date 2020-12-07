@@ -436,7 +436,7 @@
 			</div>
 			<!--  Section Content-->
 				<div class="card card-body">
-					<form action="php/register.php" method="POST">
+					<form action="php/process.php" method="POST">
 						<div class="container" id="reviewForm">
 							<div class="form-group">
 								<label for="bookInput">Book name</label>
@@ -447,7 +447,7 @@
 								<input type="text" class="form-control" id="reviewInput" placeholder="Review comes here" name="uComment">
 							</div>
 							<div class="g-recaptcha" data-sitekey="6LeEYOcZAAAAADJSQnG1g7aRho-2ACiGXK3fP3K4"data-callback="callback"></div></br>
-						<input type="button" id="action" name="submit" value="SUBMIT" class="btn btn-primary" disabled="disabled">Enter your review!</button>
+						<button type="submit" name="save" class="btn btn-primary btn-lg">Submit</button>
 					</div>
 				</form>
 			</div>

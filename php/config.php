@@ -9,6 +9,7 @@
 		die('Connection Error (' . $mysqli->connect_errno . ') '
 		. $mysqli->connect_error);
 	}
-	else{
-	echo"success      ";}
+	else {
+	echo '<script>console.log("Successfully connected.")</script>';
+	}
 ?>
