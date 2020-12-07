@@ -424,7 +424,7 @@
 		</div>
 	</section>
 	<!-- Reviews Section -->
-	<section class="page-section bg-primary text-white mb-0" id="reviews">
+	<section class="page-section bg-primary text-dark mb-0" id="reviews">
 		<div class="container">
 			<!-- Review Section Heading-->
 			<h2 class="page-section-heading text-center text-uppercase text-white">Reviews</h2>
@@ -438,20 +438,20 @@
 				<div class="card card-body">
 					<form action="php/process.php" method="POST">
 						<div class="container" id="reviewForm">
-							<div class="form-group">
-								<label for="bookInput">Book name</label>
-								<input type="text" class="form-control" id="bookInput" placeholder="Book name goes here" name="bName">
-							</div>
-							<div class="form-group">
-								<label for="reviewInput">Review</label>
-								<input type="text" class="form-control" id="reviewInput" placeholder="Review comes here" name="uComment">
+							<div class="form-group text-center">
+								<label for="bookInput">Book title</label>
+								<input type="text" class="form-control" id="bookInput" placeholder="Title" name="bName">
+                            </div>
+							<div class="form-group text-center">
+								<label for="reviewInput">Enter your review</label>
+								<input type="text" class="form-control" id="reviewInput" placeholder="Type your review here!" name="uComment">
 							</div>
 							<div class="g-recaptcha" data-sitekey="6LeEYOcZAAAAADJSQnG1g7aRho-2ACiGXK3fP3K4"data-callback="callback"></div></br>
 						<button type="submit" name="save" class="btn btn-primary btn-lg">Submit</button>
 					</div>
 				</form>
 			</div>
-	</div>
+	       </div>
 </section>
 <!-- Reviews Section End Here -->
 <!-- Footer-->
