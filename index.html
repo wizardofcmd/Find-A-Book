@@ -16,13 +16,8 @@
 		<script src="./js/buttons.js"></script>
 		<script src="./js/captcha.js"></script>
 
-
-		<!-- BootStrap -->
-
         <!-- Favicon -->
         <link rel="icon" type="image/x-icon" href="/assets/img/book.png" />
-
-
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -35,10 +30,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
 
 		<!--Randomiser-->
-
 		<script src="./js/randomiser.js"></script>
-
-
 	</head>
     <body id="page-top">
         <!-- Navigation-->
@@ -431,7 +423,6 @@
 			</div>
 		</div>
 	</section>
-
 	<!-- Reviews Section -->
 	<section class="page-section bg-primary text-white mb-0" id="reviews">
 		<div class="container">
@@ -444,35 +435,23 @@
 				<div class="divider-custom-line"></div>
 			</div>
 			<!--  Section Content-->
-			<p>
-				<button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-					Click to Enter review
-				</button>
-			</p>
-			<div class="collapse" id="collapseExample">
 				<div class="card card-body">
 					<form action="./php/register.php" method="POST">
 						<div class="container" id="reviewForm">
-
 							<div class="form-group">
-								<small id="emailHelp" class="form-text text-muted">Enter a real book name.</small>
 								<label for="bookInput">Book name</label>
 								<input type="text" class="form-control" id="bookInput" placeholder="Book name goes here" name="bName">
 							</div>
-
 							<div class="form-group">
 								<label for="reviewInput">Review</label>
 								<input type="text" class="form-control" id="reviewInput" placeholder="Review comes here" name="uComment">
 							</div>
 							<div class="g-recaptcha" data-sitekey="6LeEYOcZAAAAADJSQnG1g7aRho-2ACiGXK3fP3K4"data-callback="callback"></div></br>
-
 						<input type="button" id="action" name="submit" value="SUBMIT" class="btn btn-primary" disabled="disabled">Enter your review!</button>
-
 					</div>
-
 				</form>
 			</div>
-		</div>
+        <!-- Review table to be axed -->
 		<p> Reviews Are Below</p>
 		<div class="card card-body">
 			<button id="displaydata" class="btn btn-success">View reviews</button>
@@ -498,12 +477,10 @@
 					}
 				});
 			});
-
 		</script>
 	</div>
 </section>
 <!-- Reviews Section End Here -->
-
 <!-- Footer-->
 <footer class="footer text-center">
 	<div class="container">
@@ -604,12 +581,8 @@
 								</button>
 								<div class="divider-custom-line"></div>
 							</div>
-
-
 							<div class="divider-custom">
 							</div>
-
-
 						</div>
 					</div>
 				</div>

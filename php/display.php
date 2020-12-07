@@ -11,6 +11,9 @@ if(mysqli_num_rows($query)	>0	){
 			<td> <?php echo $result['bookName']	?> </td>
 			<td> <?php echo $result['userComment']	?>	 </td>
 		</tr>
-	}
+
+<?php
 }
+}
+
 ?>
