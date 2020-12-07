@@ -236,7 +236,7 @@ button {
     border: 0;
     cursor:pointer;
     overflow: hidden;
-    outline:none; 
+    outline:none;
 	padding:0;
 }
 
@@ -6081,7 +6081,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #1abc9c !important;
+  background-color: #5991da !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -6091,7 +6091,7 @@ button.bg-primary:focus {
 }
 
 .bg-secondary {
-  background-color: #2c3e50 !important;
+  background-color: #1d1b21 !important;
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
@@ -10262,7 +10262,7 @@ form .row:first-child .floating-label-form-group {
     border: 0;
     cursor:pointer;
     overflow: hidden;
-    outline:none; 
+    outline:none;
 	padding:0;
 }
 .genreButton:focus{
@@ -11116,4 +11116,3 @@ header.masthead .device-container {
 header.masthead .device-container .screen img {
   border-radius: 3px;
 }
-
