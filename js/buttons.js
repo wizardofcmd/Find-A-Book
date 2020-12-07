@@ -51,8 +51,8 @@ function ajax($this) {
 			var info_links_undef = info_links[0];
 			info_links_undef = info_links_undef.substring(9);
 			info_links[0] = info_links_undef;
-		//var isbns = isbn_arr.split('||');
-		//var isbns_undef = isbns
+			//var isbns = isbn_arr.split('||');
+			//var isbns_undef = isbns
 			
 			var b_data={nodes:{},}; // Declare variables with nested childs, ready to be grafted
 			var genre={
