@@ -1,6 +1,4 @@
-
 <?php
-//dont forget to change the credentials below for the actual online database
 include 'config.php';
 
 $q = "SELECT * FROM `usersreviews`";
@@ -13,9 +11,6 @@ if(mysqli_num_rows($query)	>0	){
 			<td> <?php echo $result['bookName']	?> </td>
 			<td> <?php echo $result['userComment']	?>	 </td>
 		</tr>
-
-<?php
+	}
 }
-}
-
 ?>
