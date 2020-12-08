@@ -1,10 +1,10 @@
 function ajax($this) {
 	var book_data = $this.attr('name');
 	console.log(book_data);
-	var sys = arbor.ParticleSystem(1000, 400,1);
+	var sys = arbor.ParticleSystem(10, 400,1);
 	sys.parameters({gravity:true});
 	sys.renderer = Renderer("#viewport");
-	
+
 	var items;
 	var title_arr; // where array of titles are going to be saved from data
 	var auth_arr;
@@ -12,24 +12,40 @@ function ajax($this) {
 	var img_link_arr;
 	var info_link_arr;
 	var isbn_arr;
-    
+
 	$.ajax({
         type: "POST",
         url: './php/bookhandler.php',
         dataType: 'json',
         data: {bookdata: book_data},
         success: function (data) {
-		sys.width += 0;
-			
+		var b_data={nodes:{},}; // Declare variables with nested childs, ready to be grafted
+			var genre={
+				genre:{
+					label:book_data,
+					color:'orange'
+				}
+			};
+		for(var i=0;i<=10;i++){
+		console.log("testtt");
+		sys.prune(function(node,from,to){
+			return true;
+			});
+
+		}
+		console.log("aaaa");
 			for (var i = 0; i < data.length; i++) {// for # of books retrieved, create long string of all titles/authors/categories/etc.
 				title_arr += data[i].title+"||"; //gets data from json for every variable
 				auth_arr += JSON.stringify(data[i].authors)+"||"; // have to stringify because its an object
 				categ_arr += JSON.stringify(data[i].categories)+"||";
-				img_link_arr += data[i].imageLinks+"||";
+				if(data[i].imageLinks != null){
+					img_link_arr += JSON.stringify(data[i].imageLinks.thumbnail)+"||";
+				}
+
 				info_link_arr += data[i].infoLink+"||";
 				isbn_arr += JSON.stringify(data[i].industryIdentifiers)+"||";
 			}
-			
+
 			// list of arrays
 			var titles = title_arr.split('||');var titles_undef = titles[0]; // to remove 'undefined' as part of string
 			titles_undef = titles_undef.substring(9); // removes 9 characters from the start: u n d e f i n e d
@@ -46,21 +62,15 @@ function ajax($this) {
 			var image_links_undef = image_links[0];
 			image_links_undef = image_links_undef.substring(9);
 			image_links[0] = image_links_undef;
-			
+
 			var info_links = info_link_arr.split('||');
 			var info_links_undef = info_links[0];
 			info_links_undef = info_links_undef.substring(9);
 			info_links[0] = info_links_undef;
 			//var isbns = isbn_arr.split('||');
 			//var isbns_undef = isbns
-			
-			var b_data={nodes:{},}; // Declare variables with nested childs, ready to be grafted
-			var genre={
-				genre:{
-					label:book_data,
-					color:'orange'
-				}
-			};
+
+
 			// Populate a variable with the book items
 			var nodes ={};
 			for (var i = 0; i < data.length -1; i++) {
@@ -69,30 +79,42 @@ function ajax($this) {
 				nodes['book_item'+i].author=authors[i];
 				nodes['book_item'+i].category=categories[i];
 				nodes['book_item'+i].image=image_links[i];
-				nodes['book_item'+i].shape='dot';	
+				nodes['book_item'+i].shape='dot';
 				//nodes['book_item'+i].color=;
 			}
 			Object.assign(b_data.nodes,genre);
 			Object.assign(b_data.nodes,nodes);// Insert data from nodes into b_data.nodes
-			
+
 			sys.graft(b_data);// Draw b_data and its data into canvas
-			sys.prune(b_data);
+			//sys.addNode("home", {shape:'dot',label:"请输入30位追溯码", alpha:'1', color: colors[0], expanded: true});
 			console.log(b_data);// for testing
-			
+
 		},
 		fail: function(xhr, textStatus, errorThrown){
 			alert('request failed');
 		}
 	});
 }
-
+function loadcanvas(id){
+	var canvas = document.createElement('canvas');
+	var div = document.getElementById(id)
+	canvas.id="viewport";
+	canvas.width="1108";
+	canvas.height="688";
+	canvas.class="row";
+	div.appendChild(canvas);
+}
+function absolutelyDestroyCanvas(id){
+	var elem = document.getElementById(id);
+	elem.parentNode.removeChild(elem);
+}
 $(document).ready(function(){
 	$("#ficInitialButtons").hide();
 	$("#nonficInitialButtons").hide();
 	$("#ficFinalButtons").hide();
 	$("#nonficFinalButtons").hide();
 	$("#submit-review").hide();
-	
+
 	var whichgenre;
 	$("#mainFiction").click(function() {
 		console.log("here");
@@ -101,7 +123,7 @@ $(document).ready(function(){
 		$("#nonficFinalButtons").hide();
 		$("#ficInitialButtons").show();
 		$("#ficShowMore").show();
-		
+
 	});
 	$("#mainNonFiction").click(function() {
 		console.log("here");
@@ -110,21 +132,21 @@ $(document).ready(function(){
 		$("#ficFinalButtons").hide();
 		$("#nonficInitialButtons").show();
 		$("#nonficShowMore").show();
-		
+
 	});
 	$("#showMore1").click(function() {
 		console.log("here");
 		$("#ficShowMore").hide();
 		$("#ficFinalButtons").show();
 		$("#ficShowLess").show();
-		
-		
+
+
 	});
 	$("#showMore2").click(function() {
 		console.log("here");
 		$("#nonficShowMore").hide();
 		$("#nonficFinalButtons").show();
-		
+
 	});
 	$("#showLess1").click(function(){
 		$("#ficShowMore").show();
@@ -136,7 +158,8 @@ $(document).ready(function(){
 		$("#nonficFinalButtons").hide();
 		$("#nonficShowLess").hide();
 	});
-	
-	
-	
+
+
+
+
 });

@@ -1,5 +1,4 @@
 (function(){
-	
 	Renderer = function(canvas){
 		var canvas = $(canvas).get(0)
 		var ctx = canvas.getContext("2d");
@@ -13,6 +12,7 @@
 				particleSystem.screenPadding(40)
 				
 				that.initMouseHandling()
+				
 			},
 			
 			redraw:function(){
@@ -110,7 +110,9 @@
 						ctx.lineTo(-arrowLength * 0.8, -0);
 						ctx.closePath();
 						ctx.fill();
-						ctx.restore()
+						ctx.restore();
+						cxt.fillStyle = "rgb(255, 255, 255)";
+						cxt.fillRect(0, 0, canvas.width, canvas.height);
 					}
 				})
 				
@@ -127,6 +129,7 @@
 				// set up a handler object that will initially listen for mousedowns then
 				// for moves and mouseups while dragging
 				var handler = {
+					
 					clicked:function(e){
 						var pos = $(canvas).offset();
 						_mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top)
@@ -139,14 +142,17 @@
 					mypersonalfunction:function(e){
 						if (dragged===null || dragged.node===undefined) return
 						if (dragged.node !== null){
-							dragged.node.fixed = false                  
-							var id=dragged.node.data.label;
+							
+							dragged.node.fixed = false       
+							dragged.node.tempMass = 50
+							var id=dragged.node.data.image;
 							alert('Node selected: ' + id);
 							dragged = null
 							selected = null
 							$(canvas).unbind('mousemove', handler.dragged)
 							$(window).unbind('mouseup', handler.dropped)
 							_mouseP = null
+							ctx.clearRect(0, 0, canvas.width, canvas.height);
 							return false
 						}            
 						return false
@@ -188,11 +194,11 @@
 		{
 			var denom = ((p4.y - p3.y)*(p2.x - p1.x) - (p4.x - p3.x)*(p2.y - p1.y));
 			if (denom === 0) return false // lines are parallel
-		var ua = ((p4.x - p3.x)*(p1.y - p3.y) - (p4.y - p3.y)*(p1.x - p3.x)) / denom;
-		var ub = ((p2.x - p1.x)*(p1.y - p3.y) - (p2.y - p1.y)*(p1.x - p3.x)) / denom;
-		
-		if (ua < 0 || ua > 1 || ub < 0 || ub > 1)  return false
-		return arbor.Point(p1.x + ua * (p2.x - p1.x), p1.y + ua * (p2.y - p1.y));
+			var ua = ((p4.x - p3.x)*(p1.y - p3.y) - (p4.y - p3.y)*(p1.x - p3.x)) / denom;
+			var ub = ((p2.x - p1.x)*(p1.y - p3.y) - (p2.y - p1.y)*(p1.x - p3.x)) / denom;
+			
+			if (ua < 0 || ua > 1 || ub < 0 || ub > 1)  return false
+			return arbor.Point(p1.x + ua * (p2.x - p1.x), p1.y + ua * (p2.y - p1.y));
 		}
 		
 		var intersect_line_box = function(p1, p2, boxTuple)
@@ -215,5 +221,6 @@
 		
 		return that
 	}
+
 	
 })()
