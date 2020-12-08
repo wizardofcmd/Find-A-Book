@@ -12,4 +12,8 @@
 	else {
 	echo "<script>console.log('Error in submitting data.')</script>";
 	}
+	
+$page = '../index.html';
+header('Location: '.$page, true, 303);
+exit;
 ?>
