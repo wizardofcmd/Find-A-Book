@@ -28,11 +28,11 @@
 
 
           // Trying to load imageLinks
-          var image = node.data.imageS;
+
           // determine the box size and round off the coords if we'll be
           // drawing a text label (awful alignment jitter otherwise...)
           var label = node.data.label || ""
-          var w = ctx.measureText("" + label).width + 10
+          var w = ctx.measureText("" + label).width + 20
           if (!("" + label).match(/^[ \t]*$/)) {
             pt.x = Math.floor(pt.x)
             pt.y = Math.floor(pt.y)
@@ -67,14 +67,13 @@
             ctx.fillText(label || "", pt.x, pt.y + 4)
           }
 
-          if (image) {
-            // Custom image loading function
-            var pic = new Image()
-            pic.onload = function() {
-              ctx.drawImage(pic, pt.x - (imageW / 2), pt.y + (imageH / 2), imageW, imageH)
-            }
-            pic.src = node.data.imageS
+					// Draw the image
+					var image = new Image();
+          if (node.data.shape == 'dot') {
+            image.src = "./assets/img/portfolio/nodebook2.png";
           }
+
+          ctx.drawImage(image, pt.x - 15  , pt.y - 40 );
         })
 
 
@@ -162,7 +161,8 @@
               dragged.node.fixed = false
               dragged.node.tempMass = 50
               var id = dragged.node.data.label;
-              alert('Node selected: ' + id);
+							var color = dragged.node.data.color;
+              alert (id+" "+color);
               dragged = null
               selected = null
               $(canvas).unbind('mousemove', handler.dragged)

@@ -26,13 +26,9 @@ function ajax($this) {
     success: function(data) {
       var b_data = {
         nodes: {},
+        edges:{}
       }; // Declare variables with nested childs, ready to be grafted
-      var genre = {
-        genre: {
-          label: book_data,
-          color: 'orange'
-        }
-      };
+
       for (var i = 0; i <= 10; i++) {
         //console.log("testtt");
         sys.prune(function(node, from, to) {
@@ -82,9 +78,41 @@ function ajax($this) {
       var isbns = isbn_arr.split('||');var isbns_undef = isbns[0];isbns_undef = isbns_undef.substring(9);isbns[0] = isbns_undef;
 
 
+
+      var arrColour = [];
       // Populate a variable with the book items
       var nodes = {};
+      var randomColor;
+
+      // Script to geneterate random colours
+      for (var i=0; i<= data.length-1; i++){
+        randomColor = (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
+        arrColour.push(randomColor);
+      }
+      //console.log(arrColour);
+      var genre = {
+        genre: {
+          label: book_data,
+          color: 'orange'
+        }
+      };
+
+      var edgeGenre = {
+        edgeGenre : {
+          label: book_data,
+          color: 'orange'
+        }
+      }
+      var edges = {
+        edges : {
+
+        }
+      };
+
+      Object.assign(edges.edges, genre);
+      console.log(edges);
       for (var i = 0; i < data.length - 1; i++) {
+
         nodes['book_item' + i] = {};
         nodes['book_item' + i].label = titles[i];
         nodes['book_item' + i].author = authors[i];
@@ -93,10 +121,13 @@ function ajax($this) {
         nodes['book_item' + i].imageS = image_links1[i];
         nodes['book_item' + i].shape = 'dot';
         nodes['book_item' + i].isbn = isbns[i];
-        //nodes['book_item'+i].color=;
+        nodes['book_item' + i].color = '#FA'+arrColour[i]; //add 2 hex digits to determine opacity of colour
+
+
       }
       Object.assign(b_data.nodes, genre);
-      Object.assign(b_data.nodes, nodes); // Insert data from nodes into b_data.nodes
+      Object.assign(b_data.nodes, nodes);
+       // Insert data from nodes into b_data.nodes
 
       sys.graft(b_data); // Draw b_data and its data into canvas
       //sys.addNode("home", {shape:'dot',label:"请输入30位追溯码", alpha:'1', color: colors[0], expanded: true});
@@ -104,8 +135,10 @@ function ajax($this) {
 
     },
     fail: function(xhr, textStatus, errorThrown) {
-      alert('request failed');
+      alert('Request Failed');
     }
+
+
   });
 }
 // Have a function that creates element instead to refresh canvas
