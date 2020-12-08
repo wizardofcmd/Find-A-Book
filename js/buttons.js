@@ -12,6 +12,7 @@ function ajax($this) {
   var auth_arr;
   var categ_arr;
   var img_link_arr;
+  var img_link_arr1;
   var info_link_arr;
   var isbn_arr;
 
@@ -33,13 +34,13 @@ function ajax($this) {
         }
       };
       for (var i = 0; i <= 10; i++) {
-        console.log("testtt");
+        //console.log("testtt");
         sys.prune(function(node, from, to) {
           return true;
         });
 
       }
-      console.log("aaaa");
+      //console.log("aaaa");
       for (var i = 0; i < data.length; i++) { // for # of books retrieved, create long string of all titles/authors/categories/etc.
         if (data[i].title != null) {
           title_arr += data[i].title + "||";
@@ -57,7 +58,9 @@ function ajax($this) {
 
         if (data[i].imageLinks != null) {
           img_link_arr += JSON.stringify(data[i].imageLinks.thumbnail) + "||";
+          img_link_arr1 += JSON.stringify(data[i].imageLinks.smallThumbnail) + "||";
         }
+
 
         if (data[i].infoLink != null) {
           info_link_arr += data[i].infoLink + "||";
@@ -86,13 +89,20 @@ function ajax($this) {
       var image_links_undef = image_links[0];
       image_links_undef = image_links_undef.substring(9);
       image_links[0] = image_links_undef;
+      var image_links1 = img_link_arr1.split('||');
+      var image_links_undef1 = image_links1[0];
+      image_links_undef1 = image_links_undef1.substring(9);
+      image_links1[0] = image_links_undef1;
 
       var info_links = info_link_arr.split('||');
       var info_links_undef = info_links[0];
       info_links_undef = info_links_undef.substring(9);
       info_links[0] = info_links_undef;
-      //var isbns = isbn_arr.split('||');
-      //var isbns_undef = isbns
+
+      var isbns = isbn_arr.split('||');
+      var isbns_undef = isbns[0];
+      isbns_undef = isbns_undef.substring(9);
+      isbns[0] = isbns_undef;
 
 
       // Populate a variable with the book items
@@ -102,8 +112,10 @@ function ajax($this) {
         nodes['book_item' + i].label = titles[i];
         nodes['book_item' + i].author = authors[i];
         nodes['book_item' + i].category = categories[i];
-        nodes['book_item' + i].image = image_links[i];
+        nodes['book_item' + i].imageL = image_links[i];
+        nodes['book_item' + i].imageS = image_links1[i];
         nodes['book_item' + i].shape = 'dot';
+        nodes['book_item' + i].isbn = isbns[i];
         //nodes['book_item'+i].color=;
       }
       Object.assign(b_data.nodes, genre);
