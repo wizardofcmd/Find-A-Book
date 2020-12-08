@@ -40,11 +40,11 @@ function callback(){
     grecaptcha.reset();
 
   }); //end promise
-}
+
 function enableBtn(){
-	if (!response===success){
+	if (!response==='success'){
 		document.getElementById("action").disabled = true;
-		
 	}
 	
+}
 }
