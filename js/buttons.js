@@ -73,36 +73,13 @@ function ajax($this) {
       }
 
       // list of arrays
-      var titles = title_arr.split('||');
-      var titles_undef = titles[0]; // to remove 'undefined' as part of string
-      titles_undef = titles_undef.substring(9); // removes 9 characters from the start: u n d e f i n e d
-      titles[0] = titles_undef; // replaces first index
-      var authors = auth_arr.split('||'); // split long string into array elements
-      var authors_undef = authors[0];
-      authors_undef = authors_undef.substring(9);
-      authors[0] = authors_undef;
-      var categories = categ_arr.split('||');
-      var categories_undef = categories[0];
-      categories_undef = categories_undef.substring(9);
-      categories[0] = categories_undef;
-      var image_links = img_link_arr.split('||');
-      var image_links_undef = image_links[0];
-      image_links_undef = image_links_undef.substring(9);
-      image_links[0] = image_links_undef;
-      var image_links1 = img_link_arr1.split('||');
-      var image_links_undef1 = image_links1[0];
-      image_links_undef1 = image_links_undef1.substring(9);
-      image_links1[0] = image_links_undef1;
-
-      var info_links = info_link_arr.split('||');
-      var info_links_undef = info_links[0];
-      info_links_undef = info_links_undef.substring(9);
-      info_links[0] = info_links_undef;
-
-      var isbns = isbn_arr.split('||');
-      var isbns_undef = isbns[0];
-      isbns_undef = isbns_undef.substring(9);
-      isbns[0] = isbns_undef;
+      var titles = title_arr.split('||');var titles_undef = titles[0]; /* to remove 'undefined' as part of string*/titles_undef = titles_undef.substring(9); /* removes 9 characters from the start: u n d e f i n e d*/titles[0] = titles_undef; /* replaces first index*/
+      var authors = auth_arr.split('||'); /* split long string into array elements*/var authors_undef = authors[0];authors_undef = authors_undef.substring(9);authors[0] = authors_undef;
+      var categories = categ_arr.split('||');var categories_undef = categories[0];categories_undef = categories_undef.substring(9);categories[0] = categories_undef;
+      var image_links = img_link_arr.split('||');var image_links_undef = image_links[0];image_links_undef = image_links_undef.substring(9);image_links[0] = image_links_undef;
+      var image_links1 = img_link_arr1.split('||');var image_links_undef1 = image_links1[0];image_links_undef1 = image_links_undef1.substring(9);image_links1[0] = image_links_undef1;
+      var info_links = info_link_arr.split('||');var info_links_undef = info_links[0];info_links_undef = info_links_undef.substring(9);info_links[0] = info_links_undef;
+      var isbns = isbn_arr.split('||');var isbns_undef = isbns[0];isbns_undef = isbns_undef.substring(9);isbns[0] = isbns_undef;
 
 
       // Populate a variable with the book items
@@ -131,7 +108,7 @@ function ajax($this) {
     }
   });
 }
-
+// Have a function that creates element instead to refresh canvas
 function loadcanvas(id) {
   var canvas = document.createElement('canvas');
   var div = document.getElementById(id)
@@ -141,12 +118,13 @@ function loadcanvas(id) {
   canvas.class = "row";
   div.appendChild(canvas);
 }
-
+// Still don't know how to refresh so instead, delete the canvas
 function absolutelyDestroyCanvas(id) {
   var elem = document.getElementById(id);
   elem.parentNode.removeChild(elem);
 }
 $(document).ready(function() {
+
   $("#ficInitialButtons").hide();
   $("#nonficInitialButtons").hide();
   $("#ficFinalButtons").hide();

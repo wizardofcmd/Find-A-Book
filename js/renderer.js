@@ -26,6 +26,9 @@
 					// node: {mass:#, p:{x,y}, name:"", data:{}}
 					// pt:   {x:#, y:#}  node position in screen coords
 
+
+					// Trying to load imageLinks
+					var image = node.data.imageS;
 					// determine the box size and round off the coords if we'll be
 					// drawing a text label (awful alignment jitter otherwise...)
 					var label = node.data.label||""
