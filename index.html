@@ -32,6 +32,10 @@
 
 		<!--Randomiser-->
 		<script src="./js/randomiser.js"></script>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/start/jquery-ui.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 	</head>
     <body id="page-top">
         <!-- Navigation-->
@@ -466,7 +470,7 @@
                         </div>
                     <b id="mesg"></b>
 					</div>
-						
+
 					</div>
                 </div>
 				</form>
@@ -484,25 +488,61 @@ $('#btn_save').click(function(){
 		success:function(response){
 		//$('#mesg').text(response);
 	$('#user_form').trigger("reset");
-	
-	
-	
+
+
+
 		}
 	});
 });
 });
 </script>
-       
-         <div class="md-form active-cyan active-cyan-2 mb-3">
-         <input class="form-control"  name="search" id="search" type="text" placeholder="Find A Review" aria-label="Search">
+
+<!--AutoCompleter-->
+
+        <div class="md-form active-cyan active-cyan-2 mb-3">
+          <table width=80%>
+          <tr>
+            <td width='50%'><input type=text  id='t1' >
+            </td><td width='50%'>
+              <div id=d1 ></div>
+            </td><tr>
+          </table>
        </div>
-       <script type="text/javascript">
-       $(function() {
-          $( "#search" ).autocomplete({
-            source: 'php/ajax-db-search.php',
-            });
-          });
-      </script>
+
+  <script type="text/javascript">
+      $(document).ready(function(){
+        $( "#t1" ).autocomplete({
+              source: function (request, response) {
+                 $.ajax({
+                     url: "php/ajax-db-search.php",
+                     type: "GET",
+                     data: request,
+        			dataType: 'json',
+                     success: function (data) {
+                         response($.map(data, function (el) {
+                             return {
+                                 label: el.label,
+                                 value: el.value
+                             };
+                         }));
+                     }
+                 });
+            },
+        select:function (e, ui) {
+      //  e.preventDefault(); // uncomment if you want to display name in place of id
+      //  $("#t1").val(ui.item.label); // uncomment if you want to display name in place of id
+
+        $("#d1").load("ajax-db-search.php?id="+ui.item.value);
+        },
+        focus: function(event, ui) {
+                event.preventDefault();
+                $("#t1").val(ui.item.label);
+            }
+        });
+      })
+  </script>
+
+<!--End of AutoCompleter-->
 
 </section>
 <!-- Reviews Section End Here -->
@@ -603,16 +643,6 @@ $('#btn_save').click(function(){
 <!-- Bootstrap core JS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-<!--AutoCompleter-->
-  <!-- Script -->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-  <!-- jQuery UI -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-
-
-
 <!-- Third party plugin JS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 <!-- Core theme JS-->

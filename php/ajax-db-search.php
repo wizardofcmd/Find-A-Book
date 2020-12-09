@@ -1,19 +1,21 @@
 <?php
-require_once "config.php";
-if (isset($_GET['term'])) {
+session_start();
+error_reporting(0);// With this no error reporting will be there
+require "config.php";
+$t1=$_GET['term'];
 
-   $query = "SELECT * FROM usersreviews WHERE book LIKE '{$_GET['term']}%' LIMIT 25";
-    $result = mysqli_query($mysqli, $query);
+$kt=explode(" ",$t1);//Breaks string into array
+// Now let us generate the sql
+while(list($key,$val)=each($kt)){
+if($val<>" " and strlen($val) > 0){$q .= " NAME LIKE '%$val%' OR ";}
+}// end of while
+$q=substr($q,0,(strlen($q)-3)); // removes last OR from output
 
-    if (mysqli_num_rows($result) > 0) {
-     while ($user = mysqli_fetch_array($result)) {
-      $res[] = $user['book'];
-     }
-    } else {
-      $res = array();
-    }
-    //return json res
-    echo json_encode($res);
+$q1="SELECT  book AS label,id AS value FROM usersreviews WHERE  $q ";
 
-
+$row=$dbo->prepare($q1);
+$row->execute();
+$result=$row->fetchAll(mysqli::FETCH_ASSOC);
+echo json_encode($result);
+Set-Cookie: flavor=choco; SameSite=None; Secures
 ?>
