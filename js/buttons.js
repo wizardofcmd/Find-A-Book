@@ -86,24 +86,9 @@ function ajax($this) {
       }
       //console.log(arrColour);
 
-      var b_data = {
-        nodes: {},
-        edges:{
-          genre:{}
-        }
-      };
-      var genre = {
-        genre: {
-          label: book_data,
-          color: 'orange'
-        }
-      };
-
-      var edges = {
-        genre : {
-
-        }
-      };
+      var b_data = {nodes: {},edges:{genre:{}}};
+      var genre = {genre: {label: book_data,color: 'orange'}};
+      var edges = {genre : {}};
 
       console.log(edges);
       for (var i = 0; i < data.length - 1; i++) {
@@ -124,7 +109,7 @@ function ajax($this) {
 
       Object.assign(b_data.nodes, nodes);
       Object.assign(b_data.edges, edges);
-      Object.assign(b_data.nodes, genre);
+      Object.assign(b_data.nodes, genre); // assign genre last so its on top of all the nodes
 
        // Insert data from nodes into b_data.nodes
 
