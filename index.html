@@ -17,7 +17,7 @@
 		<script src="./js/captcha.js"></script>
 
         <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="/assets/img/book.png" />
+        <link rel="icon" type="image/x-icon" src="./assets/img/book.png" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -98,7 +98,7 @@
                     <div class="col-md-6 col-lg-4 mb-5">
 						<h3 class="page-section-heading text-center text-uppercase text-secondary mb-0">Random</h3>
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" id="mainRandom" onclick="loadcanvas('canvasDiv1');">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-star fa-3x"></i></div>
 							</div>
                             <img class="img-fluid" src="./assets/img/portfolio/lucky.png" alt="" />
@@ -208,7 +208,7 @@
                     <!-- SubGenre Item 8-->
                     <div class="col-md-6 col-lg-4 mb-5">
 						<h3 class="page-section-heading text-center text-uppercase text-secondary mb-0">romance</h3>
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"id="btn_romance_id"name="Romance" type="submit" onclick="loadcanvas('canvasDiv');ajax($(this));return false;">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-heart fa-3x"></i></div>
 							</div>
@@ -297,7 +297,7 @@
                     <div class="col-md-6 col-lg-4 mb-5">
 						<h3 class="page-section-heading text-center text-uppercase text-secondary mb-0">Business</h3>
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" id="btn_business_id"name="" type="submit" onclick="loadcanvas('canvasDiv');ajax($(this));return false;">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" id="btn_business_id"name="Business" type="submit" onclick="loadcanvas('canvasDiv');ajax($(this));return false;">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-chart-line fa-3x"></i></div>
 							</div>
                             <img class="img-fluid" src="./assets/img/portfolio/business.png" alt="" />
@@ -363,7 +363,7 @@
                     <!-- SubGenre Item 8-->
                     <div class="col-md-6 col-lg-4 mb-5">
 						<h3 class="page-section-heading text-center text-uppercase text-secondary mb-0">Philosophy</h3>
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"id="btn_philosophy_id"name="Philosophy" type="submit" onclick="loadcanvas('canvasDiv');ajax($(this));return false;">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-comment-dots fa-3x"></i></div>
 							</div>
@@ -429,10 +429,10 @@
 		</div>
 	</section>
 	<!-- Reviews Section -->
-	<section class="page-section bg-primary text-dark mb-0" id="reviews">
+	<section class="page-section bg-primary text-dark mb-0" id="review">
 		<div class="container">
 			<!-- Review Section Heading-->
-			<h2 class="page-section-heading text-center text-uppercase text-white">Reviews</h2>
+			<h2 class="page-section-heading text-center text-uppercase text-white">Review</h2>
 			<!-- Icon Divider-->
 			<div class="divider-custom divider-light">
 				<div class="divider-custom-line"></div>
@@ -485,7 +485,7 @@
 				</p>
 			</div>
 			<!-- Footer Social Icons-->
-			
+
 			<!-- Footer About Text-->
 			<div class="col-lg-4">
 				<h4 class="text-uppercase mb-4">About Us</h4>
@@ -507,7 +507,7 @@
 </div>
 <!-- Portfolio Modals-->
 <!-- Portfolio Modal 1 NON-FICTION BUTTON-->
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+<div class="portfolio-modal modal fade" id="portfolioModal1"data-target="#myModal" data-toggle="modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
 	<div class="modal-dialog modal-xl" role="document">
 		<div class="modal-content">
 			<button class="close" type="button" data-dismiss="modal" aria-label="Close" onclick="absolutelyDestroyCanvas('viewport')">
@@ -540,24 +540,23 @@
 	</div>
 </div>
 <!-- Portfolio Modal 2 FEELING LUCKY BUTTON -->
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
+<div class="portfolio-modal modal fade" id="portfolioModal2"data-target="#myModal" data-toggle="modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
 	<div class="modal-dialog modal-xl" role="document">
 		<div class="modal-content">
-			<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+			<button class="close" type="button" data-dismiss="modal" aria-label="Close" onclick="absolutelyDestroyCanvas('viewport')">
 				<span aria-hidden="true"><i class="fas fa-times"></i></span>
 			</button>
 			<div class="modal-body text-center">
 				<div class="container">
 					<div class="row justify-content-center">
 					<div class="divider-custom"><div class="divider-custom-line"></div><h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">What we can offer</h2><div class="divider-custom-line"></div>
-							</div><canvas id="viewport1"  class="row "width="1108" height="688"></canvas>
+        </div><div id="canvasDiv1"></div>
 						<div class="col-lg-8">
 						<!-- Feeling Lucky Content-->
-							<button value="btn_ran_val"  class="btn btn-info " id="btn_ran_id">Shuffle</button>
-							<div id="result"></div>
+							<button value="btn_ran_val"  class="btn btn-info " id="btn_ran_id"onclick="absolutelyDestroyCanvas('viewport');loadcanvas('canvasDiv1');">Shuffle</button>
 							<div class="divider-custom">
 								<div class="divider-custom-line"></div>
-								<button class="btn btn-primary" data-dismiss="modal">
+								<button class="btn btn-primary" data-dismiss="modal" onclick="absolutelyDestroyCanvas('viewport')">
 									<i class="fas fa-times fa-fw"></i>
 									Close Window
 								</button>
