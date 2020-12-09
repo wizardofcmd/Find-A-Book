@@ -3,7 +3,7 @@
 	$user='fbwp5u68u9cijt3z';
 	$pass='dbsauqmq7lts255i';
 	$db='dzlgt6jdd573rkdc';
-
+  
 	$mysqli = new mysqli($host, $user, $pass, $db);
 	if ($mysqli->connect_error) {
 		die('Connection Error (' . $mysqli->connect_errno . ') '
