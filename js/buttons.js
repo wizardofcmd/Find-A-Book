@@ -2,9 +2,7 @@ function ajax($this) {
   var book_data = $this.attr('name');
   console.log(book_data);
   var sys = arbor.ParticleSystem(10, 400, 1);
-  sys.parameters({
-    gravity: true
-  });
+  sys.parameters({gravity: false,repulsion:150});
   sys.renderer = Renderer("#viewport");
 
   var items;
@@ -24,10 +22,7 @@ function ajax($this) {
       bookdata: book_data
     },
     success: function(data) {
-      var b_data = {
-        nodes: {},
-        edges:{}
-      }; // Declare variables with nested childs, ready to be grafted
+       // Declare variables with nested childs, ready to be grafted
 
       for (var i = 0; i <= 10; i++) {
         //console.log("testtt");
@@ -68,7 +63,7 @@ function ajax($this) {
 
       }
 
-      // list of arrays
+      // list of arrays                                                                                                                                          Pretty terrible way of solving
       var titles = title_arr.split('||');var titles_undef = titles[0]; /* to remove 'undefined' as part of string*/titles_undef = titles_undef.substring(9); /* removes 9 characters from the start: u n d e f i n e d*/titles[0] = titles_undef; /* replaces first index*/
       var authors = auth_arr.split('||'); /* split long string into array elements*/var authors_undef = authors[0];authors_undef = authors_undef.substring(9);authors[0] = authors_undef;
       var categories = categ_arr.split('||');var categories_undef = categories[0];categories_undef = categories_undef.substring(9);categories[0] = categories_undef;
@@ -90,6 +85,13 @@ function ajax($this) {
         arrColour.push(randomColor);
       }
       //console.log(arrColour);
+
+      var b_data = {
+        nodes: {},
+        edges:{
+          genre:{}
+        }
+      };
       var genre = {
         genre: {
           label: book_data,
@@ -97,19 +99,12 @@ function ajax($this) {
         }
       };
 
-      var edgeGenre = {
-        edgeGenre : {
-          label: book_data,
-          color: 'orange'
-        }
-      }
       var edges = {
-        edges : {
+        genre : {
 
         }
       };
 
-      Object.assign(edges.edges, genre);
       console.log(edges);
       for (var i = 0; i < data.length - 1; i++) {
 
@@ -121,12 +116,16 @@ function ajax($this) {
         nodes['book_item' + i].imageS = image_links1[i];
         nodes['book_item' + i].shape = 'dot';
         nodes['book_item' + i].isbn = isbns[i];
-        nodes['book_item' + i].color = '#FA'+arrColour[i]; //add 2 hex digits to determine opacity of colour
-
+        nodes['book_item' + i].color = '#'+arrColour[i]; //add 2 hex digits to determine opacity of colour
+        edges['genre']['book_item' + i] = {};
+        edges['genre']['book_item' + i].length = 1;
 
       }
-      Object.assign(b_data.nodes, genre);
+
       Object.assign(b_data.nodes, nodes);
+      Object.assign(b_data.edges, edges);
+      Object.assign(b_data.nodes, genre);
+
        // Insert data from nodes into b_data.nodes
 
       sys.graft(b_data); // Draw b_data and its data into canvas
