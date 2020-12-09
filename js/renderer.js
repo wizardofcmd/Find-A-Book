@@ -45,10 +45,12 @@
           else ctx.fillStyle = "rgba(0,0,0,.2)"
           if (node.data.color == 'none') ctx.fillStyle = "white"
 
-          if (node.data.shape == 'dot') {
-            gfx.oval(pt.x - w / 2, pt.y - w / 2, w, w, {
-              fill: ctx.fillStyle
-            })
+          if (node.data.shape == 'dot' || node.data.imageS) {
+            	var image = new Image();
+              if(node.data.imageS){
+              image.src = node.data.imageS;
+            }
+            ctx.drawImage(image, pt.x - w/4  , pt.y - w/2, image.width * 0.7, image.height * 0.7 );
             nodeBoxes[node.name] = [pt.x - w / 2, pt.y - w / 2, w, w]
           } else {
             gfx.rect(pt.x - w / 2, pt.y - 10, w, 20, 4, {
@@ -63,17 +65,19 @@
             ctx.textAlign = "center"
             ctx.fillStyle = "white"
             if (node.data.color == 'none') ctx.fillStyle = '#333333'
-            ctx.fillText(label || "", pt.x, pt.y + 4)
-            ctx.fillText(label || "", pt.x, pt.y + 4)
+            ctx.fillText(label || "", pt.x, pt.y)
+
           }
 
 					// Draw the image
 					var image = new Image();
           if (node.data.shape == 'dot') {
-            image.src = "./assets/img/portfolio/nodebook2.png";
+            if(node.data.imageS){
+            image.src = node.data.imageS;
+          }
           }
 
-          ctx.drawImage(image, pt.x - 15  , pt.y - 40 );
+
         })
 
 
