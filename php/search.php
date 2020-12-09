@@ -7,7 +7,7 @@ if (isset($_GET['term'])) {
 
     if (mysqli_num_rows($result) > 0) {
      while ($user = mysqli_fetch_array($result)) {
-      $res[] = $user['name'];
+      $res[] = $user['book'];
      }
     } else {
       $res = array();
