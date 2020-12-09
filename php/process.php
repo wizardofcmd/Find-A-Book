@@ -1,6 +1,8 @@
 <?php
 	include 'config.php';
 	//grabs the input from the form and stores them in 2 vars as below
+	if(isset($_POST['btn_save']))
+{
 	$bookName = mysqli_real_escape_string($mysqli, $_POST['bName']);
 	$userComment = mysqli_real_escape_string($mysqli, $_POST['uComment']);
 	//the sql query to insert
@@ -13,7 +15,5 @@
 	echo "<script>console.log('Error in submitting data.')</script>";
 	}
 	
-$page = '../index.html';
-header('Location: '.$page, true, 303);
-exit;
+}
 ?>
