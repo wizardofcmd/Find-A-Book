@@ -466,13 +466,32 @@
                         </div>
                     <b id="mesg"></b>
 					</div>
-						<button type="submit" id="btn_save" name="btn_save" class="btn btn-primary btn-lg">Submit</button>
+						
 					</div>
                 </div>
 				</form>
-	       </div>
-
-       </br>
+	       <button type="submit" id="btn_save" name="btn_save" class="btn btn-primary btn-lg">Submit</button>
+		   </div>
+<script>
+$(document).ready(function(){
+$('#btn_save').click(function(){
+	var data=$('#user_form').serialize()+'&btn_save=btn_save';
+	$.ajax({
+		url:'php/process.php',
+		type:'post',
+		data:data,
+		success:function(response){
+		//$('#mesg').text(response);
+	$('#user_form').trigger("reset");
+	
+	
+	
+		}
+	});
+});
+});
+</script>
+       
          <div class="md-form active-cyan active-cyan-2 mb-3">
          <input class="form-control"  name="search" id="search" type="text" placeholder="Find A Review" aria-label="Search">
        </div>
@@ -597,24 +616,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 <!-- Core theme JS-->
 <script src="./js/scripts.js"></script>
-<script>
-$(document).ready(function(){
-$('#btn_save').click(function(){
-	var data=$('#user_form').serialize()+'&btn_save=btn_save';
-	$.ajax({
-		url:'php/process.php',
-		type:'post',
-		data:data,
-		success:function(response){
-		$('#mesg').text(response);
-	$('#bookInput').text('');
-	$('#reviewInput').text('');
 
-		}
-	});
-});
-});
-</script>
 
 </body>
 </html>
