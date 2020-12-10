@@ -475,18 +475,54 @@
         </div>
 
       </div>
-      <<<<<<< Updated upstream </br>
-        <div class="md-form active-cyan active-cyan-2 mb-3">
-          <input class="form-control" name="search" id="search" type="text" placeholder="Find A Review" aria-label="Search">
-        </div>
-        <script type="text/javascript">
-          $(function() {
-            $("#search").autocomplete({
-              source: 'php/search.php',
-            });
-          });
+       </br>
+       <!--Autocompleter-->
+              <div class="md-form active-cyan active-cyan-2 mb-3">
+                  <table width=80%>
+                    <tr>
+                      <td width='50%'><input type=text  id='t1' > </td>
+                      <td width='50%'> <div id=d1 class='msg'></div></td>
+                    <tr>
+                 </table>
+                  <br><br><br>
+              </div>
+
+          <script type="text/javascript">
+              $(document).ready(function() {
+
+              $( "#t1" ).autocomplete({
+                    source: function (request, response) {
+                       $.ajax({
+                           url: "php/search.php",
+                           type: "GET",
+                           data: request,
+                   dataType: 'json',
+                           success: function (data) {
+                               response($.map(data, function (el) {
+                                   return {
+                                       label: el.label,
+                                       value: el.value
+                                   };
+                               }));
+                           }
+                       });
+                  },
+              select:function (e, ui) {
+              e.preventDefault(); // uncomment if you want to display name in place of id
+              $("#t1").val(ui.item.label); // uncomment if you want to display name in place of id
+
+              $("#d1").load("autocomplete-record.php?id="+ui.item.value);
+              },
+              focus: function(event, ui) {
+                      event.preventDefault();
+                      $("#t1").val(ui.item.label);
+                  }
+              });
+
+              //////
+              })
         </script>
-        =======
+        <!--End ofAutocompleter-->
 
 
 
