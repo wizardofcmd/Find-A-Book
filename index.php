@@ -477,7 +477,7 @@
       </div>
        </br>
        <!--Autocompleter-->
-              <div class="md-form active-cyan active-cyan-2 mb-3">
+       <div class="md-form active-cyan active-cyan-2 mb-3">
                   <table width=80%>
                     <tr>
                       <td width='50%'><input type=text  id='t1' > </td>
@@ -485,9 +485,10 @@
                     <tr>
                  </table>
                   <br><br><br>
-              </div>
+      </div>
 
           <script type="text/javascript">
+          Set-Cookie: flavor=choco; SameSite=None; Secure
               $(document).ready(function() {
 
               $( "#t1" ).autocomplete({
