@@ -12,10 +12,9 @@
   <link href="./css/modal.css" rel="stylesheet"/>
 
   <!-- Arbor.js ss -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js" integrity="sha512-7yA/d79yIhHPvcrSiB8S/7TyX0OxlccU8F/kuB8mHYjLlF1MInPbEohpoqfz0AILoq5hoD7lELZAYYHbyeEjag==" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet"/>
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -43,7 +42,7 @@
   <!-- Google fonts-->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
   <!--Randomiser-->
   <script src="./js/randomiser.js"></script>
 </head>
@@ -62,7 +61,7 @@
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#books">Choice</a></li>
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#review">Review</a></li>
           <form class="form-inline mr-auto">
-            <input class="form-control" type="text" placeholder="Search" aria-label="Search"></input>
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-mdb-color btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search</button>
           </form>
         </ul>
@@ -442,6 +441,7 @@
         </section>
       </div>
     </div>
+    </div>
   </section>
   <!-- Reviews Section -->
   <section class="page-section bg-primary text-dark mb-0" id="review">
@@ -463,17 +463,14 @@
             <label for="bookInput">Book title</label>
             <div class="row">
               <div class="col-md-6 mx-auto">
-                <a href="#errorModal" class="trigger-btn" data-toggle="modal">Click to Open Error Modal</a>
-                <input type="text" class="form-control text-center" id="bookInput" name="boo" value="book"/>
+                <input type="text" class="form-control text-center" id="bookInput" name="boo" value="book">
                 <input type="hidden" name="token" id="token" />
                 <input type="hidden" name="action" id="action" />
                 <label class="pt-3" for="reviewInput">Enter your review</label>
                 <textarea class="form-control text-center" id="reviewInput" name="review" rows="3"></textarea>
                 <button type="submit" value="submit" id="btn_save" name="submit" class="btn btn-primary btn-lg"
                  class="g-recaptcha g-recaptcha"
-                 data-sitekey="6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y">
-                 Submit</button>
-
+                 data-sitekey="6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y">Submit</button>
               </div>
             </div>
             <!--div class="form-group text-center">
@@ -481,13 +478,15 @@
                 </div>
               </div>
             </div -->
+            <div class="container">
 
+          </div>
         </div>
 
       </div>
-<br/>
+      <<<<<<< Updated upstream </br>
         <div class="md-form active-cyan active-cyan-2 mb-3">
-          <input class="form-control" name="search" id="search" type="text" placeholder="Find A Review" aria-label="Search"/>
+          <input class="form-control" name="search" id="search" type="text" placeholder="Find A Review" aria-label="Search">
         </div>
         <script type="text/javascript">
           $(function() {
@@ -496,11 +495,10 @@
             });
           });
         </script>
+        =======
 
 
 
-</div>
-</div>
   </section>
 
   <!-- Reviews Section End Here -->
@@ -522,7 +520,7 @@
         </div>
         <div class="text-center">
       	<!-- Button HTML (to Trigger Modal) -->
-
+      	<a href="#myModal" class="trigger-btn" data-toggle="modal">Click to Open Error Modal</a>
       </div>
         <!-- Modal HTML -->
 
@@ -576,24 +574,23 @@
       </div>
     </div>
   </div>
-  <!-- Modal HTML -->
-<div id="errorModal" class="modal fade">
-	<div class="modal-dialog modal-confirm">
-		<div class="modal-content">
-			<div class="modal-header">
-				<div class="icon-box">
-					<i class="material-icons">&#xE5CD;</i>
-				</div>
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			</div>
-			<div class=" text-center">
-				<h4>Ooops!</h4>
-				<p>Something went wrong. File was not uploaded.</p>
-				<button class="btn btn-success" data-dismiss="modal">Try Again</button>
-			</div>
-		</div>
-	</div>
-</div>
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="icon-box">
+            <i class="material-icons">&#xE5CD;</i>
+          </div>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body text-center">
+          <h4>Ooops!</h4>
+          <p>Something went wrong. File was not uploaded.</p>
+          <button class="btn btn-success" data-dismiss="modal">Try Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Portfolio Modal 2 FEELING LUCKY BUTTON -->
   <div class="portfolio-modal modal fade" id="portfolioModal2" data-target="#myModal" data-toggle="modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
