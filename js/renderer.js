@@ -1,4 +1,7 @@
 (function() {
+
+  // Initializing variables for node data
+
   Renderer = function(canvas) {
     var canvas = $(canvas).get(0)
     var ctx = canvas.getContext("2d");
@@ -63,12 +66,21 @@
           if (label) {
             ctx.font = "12px Aleo"
             ctx.textAlign = "center"
-            ctx.fillStyle = "white"
+            ctx.fillStyle = "black"
             if (node.data.color == 'none') ctx.fillStyle = '#333333'
-            ctx.fillText(label || "", pt.x, pt.y)
+            ctx.fillText(label || "", pt.x, pt.y+5)
+
 
           }
+          if (label) {
+            ctx.font = "12px Aleo"
+            ctx.textAlign = "center"
+            ctx.fillStyle = "white"
+            if (node.data.color == 'none') ctx.fillStyle = '#333333'
+            ctx.fillText(label || "", pt.x+1, pt.y+4)
 
+
+          }
 					// Draw the image
 					var image = new Image();
           if (node.data.shape == 'dot') {
