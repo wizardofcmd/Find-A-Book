@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -630,6 +629,3 @@
 </body>
 
 </html>
-=======
-<?php include_once("index.html"); ?>
->>>>>>> parent of 3e1d46f... herokie test
