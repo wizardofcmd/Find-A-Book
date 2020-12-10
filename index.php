@@ -9,13 +9,22 @@
   <title>FindABook</title>
   <!-- Core theme CSS (includes Bootstrap)-->
   <link href="./css/styles.css" rel="stylesheet" />
+  <link href="./css/modal.css" rel="stylesheet"/>
+
   <!-- Arbor.js ss -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="./js/jquery-1.6.1.min.js"></script>
   <script src="./js/arbor.js"></script>
   <script src="./js/graphics.js"></script>
   <script src="./js/renderer.js"></script>
   <script src="./js/buttons.js"></script>
   <script src="./js/captcha.js"></script>
+  <script src="./js/scripts.js"></script>
   <script src="https://www.google.com/recaptcha/api.js?render=6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y"></script>
 
   <!-- Favicon -->
@@ -37,7 +46,6 @@
   <!--Randomiser-->
   <script src="./js/randomiser.js"></script>
 </head>
-
 <body id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
@@ -455,12 +463,6 @@
             <label for="bookInput">Book title</label>
             <div class="row">
               <div class="col-md-6 mx-auto">
-
-
-
-
-
-
                 <input type="text" class="form-control text-center" id="bookInput" name="boo" value="book">
                 <input type="hidden" name="token" id="token" />
                 <input type="hidden" name="action" id="action" />
@@ -469,12 +471,6 @@
                 <button type="submit" value="submit" id="btn_save" name="submit" class="btn btn-primary btn-lg"
                  class="g-recaptcha g-recaptcha"
                  data-sitekey="6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y">Submit</button>
-
-
-
-
-
-
               </div>
             </div>
             <!--div class="form-group text-center">
@@ -504,6 +500,7 @@
 
 
   </section>
+
   <!-- Reviews Section End Here -->
   <!-- Footer-->
   <footer class="footer text-center">
@@ -521,6 +518,12 @@
           </p>
           <a class="btn btn-outline-light btn-social mx-1" href="https://github.com/wizardofcmd/Find-A-Book"><i class="fab fa-fw fa-lg fa-github"></i></a>
         </div>
+        <div class="text-center">
+      	<!-- Button HTML (to Trigger Modal) -->
+      	<a href="#myModal" class="trigger-btn" data-toggle="modal">Click to Open Error Modal</a>
+      </div>
+        <!-- Modal HTML -->
+
         <div class="col-lg-4"></div>
       </div>
     </div>
@@ -571,6 +574,23 @@
       </div>
     </div>
   </div>
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="icon-box">
+            <i class="material-icons">&#xE5CD;</i>
+          </div>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body text-center">
+          <h4>Ooops!</h4>
+          <p>Something went wrong. File was not uploaded.</p>
+          <button class="btn btn-success" data-dismiss="modal">Try Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Portfolio Modal 2 FEELING LUCKY BUTTON -->
   <div class="portfolio-modal modal fade" id="portfolioModal2" data-target="#myModal" data-toggle="modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
@@ -607,7 +627,8 @@
       </div>
     </div>
   </div>
-  <div id=result <!-- Bootstrap core JS-->
+
+   <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- jQuery UI -->
@@ -617,26 +638,7 @@
     <!-- Third party plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- Core theme JS-->
-    <script src="./js/scripts.js"></script>
-    <script>
-      $(document).ready(function() {
-        $('#btn_save').click(function() {
-          var data = $('#user_form').serialize() + '&btn_save=btn_save';
-          var bName = $('#bookInput').val();
-          var uComment = $('#reviewInput').val();
-          $.ajax({
-            url: 'php/process.php',
-            type: 'post',
-            data: {bName:bName,uComment:uComment},
-            success: function(response) {
-              //$('#mesg').text(response);
-              $('#bookInput').val('');
-              $('#reviewInput').val('');
-            }
-          });
-        });
-      });
-    </script>
+
 
 </body>
 
