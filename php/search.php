@@ -1,4 +1,5 @@
 <?Php
+header('Set-Cookie: cross-site-cookie=name; SameSite=None; Secure');
 session_start();
 error_reporting(0);// With this no error reporting will be there
 require "../api/config/database.php";

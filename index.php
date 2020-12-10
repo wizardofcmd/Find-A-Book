@@ -488,7 +488,6 @@
       </div>
 
           <script type="text/javascript">
-          Set-Cookie: flavor=choco; SameSite=None; Secure
               $(document).ready(function() {
 
               $( "#t1" ).autocomplete({
