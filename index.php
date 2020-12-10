@@ -15,7 +15,7 @@
   <script src="./js/graphics.js"></script>
   <script src="./js/renderer.js"></script>
   <script src="./js/buttons.js"></script>
-
+  <script src="./js/captcha.js"></script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="./assets/img/icon.png" />
@@ -26,7 +26,7 @@
   <script src="https://www.google.com/recaptcha/api.js"></script>
 
   <!--ReCaptcha-->
-  <script src="https://www.google.com/recaptcha/api.js?"></script>
+  <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?hl=en"></script>
   <script src="https://www.google.com/recaptcha/api.js?render=key:6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y"></script>
 
   <!-- Google fonts-->
@@ -608,13 +608,11 @@
     <script>
       $(document).ready(function() {
         $('#btn_save').click(function() {
-          var bName = $('#bookInput').val();
-          var uComment = $('#reviewInput').val();
-          console.log(bName + "" + uComment);
+          var data = $('#user_form').serialize() + '&btn_save=btn_save';
           $.ajax({
-            url: './php/process.php',
+            url: 'php/process.php',
             type: 'post',
-            data: {bName: bName, uComment:uComment},
+            data: data,
             success: function(response) {
               $('#mesg').text(response);
               $('#bookInput').text('');
