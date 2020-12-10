@@ -470,7 +470,7 @@
               <b id="mesg"></b>
             </div>
 
-            <button type="button" value="submit" id="btn_save" name="btn_save" class="btn btn-primary btn-lg" class="g-recaptcha" data-sitekey="6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y" data-callback='onSubmit' data-action='submit'>Submit</button>
+            <button type="button" value="submit" id="btn_save" name="btn_save" class="btn btn-primary btn-lg" class="g-recaptcha" data-sitekey="6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y">Submit</button>
           </div>
         </div>
 
@@ -645,15 +645,16 @@
       $(document).ready(function() {
         $('#btn_save').click(function() {
           var data = $('#user_form').serialize() + '&btn_save=btn_save';
+          var bName = $('#bookInput').val();
+          var uComment = $('#reviewInput').val();
           $.ajax({
             url: 'php/process.php',
             type: 'post',
-            data: data,
+            data: {bName:bName,uComment:uComment},
             success: function(response) {
-              $('#mesg').text(response);
-              $('#bookInput').text('');
-              $('#reviewInput').text('');
-
+              //$('#mesg').text(response);
+              $('#bookInput').val('');
+              $('#reviewInput').val('');
             }
           });
         });
