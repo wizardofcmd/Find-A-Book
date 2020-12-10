@@ -1,7 +1,3 @@
-<?php
-  define('SITE_KEY','6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y');
-  define('SECRET_KEY','6LeyOgAaAAAAANtvZZUr1EX_3dv5dMpE2Ql1q9K2');
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,34 +16,6 @@
   <script src="./js/renderer.js"></script>
   <script src="./js/buttons.js"></script>
   <script src="./js/captcha.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js?render=key:<?php echo SITE_KEY ?>"></script>
-  <script>
-  grecaptcha.ready(function(){
-  grecaptcha.execute('<?php echo SITE_KEY ?>',{action:'action_name'})
-  .then(function(token){
-
-  });
-
-});
-    $(document).ready(function() {
-      $('#btn_save').click(function() {
-        var bName = $('#g-recaptcha-response').val();
-        var uComment = $('#reviewInput').val();
-        console.log(bName +""+uComment);
-        $.ajax({
-          url: 'php/process.php',
-          type: 'post',
-          data: {bName,uComment},
-          success: function(response) {
-            $('#mesg').text(response);
-            $('#bookInput').text('');
-            $('#reviewInput').text('');
-
-          }
-        });
-      });
-    });
-  </script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="./assets/img/icon.png" />
@@ -59,7 +27,7 @@
 
   <!--ReCaptcha-->
   <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?hl=en"></script>
-
+  <script src="https://www.google.com/recaptcha/api.js?render=key:6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y"></script>
 
   <!-- Google fonts-->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
@@ -485,7 +453,7 @@
             <label for="bookInput">Book title</label>
             <div class="row">
               <div class="col-md-6 mx-auto">
-                <input type="text" class="form-control text-center" id="g-recaptcha-reponse" name="g-recaptcha-response">
+                <input type="text" class="form-control text-center" id="bookInput" name="bName">
               </div>
             </div>
             <div class="form-group text-center">
@@ -502,7 +470,7 @@
               <b id="mesg"></b>
             </div>
 
-            <button type="button" value="submit" id="btn_save" name="btn_save" class="btn btn-primary btn-lg" >Submit</button>
+            <button type="button" value="submit" id="btn_save" name="btn_save" class="btn btn-primary btn-lg" class="g-recaptcha" data-sitekey="6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y" data-callback='onSubmit' data-action='submit'>Submit</button>
           </div>
         </div>
 
@@ -636,7 +604,25 @@
     <!-- Third party plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- Core theme JS-->
+    <script src="./js/scripts.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#btn_save').click(function() {
+          var data = $('#user_form').serialize() + '&btn_save=btn_save';
+          $.ajax({
+            url: 'php/process.php',
+            type: 'post',
+            data: data,
+            success: function(response) {
+              $('#mesg').text(response);
+              $('#bookInput').text('');
+              $('#reviewInput').text('');
 
+            }
+          });
+        });
+      });
+    </script>
 
 </body>
 
