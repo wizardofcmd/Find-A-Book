@@ -1,3 +1,3 @@
-function enableBtn(){
-   $('#btn_save').prop("disabled", false);
- }
+function onSubmit(token) {
+     document.getElementById("demo-form").submit();
+   }

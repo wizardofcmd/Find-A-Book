@@ -15,6 +15,7 @@
   <script src="./js/graphics.js"></script>
   <script src="./js/renderer.js"></script>
   <script src="./js/buttons.js"></script>
+  <script src="./js/captcha.js"></script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="./assets/img/icon.png" />
@@ -22,8 +23,11 @@
   <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+
   <!--ReCaptcha-->
   <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?hl=en"></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=key:6LerOQAaAAAAAFWJBZabSzEmUXtn1P9ijfpY6BXV"></script>
 
   <!-- Google fonts-->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
@@ -462,11 +466,11 @@
               </div>
             </div>
             <div class="container">
-              <div class="g-recaptcha" data-sitekey="6LeEYOcZAAAAADJSQnG1g7aRho-2ACiGXK3fP3K4" data-callback="enableBtn" style="display: inline-block;"></div>
+              <div class="g-recaptcha" data-sitekey="6LerOQAaAAAAAFWJBZabSzEmUXtn1P9ijfpY6BXV" data-callback="enableBtn" style="display: inline-block;"></div>
               <b id="mesg"></b>
             </div>
 
-            <button type="button" value="submit" id="btn_save" name="btn_save" class="btn btn-primary btn-lg" disabled="disabled">Submit</button>
+            <button type="button" value="submit" id="btn_save" name="btn_save" class="btn btn-primary btn-lg" class="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit' data-action='submit'>Submit</button>
           </div>
         </div>
 
