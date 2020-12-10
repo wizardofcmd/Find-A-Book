@@ -198,7 +198,6 @@
         <section id="ficShowMore">
           <div class="row justify-content-center">
             <div class="col-sm-6 col-sm-4 mb-5">
-              <h3 class="page-section-heading text-center text-uppercase text-secondary mb-0" id="btn_fic_id"></h3>
               <div class="portfolio-item mx-auto">
                 <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" id="showMore1">
                   <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-ellipsis-h"></i></div>
@@ -275,7 +274,6 @@
         <section id="ficShowLess">
           <div class="row justify-content-center">
             <div class="col-sm-6 col-sm-4 mb-5">
-              <h3 class="page-section-heading text-center text-uppercase text-secondary mb-0" id="btn_fic_id"></h3>
               <div class="portfolio-item mx-auto">
                 <div class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" id="showLess1" href="#books">
                   <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-ellipsis-h"></i></div>
@@ -353,7 +351,6 @@
         <section id="nonficShowMore">
           <div class="row justify-content-center">
             <div class="col-sm-6 col-sm-4 mb-5">
-              <h3 class="page-section-heading text-center text-uppercase text-secondary mb-0"></h3>
               <div class="portfolio-item mx-auto">
                 <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" id="showMore2">
                   <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-ellipsis-h"></i></div>
@@ -463,7 +460,6 @@
             <label for="bookInput">Book title</label>
             <div class="row">
               <div class="col-md-6 mx-auto">
-                <a href="#errorModal" class="trigger-btn" data-toggle="modal">Click to Open Error Modal</a>
                 <input type="text" class="form-control text-center" id="bookInput" name="boo" value="book"/>
                 <input type="hidden" name="token" id="token" />
                 <input type="hidden" name="action" id="action" />
