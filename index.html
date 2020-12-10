@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +15,7 @@
   <script src="./js/graphics.js"></script>
   <script src="./js/renderer.js"></script>
   <script src="./js/buttons.js"></script>
-
+  <script src="./js/captcha.js"></script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="./assets/img/icon.png" />
@@ -27,8 +26,8 @@
   <script src="https://www.google.com/recaptcha/api.js"></script>
 
   <!--ReCaptcha-->
-  <script src="https://www.google.com/recaptcha/api.js?"></script>
-  <script src="https://www.google.com/recaptcha/api.js?render=key:6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y"></script>
+  <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?hl=en"></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=key:6LerOQAaAAAAAFWJBZabSzEmUXtn1P9ijfpY6BXV"></script>
 
   <!-- Google fonts-->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
@@ -467,11 +466,11 @@
               </div>
             </div>
             <div class="container">
-
+              <div class="g-recaptcha" data-sitekey="6LerOQAaAAAAAFWJBZabSzEmUXtn1P9ijfpY6BXV" data-callback="enableBtn" style="display: inline-block;"></div>
               <b id="mesg"></b>
             </div>
 
-            <button type="button" value="submit" id="btn_save" name="btn_save" class="btn btn-primary btn-lg" class="g-recaptcha" data-sitekey="6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y" data-callback='onSubmit' data-action='submit'>Submit</button>
+            <button type="button" value="submit" id="btn_save" name="btn_save" class="btn btn-primary btn-lg" class="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit' data-action='submit'>Submit</button>
           </div>
         </div>
 
@@ -609,13 +608,11 @@
     <script>
       $(document).ready(function() {
         $('#btn_save').click(function() {
-          var bName = $('#bookInput').val();
-          var uComment = $('#reviewInput').val();
-          console.log(bName + "" + uComment);
+          var data = $('#user_form').serialize() + '&btn_save=btn_save';
           $.ajax({
-            url: './php/process.php',
+            url: 'php/process.php',
             type: 'post',
-            data: {bName: bName, uComment:uComment},
+            data: data,
             success: function(response) {
               $('#mesg').text(response);
               $('#bookInput').text('');
@@ -630,6 +627,3 @@
 </body>
 
 </html>
-=======
-<?php include_once("index.html"); ?>
->>>>>>> parent of 3e1d46f... herokie test
