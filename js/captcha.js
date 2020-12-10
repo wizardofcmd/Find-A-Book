@@ -27,7 +27,8 @@ $(document).ready(function(){
                 if(result == 'true'){
                   savetodatabase();
                 }else{
-                  alert("Please Try Again");
+                  alert("error");
+                //  $('#errorModal').show();
                 }
 
 
