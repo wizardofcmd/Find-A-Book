@@ -460,16 +460,17 @@
 
 
 
-                <form id="comment_form" action="./php/captcha.php" method="post">
-                <input type="text" class="form-control text-center" id="bookInput" name="book" value="book">
-                <input type="text" name="token" id="token" />
-                <input type="text" name="action" id="action" />
+
+                <input type="text" class="form-control text-center" id="bookInput" name="boo" value="book">
+                <input type="hidden" name="token" id="token" />
+                <input type="hidden" name="action" id="action" />
                 <label class="pt-3" for="reviewInput">Enter your review</label>
                 <textarea class="form-control text-center" id="reviewInput" name="review" rows="3"></textarea>
                 <button type="submit" value="submit" id="btn_save" name="submit" class="btn btn-primary btn-lg"
                  class="g-recaptcha g-recaptcha"
                  data-sitekey="6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y">Submit</button>
-                </form>
+
+
 
 
 

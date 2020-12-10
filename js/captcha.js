@@ -7,4 +7,24 @@ $(document).ready(function(){
          	    });
          	});
          	}, 3000);
+          $('#btn_save').click(function(){
+            var book = $('#bookInput').val();
+            var comment = $('#reviewInput').val();
+            var action = $('#action').val();
+            var token = $('#token').val();
+            $.ajax({
+              type:"POST",
+              url:"./php/captcha.php",
+              data:{
+                book:book,
+                comment:comment,
+                action:action,
+                token:token
+              },
+              success:function(data){
+
+                if(data == 'success')
+              }
+            });
+          })
          });

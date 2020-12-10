@@ -1,6 +1,6 @@
 <?php
 
-if ($_POST['submit']) {
+
     $book   = $_POST['book'];
     $token  = $_POST['token'];
     $action = $_POST['action'];
@@ -20,9 +20,7 @@ if ($_POST['submit']) {
     $captchaResponse = json_decode($curlResponse, true);
 
     if ($captchaResponse['success'] == '1' && $captchaResponse['action'] == $action && $captchaResponse['score'] >= 0.5 && $captchaResponse['hostname'] == $_SERVER['SERVER_NAME']) {
-        echo 'Form Submitted Successfully';
+        echo json_encode(array('success' => 'true'));
     } else {
-        echo 'You are not a human';
-        echo $captchaResponse['success'];
+        echo json_encode(array('success' => 'false'));
     }
-}
