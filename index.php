@@ -16,6 +16,7 @@
   <script src="./js/renderer.js"></script>
   <script src="./js/buttons.js"></script>
   <script src="./js/captcha.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y"></script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="./assets/img/icon.png" />
@@ -449,80 +450,55 @@
       <div class="card card-body">
 
         <div class="container" id="reviewForm">
+
           <div class="form-group text-center">
             <label for="bookInput">Book title</label>
             <div class="row">
               <div class="col-md-6 mx-auto">
-                <input type="text" class="form-control text-center" id="bookInput" name="bName">
+
+
+
+
+
+                <form id="comment_form" action="./php/captcha.php" method="post">
+                <input type="text" class="form-control text-center" id="bookInput" name="book" value="book">
+                <input type="text" name="token" id="token" />
+                <input type="text" name="action" id="action" />
+                <label class="pt-3" for="reviewInput">Enter your review</label>
+                <textarea class="form-control text-center" id="reviewInput" name="review" rows="3"></textarea>
+                <button type="submit" value="submit" id="btn_save" name="submit" class="btn btn-primary btn-lg"
+                 class="g-recaptcha g-recaptcha"
+                 data-sitekey="6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y">Submit</button>
+                </form>
+
+
+
+
               </div>
             </div>
-            <div class="form-group text-center">
-              <label class="pt-3" for="reviewInput">Enter your review</label>
-              <!-- <input type="text" class="form-control text-center" id="reviewInput" name="uComment"> -->
-              <div class="row mb-3">
+            <!--div class="form-group text-center">
                 <div class="col-md-6 mx-auto">
-                  <textarea class="form-control text-center" id="reviewInput" name="uComment" rows="3"></textarea>
                 </div>
               </div>
-            </div>
+            </div -->
             <div class="container">
 
-              <b id="mesg"></b>
-            </div>
-
-            <button type="button" value="submit" id="btn_save" name="btn_save" class="btn btn-primary btn-lg" class="g-recaptcha" data-sitekey="6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y">Submit</button>
           </div>
         </div>
 
       </div>
-       </br>
-       <!--Autocompleter-->
-              <div class="md-form active-cyan active-cyan-2 mb-3">
-                  <table width=80%>
-                    <tr>
-                      <td width='50%'><input type=text  id='t1' > </td>
-                      <td width='50%'> <div id=d1 class='msg'></div></td>
-                    <tr>
-                 </table>
-                  <br><br><br>
-              </div>
-
-          <script type="text/javascript">
-              $(document).ready(function() {
-
-              $( "#t1" ).autocomplete({
-                    source: function (request, response) {
-                       $.ajax({
-                           url: "php/search.php",
-                           type: "GET",
-                           data: request,
-                   dataType: 'json',
-                           success: function (data) {
-                               response($.map(data, function (el) {
-                                   return {
-                                       label: el.label,
-                                       value: el.value
-                                   };
-                               }));
-                           }
-                       });
-                  },
-              select:function (e, ui) {
-              e.preventDefault(); // uncomment if you want to display name in place of id
-              $("#t1").val(ui.item.label); // uncomment if you want to display name in place of id
-
-              $("#d1").load("autocomplete-record.php?id="+ui.item.value);
-              },
-              focus: function(event, ui) {
-                      event.preventDefault();
-                      $("#t1").val(ui.item.label);
-                  }
-              });
-
-              //////
-              })
+      <<<<<<< Updated upstream </br>
+        <div class="md-form active-cyan active-cyan-2 mb-3">
+          <input class="form-control" name="search" id="search" type="text" placeholder="Find A Review" aria-label="Search">
+        </div>
+        <script type="text/javascript">
+          $(function() {
+            $("#search").autocomplete({
+              source: 'php/search.php',
+            });
+          });
         </script>
-        <!--End ofAutocompleter-->
+        =======
 
 
 
