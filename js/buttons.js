@@ -13,6 +13,7 @@ function ajax($this) {
   var img_link_arr1;
   var info_link_arr;
   var isbn_arr;
+  var desc_arr;
 
   $.ajax({
     type: "POST",
@@ -61,6 +62,10 @@ function ajax($this) {
           isbn_arr += JSON.stringify(data[i].industryIdentifiers) + "||";
         }
 
+        if (data[i].description != null) {
+          desc_arr += JSON.stringify(data[i].description) + "||";
+        }
+
       }
 
       // list of arrays                                                                                                                                          Pretty terrible way of solving
@@ -71,6 +76,7 @@ function ajax($this) {
       var image_links1 = img_link_arr1.split('||');var image_links_undef1 = image_links1[0];image_links_undef1 = image_links_undef1.substring(9);image_links1[0] = image_links_undef1;
       var info_links = info_link_arr.split('||');var info_links_undef = info_links[0];info_links_undef = info_links_undef.substring(9);info_links[0] = info_links_undef;
       var isbns = isbn_arr.split('||');var isbns_undef = isbns[0];isbns_undef = isbns_undef.substring(9);isbns[0] = isbns_undef;
+      var descriptions = desc_arr.split('||'); var descriptions_undef = descriptions[0]; descriptions_undef = descriptions_undef.substring(9);descriptions[0] = descriptions_undef;
 
       var y = image_links1.map(s=>s.slice(1));
       console.log(y);
@@ -104,6 +110,7 @@ function ajax($this) {
         nodes['book_item' + i].shape = 'dot';
         nodes['book_item' + i].isbn = isbns[i];
         nodes['book_item' + i].color = '#'+arrColour[i]; //add 2 hex digits to determine opacity of colour
+        nodes['book_item' + i].desc = descriptions[i];
         edges['genre']['book_item' + i] = {};
         edges['genre']['book_item' + i].length = 1;
 

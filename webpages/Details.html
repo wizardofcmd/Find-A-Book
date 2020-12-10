@@ -1,193 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>FindABook</title>
-		<!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../css/styles.css" rel="stylesheet" />
-        <link rel="stylesheet" href=".css\bootstrap.min.css">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <meta name="description" content="" />
+      <meta name="author" content="" />
+      <title>FindABook</title>
+      <!-- Core theme CSS (includes Bootstrap)-->
+      <link href="../css/styles.css" rel="stylesheet" />
+>
+      <!-- Favicon -->
+      <link rel="icon" type="image/x-icon" href="../assets/img/icon.png" />
+      <!-- Font Awesome icons (free version)-->
+      <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <!--ReCaptcha-->
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+      <script src="../js/details.js"></script>
 
-		<!-- Arbor.js ss -->
-		<script src="./js/jquery-1.6.1.min.js"></script>
-		<script src="./js/arbor.js"></script>
-		<script src="./js/graphics.js"></script>
-		<script src="./js/renderer.js"></script>
-		<script src="./js/buttons.js"></script>
-		<script src="./js/captcha.js"></script>
-
-		<!-- BootStrap -->
-
-        <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico" />
-
-
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-		<!--ReCaptcha-->
-		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-
-		<!--Randomiser-->
-
-		<script src="./js/randomiser.js"></script>
+      <!-- Google fonts-->
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+      <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
 
 
-	</head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">FindABook</a>
-                <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-				</button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#books">Choice</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#review">Review</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-        <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="./assets/img/portfolio/fabi.png" alt="" />
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">FindABook</h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-				</div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">When you're all curled up with nothing to read!</p>
+   </head>
+   <body id="page-top">
+      <!-- Navigation-->
+      <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+         <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">FindABook</a>
+            <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#books">Choice</a></li>
+                  <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#review">Review</a></li>
+               </ul>
             </div>
-
-
-        </header>
-
-
-
-
-        <section class="features" id="features">
-            <div class="container">
-              <div class="section-heading text-center">
-                   <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-				</div>
-                <h2>Try href this part so that it shows the TITTLE of the book</h2>
-                <p class="text-muted">Description of book.Description of book.Description of book.Description of book.</p>
-                <hr>
-              </div>
-              <div class="row">
-
-                <div class="col-lg-4 my-auto">
-                <div class="container-fluid">
-               <img src="./assets/img/portfolio/circus.png" class="img-thumbnail" alt="Cinque Terre" width="504" height="736">
-                </div>
-                </div>
-
-                <div class="col-lg-8 my-auto">
+         </div>
+      </nav>
+      <!-- Masthead-->
+      <header class="masthead bg-primary text-white text-center">
+         <div class="container d-flex align-items-center flex-column">
+            <!-- Masthead Avatar Image-->
+            <img class="masthead-avatar mb-5" src="../assets/img/home_icon.png" alt="" />
+            <!-- Masthead Heading-->
+            <h1 class="masthead-heading text-uppercase mb-0">FindABook</h1>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+               <div class="divider-custom-line"></div>
+               <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+               <div class="divider-custom-line"></div>
+            </div>
+            <!-- Masthead Subheading-->
+            <p class="masthead-subheading font-weight-light mb-0">When you're all curled up with nothing to read!</p>
+         </div>
+      </header>
+      <section class="features" id="features">
+         <div class="container">
+            <div class="section-heading text-center">
+               <!-- Icon Divider-->
+               <div class="divider-custom divider-light">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                  <div class="divider-custom-line"></div>
+               </div>
+               <h2 id="h_label">Try href this part so that it shows the TITTLE of the book</h2>
+               <p class="text-muted" id="h_desc">Description of book.Description of book.Description of book.Description of book.</p>
+               <hr>
+            </div>
+            <div class="row">
+               <div class="col-lg-4 my-auto">
                   <div class="container-fluid">
-                    <div class="row">
-                      <div class="col-lg-6">
-                        <div class="feature-item">
-                          <i class="fas fa-star"></i>
-                          <h3>Author</h3>
-                          <p class="text-muted">Ready to use HTML/CSS device mockups, no Photoshop required!</p>
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="feature-item">
-                          <i class="fas fa-star"></i>
-                          <h3>Genre</h3>
-                          <p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-6">
-                        <div class="feature-item">
-                          <i class="fas fa-star"></i>
-                          <h3>Category</h3>
-                          <p class="text-muted">As always, this theme is free to download and use for any purpose!</p>
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="feature-item">
-                          <i class="fas fa-star"></i>
-                          <h3>ISBN</h3>
-                          <p class="text-muted">Since this theme is MIT licensed, you can use it commercially!</p>
-                        </div>
-                      </div>
-                    </div>
+                     <img id='h_image' src="" class="img-thumbnail" alt="Cinque Terre" width="504" height="736">
                   </div>
-                </div>
-              </div>
+               </div>
+               <div class="col-lg-8 my-auto">
+                  <div class="container-fluid">
+                     <div class="row">
+                        <div class="col-lg-6">
+                           <div class="feature-item">
+                              <i class="fas fa-star"></i>
+                              <h3 id="h_author">Author</h3>
+                              <p class="text-muted">Ready to use HTML/CSS device mockups, no Photoshop required!</p>
+                           </div>
+                        </div>
+                        <div class="col-lg-6">
+                           <div class="feature-item">
+                              <i class="fas fa-star"></i>
+                              <h3 id="h_genre">Genre</h3>
+                              <p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-lg-6">
+                           <div class="feature-item">
+                              <i class="fas fa-star"></i>
+                              <h3 id="h_category">Category</h3>
+                              <p class="text-muted">As always, this theme is free to download and use for any purpose!</p>
+                           </div>
+                        </div>
+                        <div class="col-lg-6">
+                           <div class="feature-item">
+                              <i class="fas fa-star"></i>
+                              <h3 id="h_isbn">ISBN</h3>
+                              <p class="text-muted">Since this theme is MIT licensed, you can use it commercially!</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-          </section>
-
-
-
-
-
-
-
-
-
-        <!-- Footer-->
-	<footer class="footer text-center">
-		<div class="container">
-			<div class="row">
-				<!-- Footer Location-->
-				<div class="col-lg-4 mb-5 mb-lg-0">
-					<h4 class="text-uppercase mb-4">Location:</h4>
-					<p class="lead mb-0">
-						Within our respective homes
-						<br />
-						because of the 'rona
-					</p>
-				</div>
-				<!-- Footer Social Icons-->
-				<div class="col-lg-4 mb-5 mb-lg-0">
-					<h4 class="text-uppercase mb-4">Around the Web</h4>
-					<a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-					<a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
-					<a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-					<a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
-				</div>
-				<!-- Footer About Text-->
-				<div class="col-lg-4">
-					<h4 class="text-uppercase mb-4">About Us</h4>
-					<p class="lead mb-0">
-						Team Kale's attempt Project, Coder can be found here:
-						<a href="https://github.com/wizardofcmd/Find-A-Book">Our Github</a>
-					</p>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- Copyright Section-->
-	<div class="copyright py-4 text-center text-white">
-		<div class="container"><small>Beast of a project</small></div>
-	</div>
-	<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
-	<div class="scroll-to-top d-lg-none position-fixed">
-		<a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a>
-	</div>
+         </div>
+      </section>
+      <!-- Footer-->
+      <footer class="footer text-center">
+         <div class="container">
+            <div class="row">
+               <!-- Footer About Text-->
+               <div class="col-lg-4"></div>
+               <div class="col-lg-4">
+                  <h4 class="text-uppercase mb-4">About Us</h4>
+                  <p class="lead mb-0">
+                     Kale — Team Project
+                  </p>
+                  <p class="lead">
+                     Code can be found below on GitHub.
+                  </p>
+                  <a class="btn btn-outline-light btn-social mx-1" href="https://github.com/wizardofcmd/Find-A-Book"><i class="fab fa-fw fa-lg fa-github"></i></a>
+               </div>
+               <div class="col-lg-4"></div>
+            </div>
+         </div>
+      </footer>
+      <!-- Copyright Section-->
+      <div class="copyright py-4 text-center text-white">
+         <div class="container"><small>Beast of a project</small></div>
+      </div>
+      <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+      <div class="scroll-to-top d-lg-none position-fixed">
+         <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a>
+      </div>
 </html>

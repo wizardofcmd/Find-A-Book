@@ -1,6 +1,5 @@
 (function() {
 
-  // Initializing variables for node data
 
   Renderer = function(canvas) {
     var canvas = $(canvas).get(0)
@@ -178,7 +177,30 @@
               dragged.node.tempMass = 50
               var id = dragged.node.data.label;
 							var color = dragged.node.data.color;
-              alert (id+" "+color);
+
+
+              if(dragged.node.data.author != null){
+            var  r_author = dragged.node.data.author;
+              }
+              if(dragged.node.data.category != null){
+            var  r_category = dragged.node.data.category;
+              }
+              if(dragged.node.data.desc != null){
+            var  r_description = dragged.node.data.desc;
+            }
+            if(dragged.node.data.imageL != null){
+            var  r_image = dragged.node.data.imageL;
+            }
+            if(dragged.node.data.label != null){
+            var  r_label = dragged.node.data.label;
+            }
+            //alert("<<<<<<<<AUTHOR:"+r_author+"<<<<<<<<CATEGORY:"+r_category+"<<<<<<<<DESCRIPTION:"+r_description+"<<<<<<<<THUMBNAIL_LARGE:"+r_image+"<<<<<<<<TITLE:"+r_label);
+            if(confirm("Would you like to view '" + r_label+"' ?")){
+              jsarray = [r_label,r_author,r_category,r_description,r_image];
+              sessionStorage.setItem("jsarray",JSON.stringify(jsarray));
+              console.log(jsarray);
+              window.location.href = "./webpages/Details.html";
+            }
               dragged = null
               selected = null
               $(canvas).unbind('mousemove', handler.dragged)
