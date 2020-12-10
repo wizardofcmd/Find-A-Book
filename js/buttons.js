@@ -72,9 +72,7 @@ function ajax($this) {
       var info_links = info_link_arr.split('||');var info_links_undef = info_links[0];info_links_undef = info_links_undef.substring(9);info_links[0] = info_links_undef;
       var isbns = isbn_arr.split('||');var isbns_undef = isbns[0];isbns_undef = isbns_undef.substring(9);isbns[0] = isbns_undef;
 
-      var y = image_links1.map(s=>s.slice(1));
-      console.log(y);
-      console.log(image_links);
+
 
       var arrColour = [];
       // Populate a variable with the book items
@@ -100,7 +98,7 @@ function ajax($this) {
         nodes['book_item' + i].author = authors[i];
         nodes['book_item' + i].category = categories[i];
         nodes['book_item' + i].imageL = image_links[i];
-        nodes['book_item' + i].imageS = y[i];
+        nodes['book_item' + i].imageS = image_links1[i];
         nodes['book_item' + i].shape = 'dot';
         nodes['book_item' + i].isbn = isbns[i];
         nodes['book_item' + i].color = '#'+arrColour[i]; //add 2 hex digits to determine opacity of colour
@@ -134,7 +132,7 @@ function loadcanvas(id) {
   canvas.id = "viewport";
   canvas.width = "1108";
   canvas.height = "688";
-  canvas.class = "model-content"
+  canvas.class = "row";
   div.appendChild(canvas);
 }
 // Still don't know how to refresh so instead, delete the canvas
