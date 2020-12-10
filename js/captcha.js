@@ -24,13 +24,11 @@ $(document).ready(function(){
               },
               success:function(data){
                 var result = data['success'];
-                console.log(result);
                 if(result == 'true'){
                   savetodatabase();
                 }else{
-                  $('#errorModal').toggle();
-                  $('#errorModal').show();
-
+                  alert("error");
+                //  $('#errorModal').show();
                 }
 
 
