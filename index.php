@@ -9,9 +9,8 @@
   <title>FindABook</title>
   <!-- Core theme CSS (includes Bootstrap)-->
   <link href="./css/styles.css" rel="stylesheet" />
-  <link href="./css/modal.css" rel="stylesheet"/>
-
   <!-- Arbor.js ss -->
+<<<<<<< HEAD
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js" integrity="sha512-7yA/d79yIhHPvcrSiB8S/7TyX0OxlccU8F/kuB8mHYjLlF1MInPbEohpoqfz0AILoq5hoD7lELZAYYHbyeEjag==" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
@@ -19,13 +18,14 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+=======
+>>>>>>> parent of b946866... not yet broken
   <script src="./js/jquery-1.6.1.min.js"></script>
   <script src="./js/arbor.js"></script>
   <script src="./js/graphics.js"></script>
   <script src="./js/renderer.js"></script>
   <script src="./js/buttons.js"></script>
   <script src="./js/captcha.js"></script>
-  <script src="./js/scripts.js"></script>
   <script src="https://www.google.com/recaptcha/api.js?render=6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y"></script>
 
   <!-- Favicon -->
@@ -47,6 +47,7 @@
   <!--Randomiser-->
   <script src="./js/randomiser.js"></script>
 </head>
+
 <body id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
@@ -460,13 +461,34 @@
             <label for="bookInput">Book title</label>
             <div class="row">
               <div class="col-md-6 mx-auto">
+<<<<<<< HEAD
                 <input type="text" class="form-control text-center" id="bookInput" name="boo" value="book"/>
+=======
+
+
+
+
+
+
+                <input type="text" class="form-control text-center" id="bookInput" name="boo" value="book">
+>>>>>>> parent of b946866... not yet broken
                 <input type="hidden" name="token" id="token" />
                 <input type="hidden" name="action" id="action" />
                 <label class="pt-3" for="reviewInput">Enter your review</label>
                 <textarea class="form-control text-center" id="reviewInput" name="review" rows="3"></textarea>
+<<<<<<< HEAD
                 <button type="submit" value="submit" id="btn_save" name="submit" class="btn btn-primary btn-lg g-recaptcha g-recaptcha" data-sitekey="6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y">
                  Submit</button>
+=======
+                <button type="submit" value="submit" id="btn_save" name="submit" class="btn btn-primary btn-lg"
+                 class="g-recaptcha g-recaptcha"
+                 data-sitekey="6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y">Submit</button>
+
+
+
+
+
+>>>>>>> parent of b946866... not yet broken
 
               </div>
             </div>
@@ -496,7 +518,6 @@
 </div>
 </div>
   </section>
-
   <!-- Reviews Section End Here -->
   <!-- Footer-->
   <footer class="footer text-center">
@@ -514,12 +535,15 @@
           </p>
           <a class="btn btn-outline-light btn-social mx-1" href="https://github.com/wizardofcmd/Find-A-Book"><i class="fab fa-fw fa-lg fa-github"></i></a>
         </div>
+<<<<<<< HEAD
         <div class="text-center">
       	<!-- Button HTML (to Trigger Modal) -->
 
       </div>
         <!-- Modal HTML -->
 
+=======
+>>>>>>> parent of b946866... not yet broken
         <div class="col-lg-4"></div>
       </div>
     </div>
@@ -570,6 +594,7 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
   <!-- Modal HTML -->
 <div id="errorModal" class="modal fade">
 	<div class="modal-dialog modal-confirm">
@@ -588,6 +613,8 @@
 		</div>
 	</div>
 </div>
+=======
+>>>>>>> parent of b946866... not yet broken
   <!-- Portfolio Modal 2 FEELING LUCKY BUTTON -->
   <div class="portfolio-modal modal fade" id="portfolioModal2" data-target="#myModal" data-toggle="modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
@@ -624,8 +651,7 @@
       </div>
     </div>
   </div>
-
-   <!-- Bootstrap core JS-->
+  <div id=result <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- jQuery UI -->
@@ -635,7 +661,26 @@
     <!-- Third party plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- Core theme JS-->
-
+    <script src="./js/scripts.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#btn_save').click(function() {
+          var data = $('#user_form').serialize() + '&btn_save=btn_save';
+          var bName = $('#bookInput').val();
+          var uComment = $('#reviewInput').val();
+          $.ajax({
+            url: 'php/process.php',
+            type: 'post',
+            data: {bName:bName,uComment:uComment},
+            success: function(response) {
+              //$('#mesg').text(response);
+              $('#bookInput').val('');
+              $('#reviewInput').val('');
+            }
+          });
+        });
+      });
+    </script>
 
 </body>
 
