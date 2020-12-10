@@ -62,7 +62,7 @@
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#books">Choice</a></li>
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#review">Review</a></li>
           <form class="form-inline mr-auto">
-            <input class="form-control" type="text" placeholder="Search" aria-label="Search"/>
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search"></input>
             <button class="btn btn-mdb-color btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search</button>
           </form>
         </ul>
@@ -430,7 +430,7 @@
         <section id="nonficShowLess">
           <div class="row justify-content-center">
             <div class="col-sm-6 col-sm-4 mb-5">
-
+              <h3 class="page-section-heading text-center text-uppercase text-secondary mb-0"></h3>
               <div class="portfolio-item mx-auto">
                 <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" id="showLess2">
                   <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-angle-double-right"></i></div>
@@ -469,7 +469,9 @@
                 <input type="hidden" name="action" id="action" />
                 <label class="pt-3" for="reviewInput">Enter your review</label>
                 <textarea class="form-control text-center" id="reviewInput" name="review" rows="3"></textarea>
-                <button type="submit" value="submit" id="btn_save" name="submit" class="btn btn-primary btn-lg g-recaptcha g-recaptcha" data-sitekey="6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y">
+                <button type="submit" value="submit" id="btn_save" name="submit" class="btn btn-primary btn-lg"
+                 class="g-recaptcha g-recaptcha"
+                 data-sitekey="6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y">
                  Submit</button>
 
               </div>
@@ -487,7 +489,7 @@
         <div class="md-form active-cyan active-cyan-2 mb-3">
           <input class="form-control" name="search" id="search" type="text" placeholder="Find A Review" aria-label="Search"/>
         </div>
-        <script>
+        <script type="text/javascript">
           $(function() {
             $("#search").autocomplete({
               source: 'php/search.php',
@@ -604,7 +606,7 @@
             <div class="row justify-content-center">
               <div class="divider-custom">
                 <div class="divider-custom-line"></div>
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Labela">What we can offer</h2>
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">What we can offer</h2>
                 <div class="divider-custom-line"></div>
               </div>
               <div id="canvasDiv1"></div>
