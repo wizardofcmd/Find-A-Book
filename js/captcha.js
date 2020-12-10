@@ -15,6 +15,7 @@ $(document).ready(function(){
             $.ajax({
               type:"POST",
               url:"./php/captcha.php",
+              dataType:"json",
               data:{
                 book:book,
                 comment:comment,
@@ -22,9 +23,35 @@ $(document).ready(function(){
                 token:token
               },
               success:function(data){
+                var result = data['success'];
+                if(result == 'true'){
+                  savetodatabase();
+                }else{
+                  alert("Please Try Again");
+                }
 
-                if(data == 'success')
+
               }
             });
           })
+
+
+          function savetodatabase(){
+            var data = $('#user_form').serialize() + '&btn_save=btn_save';
+            var bName = $('#bookInput').val();
+            var uComment = $('#reviewInput').val();
+            $.ajax({
+              url: 'php/process.php',
+              type: 'post',
+              data: {bName:bName,uComment:uComment},
+              success: function(response) {
+                //$('#mesg').text(response);
+                $('#bookInput').val('');
+                $('#reviewInput').val('');
+              }
+            });
+          }
+
+
+
          });
