@@ -2,7 +2,10 @@ function ajax($this) {
   var book_data = $this.attr('name');
   console.log(book_data);
   var sys = arbor.ParticleSystem(10, 400, 1);
-  sys.parameters({gravity: false,repulsion:150});
+  sys.parameters({
+    gravity: false,
+    repulsion: 150
+  });
   sys.renderer = Renderer("#viewport");
 
   var items;
@@ -23,35 +26,55 @@ function ajax($this) {
       bookdata: book_data
     },
     success: function(data) {
-       // Declare variables with nested childs, ready to be grafted
+      // Declare variables with nested childs, ready to be grafted
+var data = data;
 
-      for (var i = 0; i <= 10; i++) {
-        //console.log("testtt");
-        sys.prune(function(node, from, to) {
-          return true;
-        });
 
-      }
       //console.log("aaaa");
       for (var i = 0; i < data.length; i++) { // for # of books retrieved, create long string of all titles/authors/categories/etc.
         if (data[i].title != null) {
           title_arr += data[i].title + "||";
+        } else {
+          title_arr += "No Title Given" + "||";
         }
         //gets data from json for every variable
 
         if (data[i].authors != null) {
           // have to stringify because its an object
           auth_arr += JSON.stringify(data[i].authors) + "||";
+        } else {
+          auth_arr += "No Author Given" + "||";
         }
+
 
         if (data[i].categories != null) {
           categ_arr += JSON.stringify(data[i].categories) + "||";
+        } else {
+        categ_arr += "Undefined Category"
         }
 
-        if (data[i].imageLinks != null) {
-          img_link_arr += JSON.stringify(data[i].imageLinks.thumbnail) + "||";
-          img_link_arr1 += JSON.stringify(data[i].imageLinks.smallThumbnail) + "||";
+
+
+
+if (data[i].imageLinks) {
+if(data[i].imageLinks['thumbnail']){
+  img_link_arr += JSON.stringify(data[i].imageLinks.thumbnail) + "||";
+        } else {
+          img_link_arr += "../assets/img/icon.png" + "||";
         }
+      } else {
+        img_link_arr += "../assets/img/icon.png" + "||";
+}
+        if (data[i].imageLinks) {
+        if(data[i].imageLinks['smallThumbnail']){
+          img_link_arr1 += JSON.stringify(data[i].imageLinks.smallThumbnail) + "||";
+                } else {
+                  img_link_arr1 += "../assets/img/icon.png" + "||";
+                }
+              } else {
+                img_link_arr1 += "../assets/img/icon.png" + "||";
+}
+
 
 
         if (data[i].infoLink != null) {
@@ -64,21 +87,47 @@ function ajax($this) {
 
         if (data[i].description != null) {
           desc_arr += JSON.stringify(data[i].description) + "||";
+        } else {
+          desc_arr += "No description" + "||";
         }
 
       }
 
       // list of arrays                                                                                                                                          Pretty terrible way of solving
-      var titles = title_arr.split('||');var titles_undef = titles[0]; /* to remove 'undefined' as part of string*/titles_undef = titles_undef.substring(9); /* removes 9 characters from the start: u n d e f i n e d*/titles[0] = titles_undef; /* replaces first index*/
-      var authors = auth_arr.split('||'); /* split long string into array elements*/var authors_undef = authors[0];authors_undef = authors_undef.substring(9);authors[0] = authors_undef;
-      var categories = categ_arr.split('||');var categories_undef = categories[0];categories_undef = categories_undef.substring(9);categories[0] = categories_undef;
-      var image_links = img_link_arr.split('||');var image_links_undef = image_links[0];image_links_undef = image_links_undef.substring(9);image_links[0] = image_links_undef;
-      var image_links1 = img_link_arr1.split('||');var image_links_undef1 = image_links1[0];image_links_undef1 = image_links_undef1.substring(9);image_links1[0] = image_links_undef1;
-      var info_links = info_link_arr.split('||');var info_links_undef = info_links[0];info_links_undef = info_links_undef.substring(9);info_links[0] = info_links_undef;
-      var isbns = isbn_arr.split('||');var isbns_undef = isbns[0];isbns_undef = isbns_undef.substring(9);isbns[0] = isbns_undef;
-      var descriptions = desc_arr.split('||'); var descriptions_undef = descriptions[0]; descriptions_undef = descriptions_undef.substring(9);descriptions[0] = descriptions_undef;
+      var titles = title_arr.split('||');
+      var titles_undef = titles[0]; /* to remove 'undefined' as part of string*/
+      titles_undef = titles_undef.substring(9); /* removes 9 characters from the start: u n d e f i n e d*/
+      titles[0] = titles_undef; /* replaces first index*/
+      var authors = auth_arr.split('||'); /* split long string into array elements*/
+      var authors_undef = authors[0];
+      authors_undef = authors_undef.substring(9);
+      authors[0] = authors_undef;
+      var categories = categ_arr.split('||');
+      var categories_undef = categories[0];
+      categories_undef = categories_undef.substring(9);
+      categories[0] = categories_undef;
+      var image_links = img_link_arr.split('||');
+      var image_links_undef = image_links[0];
+      image_links_undef = image_links_undef.substring(9);
+      image_links[0] = image_links_undef;
+      var image_links1 = img_link_arr1.split('||');
+      var image_links_undef1 = image_links1[0];
+      image_links_undef1 = image_links_undef1.substring(9);
+      image_links1[0] = image_links_undef1;
+      var info_links = info_link_arr.split('||');
+      var info_links_undef = info_links[0];
+      info_links_undef = info_links_undef.substring(9);
+      info_links[0] = info_links_undef;
+      var isbns = isbn_arr.split('||');
+      var isbns_undef = isbns[0];
+      isbns_undef = isbns_undef.substring(9);
+      isbns[0] = isbns_undef;
+      var descriptions = desc_arr.split('||');
+      var descriptions_undef = descriptions[0];
+      descriptions_undef = descriptions_undef.substring(9);
+      descriptions[0] = descriptions_undef;
 
-      var y = image_links1.map(s=>s.slice(1));
+      var y = image_links1.map(s => s.slice(1));
       console.log(y);
       console.log(image_links);
 
@@ -88,15 +137,27 @@ function ajax($this) {
       var randomColor;
 
       // Script to geneterate random colours
-      for (var i=0; i<= data.length-1; i++){
+      for (var i = 0; i <= data.length - 1; i++) {
         randomColor = (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
         arrColour.push(randomColor);
       }
       //console.log(arrColour);
 
-      var b_data = {nodes: {},edges:{genre:{}}};
-      var genre = {genre: {label: book_data,color: 'orange'}};
-      var edges = {genre : {}};
+      var b_data = {
+        nodes: {},
+        edges: {
+          genre: {}
+        }
+      };
+      var genre = {
+        genre: {
+          label: book_data,
+          color: 'orange'
+        }
+      };
+      var edges = {
+        genre: {}
+      };
 
       console.log(edges);
       for (var i = 0; i < data.length - 1; i++) {
@@ -109,7 +170,7 @@ function ajax($this) {
         nodes['book_item' + i].imageS = y[i];
         nodes['book_item' + i].shape = 'dot';
         nodes['book_item' + i].isbn = isbns[i];
-        nodes['book_item' + i].color = '#'+arrColour[i]; //add 2 hex digits to determine opacity of colour
+        nodes['book_item' + i].color = '#' + arrColour[i]; //add 2 hex digits to determine opacity of colour
         nodes['book_item' + i].desc = descriptions[i];
         edges['genre']['book_item' + i] = {};
         edges['genre']['book_item' + i].length = 1;
@@ -120,7 +181,7 @@ function ajax($this) {
       Object.assign(b_data.edges, edges);
       Object.assign(b_data.nodes, genre); // assign genre last so its on top of all the nodes
 
-       // Insert data from nodes into b_data.nodes
+      // Insert data from nodes into b_data.nodes
 
       sys.graft(b_data); // Draw b_data and its data into canvas
       //sys.addNode("home", {shape:'dot',label:"请输入30位追溯码", alpha:'1', color: colors[0], expanded: true});
