@@ -27,19 +27,19 @@ function ajax($this) {
     },
     success: function(data) {
       // Declare variables with nested childs, ready to be grafted
-var data = data;
+      var data = data;
 
 
       //console.log("aaaa");
       for (var i = 0; i < data.length; i++) { // for # of books retrieved, create long string of all titles/authors/categories/etc.
-        if (data[i].title != null) {
+        if (data[i].title) {
           title_arr += data[i].title + "||";
         } else {
           title_arr += "No Title Given" + "||";
         }
         //gets data from json for every variable
 
-        if (data[i].authors != null) {
+        if (data[i].authors) {
           // have to stringify because its an object
           auth_arr += JSON.stringify(data[i].authors) + "||";
         } else {
@@ -47,45 +47,52 @@ var data = data;
         }
 
 
-        if (data[i].categories != null) {
+        if (data[i].categories) {
           categ_arr += JSON.stringify(data[i].categories) + "||";
         } else {
-        categ_arr += "Undefined Category"
+          categ_arr += "Undefined Category"
         }
 
 
 
-
-if (data[i].imageLinks) {
-if(data[i].imageLinks['thumbnail']){
-  img_link_arr += JSON.stringify(data[i].imageLinks.thumbnail) + "||";
+//large
+        if (data[i].imageLinks) {
+          if (data[i].imageLinks['thumbnail']) {
+            img_link_arr += JSON.stringify(data[i].imageLinks.thumbnail) + "||";
+          } else {
+            img_link_arr += "../assets/img/icon.png" + "||";
+          }
         } else {
           img_link_arr += "../assets/img/icon.png" + "||";
         }
-      } else {
-        img_link_arr += "../assets/img/icon.png" + "||";
-}
+//small
         if (data[i].imageLinks) {
-        if(data[i].imageLinks['smallThumbnail']){
-          img_link_arr1 += JSON.stringify(data[i].imageLinks.smallThumbnail) + "||";
-                } else {
-                  img_link_arr1 += "../assets/img/icon.png" + "||";
-                }
-              } else {
-                img_link_arr1 += "../assets/img/icon.png" + "||";
-}
+          if (data[i].imageLinks['smallThumbnail']) {
+            img_link_arr1 += JSON.stringify(data[i].imageLinks.smallThumbnail) + "||";
+          } else {
+            img_link_arr1 += "♥./assets/img/icon.png" + "||";
+          }
+        } else {
+          img_link_arr1 += "♥./assets/img/icon.png" + "||";
+        }
 
 
 
-        if (data[i].infoLink != null) {
+        if (data[i].infoLink) {
           info_link_arr += data[i].infoLink + "||";
         }
 
-        if (data[i].industryIdentifiers != null) {
-          isbn_arr += JSON.stringify(data[i].industryIdentifiers) + "||";
+        if (data[i].industryIdentifiers) {
+          if(data[i].industryIdentifiers[0]['identifier']){
+          isbn_arr += JSON.stringify(data[i].industryIdentifiers[0]['identifier']) + "||";
+        } else {
+          isbn_arr += "No ISBNaaa" + "||";
         }
+      } else{
+        isbn_arr += "No ISBN" + "||";
+      }
 
-        if (data[i].description != null) {
+        if (data[i].description) {
           desc_arr += JSON.stringify(data[i].description) + "||";
         } else {
           desc_arr += "No description" + "||";
@@ -172,6 +179,7 @@ if(data[i].imageLinks['thumbnail']){
         nodes['book_item' + i].isbn = isbns[i];
         nodes['book_item' + i].color = '#' + arrColour[i]; //add 2 hex digits to determine opacity of colour
         nodes['book_item' + i].desc = descriptions[i];
+        nodes['book_item' + i].info = info_links[i];
         edges['genre']['book_item' + i] = {};
         edges['genre']['book_item' + i].length = 1;
 
