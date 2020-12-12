@@ -146,7 +146,7 @@ function ajax($this) {
       ratings[0] = ratings_undef;
 
 
-
+      // remove characters that interfere with the link
       var y = image_links1.map(s => s.slice(1));
       console.log(y);
       console.log(image_links);
