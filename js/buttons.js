@@ -17,6 +17,7 @@ function ajax($this) {
   var info_link_arr;
   var isbn_arr;
   var desc_arr;
+  var mature_arr;
 
   $.ajax({
     type: "POST",
@@ -27,7 +28,7 @@ function ajax($this) {
     },
     success: function(data) {
       // Declare variables with nested childs, ready to be grafted
-      var data = data;
+
 
 
       //console.log("aaaa");
@@ -98,6 +99,12 @@ function ajax($this) {
           desc_arr += "No description" + "||";
         }
 
+        if(data[i].maturityRating){
+          mature_arr += JSON.stringify(data[i].maturityRating) +"||";
+        } else {
+          mature_arr += "Unknown Rating" + "||";
+        }
+
       }
 
       // list of arrays                                                                                                                                          Pretty terrible way of solving
@@ -133,6 +140,12 @@ function ajax($this) {
       var descriptions_undef = descriptions[0];
       descriptions_undef = descriptions_undef.substring(9);
       descriptions[0] = descriptions_undef;
+      var ratings = mature_arr.split('||');
+      var ratings_undef = ratings[0];
+      ratings_undef = ratings_undef.substring(9);
+      ratings[0] = ratings_undef;
+
+
 
       var y = image_links1.map(s => s.slice(1));
       console.log(y);
@@ -180,6 +193,7 @@ function ajax($this) {
         nodes['book_item' + i].color = '#' + arrColour[i]; //add 2 hex digits to determine opacity of colour
         nodes['book_item' + i].desc = descriptions[i];
         nodes['book_item' + i].info = info_links[i];
+        nodes['book_item' + i].rating = ratings[i];
         edges['genre']['book_item' + i] = {};
         edges['genre']['book_item' + i].length = 1;
 

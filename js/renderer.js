@@ -48,11 +48,11 @@
           if (node.data.color == 'none') ctx.fillStyle = "white"
 
           if (node.data.shape == 'dot' || node.data.imageS) {
-            	var image = new Image();
-              if(node.data.imageS){
+            var image = new Image();
+            if (node.data.imageS) {
               image.src = node.data.imageS;
             }
-            ctx.drawImage(image, pt.x - w/4  , pt.y - w/2, image.width * 0.7, image.height * 0.7 );
+            ctx.drawImage(image, pt.x - w / 4, pt.y - w / 2, image.width * 0.7, image.height * 0.7);
             nodeBoxes[node.name] = [pt.x - w / 2, pt.y - w / 2, w, w]
           } else {
             gfx.rect(pt.x - w / 2, pt.y - 10, w, 20, 4, {
@@ -67,7 +67,7 @@
             ctx.textAlign = "center"
             ctx.fillStyle = "black"
             if (node.data.color == 'none') ctx.fillStyle = '#333333'
-            ctx.fillText(label || "", pt.x, pt.y+5)
+            ctx.fillText(label || "", pt.x, pt.y + 5)
 
 
           }
@@ -76,16 +76,16 @@
             ctx.textAlign = "center"
             ctx.fillStyle = "white"
             if (node.data.color == 'none') ctx.fillStyle = '#333333'
-            ctx.fillText(label || "", pt.x+1, pt.y+4)
+            ctx.fillText(label || "", pt.x + 1, pt.y + 4)
 
 
           }
-					// Draw the image
-					var image = new Image();
+          // Draw the image
+          var image = new Image();
           if (node.data.shape == 'dot') {
-            if(node.data.imageS){
-            image.src = node.data.imageS;
-          }
+            if (node.data.imageS) {
+              image.src = node.data.imageS;
+            }
           }
 
 
@@ -176,41 +176,44 @@
               dragged.node.fixed = false
               dragged.node.tempMass = 50
               var id = dragged.node.data.label;
-							var color = dragged.node.data.color;
+              var color = dragged.node.data.color;
 
 
-              if(dragged.node.data.author){
-            var  r_author = dragged.node.data.author;
+              if (dragged.node.data.author) {
+                var r_author = dragged.node.data.author;
               }
-              if(dragged.node.data.category){
-            var  r_category = dragged.node.data.category;
+              if (dragged.node.data.category) {
+                var r_category = dragged.node.data.category;
               }
-              if(dragged.node.data.desc){
-            var  r_description = dragged.node.data.desc;
-            }
-            if(dragged.node.data.imageL){
-            var  r_image = dragged.node.data.imageL;
-            }
-            if(dragged.node.data.label){
-            var  r_label = dragged.node.data.label;
-            }
-            if(dragged.node.data.info){
-            var r_info = dragged.node.data.info;
-            }
-            if(dragged.node.data.isbn){
-            var r_isbn = dragged.node.data.isbn;
-            }
-            //alert("<<<<<<<<AUTHOR:"+r_author+"<<<<<<<<CATEGORY:"+r_category+"<<<<<<<<DESCRIPTION:"+r_description+"<<<<<<<<THUMBNAIL_LARGE:"+r_image+"<<<<<<<<TITLE:"+r_label);
+              if (dragged.node.data.desc) {
+                var r_description = dragged.node.data.desc;
+              }
+              if (dragged.node.data.imageL) {
+                var r_image = dragged.node.data.imageL;
+              }
+              if (dragged.node.data.label) {
+                var r_label = dragged.node.data.label;
+              }
+              if (dragged.node.data.info) {
+                var r_info = dragged.node.data.info;
+              }
+              if (dragged.node.data.isbn) {
+                var r_isbn = dragged.node.data.isbn;
+              }
+              if(dragged.node.data.rating){
+                var r_rating = dragged.node.data.rating;
+              }
+              //alert("<<<<<<<<AUTHOR:"+r_author+"<<<<<<<<CATEGORY:"+r_category+"<<<<<<<<DESCRIPTION:"+r_description+"<<<<<<<<THUMBNAIL_LARGE:"+r_image+"<<<<<<<<TITLE:"+r_label);
 
-            // stops the genre button from being clicked
-            if(dragged.node.data.color != "orange"){
-            if(confirm("Would you like to view '" + r_label+"' ?")){
-              jsarray = [r_label,r_description,r_author,r_category,r_image,r_info,r_isbn];
-              sessionStorage.setItem("jsarray",JSON.stringify(jsarray));
-              console.log(jsarray);
-              window.location.href = "./webpages/Details.html";
-            }
-          }
+              // stops the genre button from being clicked
+              if (dragged.node.data.color != "orange") {
+                if (confirm("Would you like to view '" + r_label + "' ?")) {
+                  jsarray = [r_label, r_description, r_author, r_category, r_image, r_info, r_isbn, r_rating];
+                  sessionStorage.setItem("jsarray", JSON.stringify(jsarray));
+                  console.log(jsarray);
+                  window.location.href = "./webpages/Details.html";
+                }
+              }
               dragged = null
               selected = null
               $(canvas).unbind('mousemove', handler.dragged)
