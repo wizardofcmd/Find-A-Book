@@ -2,16 +2,16 @@
 /*header('Set-Cookie: cross-site-cookie=name; SameSite=None; Secure');
 session_start();
 error_reporting(0);// With this no error reporting will be there*/
-require_once("../api/config/database.php");
-function get_book($conn , $term){
+require_once("config.php");
+function get_book($mysqli , $term){
  $query = "SELECT * FROM usersreviews WHERE book LIKE '%".$term."%' ORDER BY book ASC";
- $result = mysqli_query($conn, $query);
+ $result = mysqli_query($mysqli, $query);
  $data = mysqli_fetch_all($result,MYSQLI_ASSOC);
  return $data;
 }
 
 if (isset($_GET['term'])) {
- $getBook = get_book($conn, $_GET['term']);
+ $getBook = get_book($mysqli, $_GET['term']);
  $bookList = array();
  foreach($getBook as $book){
  $bookList[] = $book['book'];
