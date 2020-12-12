@@ -454,7 +454,7 @@
                      <label for="bookInput">Book title</label>
                      <div class="row">
                         <div class="col-md-6 mx-auto">
-                           <input type="text" class="form-control text-center" id="bookInput" name="boo" value="book">
+                           <input type="text" class="form-control text-center" id="bookInput" name="boo" >
                            <input type="hidden" name="token" id="token" />
                            <input type="hidden" name="action" id="action" />
                            <label class="pt-3" for="reviewInput">Enter your review</label>
