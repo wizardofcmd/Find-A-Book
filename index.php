@@ -47,6 +47,8 @@
                <ul class="navbar-nav ml-auto">
                   <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#books">Choice</a></li>
                   <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#review">Review</a></li>
+                  <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" a href="../webpages/About.html">About</a></li>
+
                   <form class="form-inline mr-auto">
                      <input class="form-control" type="text" placeholder="Search" aria-label="Search">
                      <button class="btn btn-mdb-color btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search</button>
