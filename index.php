@@ -48,9 +48,18 @@
                   <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" a href="../webpages/About.html">About</a></li>
 
                   <form class="form-inline mr-auto">
-                     <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-                     <button class="btn btn-mdb-color btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search</button>
+                     <input class="form-control" type="text" id="search" placeholder="Search" aria-label="Search">
+                     <script type="text/javascript">
+                        $(function() {
+                          $("#search").autocomplete({
+                            source: 'php/search.php',
+
+                          });
+                        });
+                     </script>
+                     <button class="btn btn-light btn-rounded btn-sm my-0 ml-sm-2" id="searchBtn" type="submit">Find A Book</button>
                   </form>
+
                </ul>
             </div>
          </div>
@@ -461,16 +470,8 @@
                   </div>
                </div>
                <br/>
-               <div class="md-form active-cyan active-cyan-2 mb-3">
-                  <input class="form-control" name="search" id="search" type="text" placeholder="Find A Review" aria-label="Search">
-               </div>
-               <script type="text/javascript">
-                  $(function() {
-                    $("#search").autocomplete({
-                      source: 'php/search.php',
-                    });
-                  });
-               </script>
+
+
             </div>
          </div>
       </section>

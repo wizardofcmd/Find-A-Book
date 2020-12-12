@@ -1,7 +1,4 @@
 <?Php
-/*header('Set-Cookie: cross-site-cookie=name; SameSite=None; Secure');
-session_start();
-error_reporting(0);// With this no error reporting will be there*/
 require_once("config.php");
 function get_book($mysqli , $term){
  $query = "SELECT * FROM usersreviews WHERE book LIKE '%".$term."%' ORDER BY book ASC";
