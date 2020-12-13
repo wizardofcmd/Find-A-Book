@@ -14,11 +14,15 @@ $(document).ready(function() {
 
   var imagelink = jsarray[4].slice(1);
   var infolink = jsarray[5].slice(0);
-  infolink[0] += JSON.stringify(infolink);
+  console.log(imagelink);
+  console.log(infolink);
+
 
 
   $("#h_image").attr("src",imagelink);
-  $("#h_image").attr("href",infolink);
+  a = document.getElementById("h_image_href");
+  a.setAttribute("href",infolink);
+  //$("#h_image").attr("href",infolink+'"');
 }else{
 
 
