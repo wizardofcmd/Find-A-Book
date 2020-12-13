@@ -224,7 +224,7 @@ function loadcanvas(id) {
   canvas.id = "viewport";
   canvas.width = "1108";
   canvas.height = "688";
-  canvas.class = "model-content"
+  canvas.class = "modal-content"
   div.appendChild(canvas);
 }
 // Still don't know how to refresh so instead, delete the canvas

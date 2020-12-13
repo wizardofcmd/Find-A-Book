@@ -563,7 +563,7 @@
                         <div id="canvasDiv1"></div>
                         <div class="col-lg-8">
                            <!-- Feeling Lucky Content-->
-                           <button value="btn_ran_val" class="btn btn-info " id="btn_ran_id" onclick="absolutelyDestroyCanvas('viewport');loadcanvas('canvasDiv1');ajax($())">Shuffle</button>
+                           <button value="btn_ran_val" class="btn btn-info " id="btn_ran_id" onclick="absolutelyDestroyCanvas('viewport');loadcanvas('canvasDiv1');ajaxa($())">Shuffle</button>
                            <div class="divider-custom">
                               <div class="divider-custom-line"></div>
                               <button class="btn btn-primary" data-dismiss="modal" onclick="absolutelyDestroyCanvas('viewport')">

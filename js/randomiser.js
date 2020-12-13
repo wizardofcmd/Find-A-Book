@@ -1,4 +1,4 @@
-function ajax(){
+function ajaxa(){
 
 	var sys = arbor.ParticleSystem(10, 400, 1);
   sys.parameters({
