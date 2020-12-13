@@ -8,8 +8,13 @@ $(document).ready(function(){
          	});
          	}, 3000);
           $('#btn_save').click(function(){
-            var book = $('#bookInput').val();
-            var comment = $('#reviewInput').val();
+
+            if(($('#bookInput').val() == "")||($('#reviewInput').val() == "")){
+              alert("Please fill in all fields");
+            }else{
+              var book = $('#bookInput').val();
+              var comment = $('#reviewInput').val();
+            }
             var action = $('#action').val();
             var token = $('#token').val();
             $.ajax({

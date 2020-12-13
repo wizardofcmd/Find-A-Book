@@ -454,21 +454,14 @@
                      <label for="bookInput">Book title</label>
                      <div class="row">
                         <div class="col-md-6 mx-auto">
-                           <input type="text" class="form-control text-center" id="bookInput" name="boo" >
+                           <input type="text" class="form-control text-center" id="bookInput" maxlength="40" >
                            <input type="hidden" name="token" id="token" />
                            <input type="hidden" name="action" id="action" />
                            <label class="pt-3" for="reviewInput">Enter your review</label>
-                           <textarea class="form-control text-center mb-3" id="reviewInput" name="review" rows="3"></textarea>
+                           <textarea class="form-control text-center mb-3" id="reviewInput" name="review" rows="3" maxlength="1000"></textarea>
                            <button type="submit" value="submit" id="btn_save" name="submit" class="btn btn-primary btn-lg g-recaptcha g-recaptcha"
                               data-sitekey="6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y">Submit</button>
                         </div>
-                     </div>
-                     <!--div class="form-group text-center">
-                        <div class="col-md-6 mx-auto">
-                        </div>
-                        </div>
-                        </div -->
-                     <div class="container">
                      </div>
                   </div>
                </div>
