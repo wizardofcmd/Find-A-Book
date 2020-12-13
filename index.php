@@ -458,7 +458,7 @@
                            <input type="hidden" name="token" id="token" />
                            <input type="hidden" name="action" id="action" />
                            <label class="pt-3" for="reviewInput">Enter your review</label>
-                           <textarea class="form-control text-center" id="reviewInput" name="review" rows="3"></textarea>
+                           <textarea class="form-control text-center mb-3" id="reviewInput" name="review" rows="3"></textarea>
                            <button type="submit" value="submit" id="btn_save" name="submit" class="btn btn-primary btn-lg g-recaptcha g-recaptcha"
                               data-sitekey="6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y">Submit</button>
                         </div>
@@ -480,7 +480,7 @@
 
 
 <!--
-         
+
       <div class="alertt hide">
         <span class="fas fa-exclamation-circle"></span>
         <span class="msg">Warning: This is a warning alert!</span>
@@ -617,6 +617,6 @@ function validateForm() {
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
       <!-- Core theme JS-->
       <script src="./js/scripts.js"></script>
-    
+
    </body>
 </html>
