@@ -326,7 +326,7 @@ $(document).ready(function() {
             if (data[i].categories) {
               categ_arr += JSON.stringify(data[i].categories) + "||";
             } else {
-              categ_arr += "Undefined Category"
+              categ_arr += "Undefined Category" + "||";
             }
 
 
