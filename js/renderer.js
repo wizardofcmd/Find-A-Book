@@ -210,6 +210,7 @@
                 if (confirm("Would you like to view '" + r_label + "' ?")) {
                   jsarray = [r_label, r_description, r_author, r_category, r_image, r_info, r_isbn, r_rating];
                   sessionStorage.setItem("jsarray", JSON.stringify(jsarray));
+                  sessionStorage.setItem("ID", '1');
                   console.log(jsarray);
                   window.location.href = "./webpages/Details.html";
                 }

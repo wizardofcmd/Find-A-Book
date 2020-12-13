@@ -56,7 +56,7 @@ function ajax($this) {
 
 
 
-//large
+        //large
         if (data[i].imageLinks) {
           if (data[i].imageLinks['thumbnail']) {
             img_link_arr += JSON.stringify(data[i].imageLinks.thumbnail) + "||";
@@ -66,7 +66,7 @@ function ajax($this) {
         } else {
           img_link_arr += "../assets/img/icon.png" + "||";
         }
-//small
+        //small
         if (data[i].imageLinks) {
           if (data[i].imageLinks['smallThumbnail']) {
             img_link_arr1 += JSON.stringify(data[i].imageLinks.smallThumbnail) + "||";
@@ -84,14 +84,14 @@ function ajax($this) {
         }
 
         if (data[i].industryIdentifiers) {
-          if(data[i].industryIdentifiers[0]['identifier']){
-          isbn_arr += JSON.stringify(data[i].industryIdentifiers[0]['identifier']) + "||";
+          if (data[i].industryIdentifiers[0]['identifier']) {
+            isbn_arr += JSON.stringify(data[i].industryIdentifiers[0]['identifier']) + "||";
+          } else {
+            isbn_arr += "No ISBNaaa" + "||";
+          }
         } else {
-          isbn_arr += "No ISBNaaa" + "||";
+          isbn_arr += "No ISBN" + "||";
         }
-      } else{
-        isbn_arr += "No ISBN" + "||";
-      }
 
         if (data[i].description) {
           desc_arr += JSON.stringify(data[i].description) + "||";
@@ -99,8 +99,8 @@ function ajax($this) {
           desc_arr += "No description" + "||";
         }
 
-        if(data[i].maturityRating){
-          mature_arr += JSON.stringify(data[i].maturityRating) +"||";
+        if (data[i].maturityRating) {
+          mature_arr += JSON.stringify(data[i].maturityRating) + "||";
         } else {
           mature_arr += "Unknown Rating" + "||";
         }
@@ -285,6 +285,152 @@ $(document).ready(function() {
   });
 
 
+  $("#searchBtn").click(function() {
+    if ($("#search").val() != "") {
+      var book = $("#search").val();
+      var items;
+      var title_arr; // where array of titles are going to be saved from data
+      var auth_arr;
+      var categ_arr;
+      var img_link_arr;
+      var img_link_arr1;
+      var info_link_arr;
+      var isbn_arr;
+      var desc_arr;
+      var mature_arr;
+      $.ajax({
+        type: "POST",
+        url: './php/searchhandler.php',
+        dataType: 'json',
+        data: {
+          book: book
+        },
+        success: function(data) {
 
+          for (var i = 0; i < data.length; i++) { // for # of books retrieved, create long string of all titles/authors/categories/etc.
+            if (data[i].title) {
+              title_arr += data[i].title + "||";
+            } else {
+              title_arr += "No Title Given" + "||";
+            }
+            //gets data from json for every variable
+
+            if (data[i].authors) {
+              // have to stringify because its an object
+              auth_arr += JSON.stringify(data[i].authors) + "||";
+            } else {
+              auth_arr += "No Author Given" + "||";
+            }
+
+
+            if (data[i].categories) {
+              categ_arr += JSON.stringify(data[i].categories) + "||";
+            } else {
+              categ_arr += "Undefined Category"
+            }
+
+
+
+            //large
+            if (data[i].imageLinks) {
+              if (data[i].imageLinks['thumbnail']) {
+                img_link_arr += JSON.stringify(data[i].imageLinks.thumbnail) + "||";
+              } else {
+                img_link_arr += "../assets/img/icon.png" + "||";
+              }
+            } else {
+              img_link_arr += "../assets/img/icon.png" + "||";
+            }
+            //small
+            if (data[i].imageLinks) {
+              if (data[i].imageLinks['smallThumbnail']) {
+                img_link_arr1 += JSON.stringify(data[i].imageLinks.smallThumbnail) + "||";
+              } else {
+                img_link_arr1 += "♥./assets/img/icon.png" + "||";
+              }
+            } else {
+              img_link_arr1 += "♥./assets/img/icon.png" + "||";
+            }
+
+
+
+            if (data[i].infoLink) {
+              info_link_arr += data[i].infoLink + "||";
+            }
+
+            if (data[i].industryIdentifiers) {
+              if (data[i].industryIdentifiers[0]['identifier']) {
+                isbn_arr += JSON.stringify(data[i].industryIdentifiers[0]['identifier']) + "||";
+              } else {
+                isbn_arr += "No ISBNaaa" + "||";
+              }
+            } else {
+              isbn_arr += "No ISBN" + "||";
+            }
+
+            if (data[i].description) {
+              desc_arr += JSON.stringify(data[i].description) + "||";
+            } else {
+              desc_arr += "No description" + "||";
+            }
+
+            if (data[i].maturityRating) {
+              mature_arr += JSON.stringify(data[i].maturityRating) + "||";
+            } else {
+              mature_arr += "Unknown Rating" + "||";
+            }
+            console.log("here");
+
+
+            // list of arrays                                                                                                                                          Pretty terrible way of solving
+            var titles = title_arr.split('||');
+            var titles_undef = titles[0]; /* to remove 'undefined' as part of string*/
+            titles_undef = titles_undef.substring(9); /* removes 9 characters from the start: u n d e f i n e d*/
+            titles[0] = titles_undef; /* replaces first index*/
+            var authors = auth_arr.split('||'); /* split long string into array elements*/
+            var authors_undef = authors[0];
+            authors_undef = authors_undef.substring(9);
+            authors[0] = authors_undef;
+            var categories = categ_arr.split('||');
+            var categories_undef = categories[0];
+            categories_undef = categories_undef.substring(9);
+            categories[0] = categories_undef;
+            var image_links = img_link_arr.split('||');
+            var image_links_undef = image_links[0];
+            image_links_undef = image_links_undef.substring(9);
+            image_links[0] = image_links_undef;
+            var image_links1 = img_link_arr1.split('||');
+            var image_links_undef1 = image_links1[0];
+            image_links_undef1 = image_links_undef1.substring(9);
+            image_links1[0] = image_links_undef1;
+            var info_links = info_link_arr.split('||');
+            var info_links_undef = info_links[0];
+            info_links_undef = info_links_undef.substring(9);
+            info_links[0] = info_links_undef;
+            var isbns = isbn_arr.split('||');
+            var isbns_undef = isbns[0];
+            isbns_undef = isbns_undef.substring(9);
+            isbns[0] = isbns_undef;
+            var descriptions = desc_arr.split('||');
+            var descriptions_undef = descriptions[0];
+            descriptions_undef = descriptions_undef.substring(9);
+            descriptions[0] = descriptions_undef;
+            var ratings = mature_arr.split('||');
+            var ratings_undef = ratings[0];
+            ratings_undef = ratings_undef.substring(9);
+            ratings[0] = ratings_undef;
+            console.log(titles[0]);
+            jsarray1 = [titles[0],descriptions[0],authors[0],categories[0],image_links[0],info_links[0],isbns[0],ratings[0]];
+            sessionStorage.setItem("jsarray1", JSON.stringify(jsarray1));
+            sessionStorage.setItem("ID",'0');
+            window.location.href = "./webpages/Details.html";
+          }
+        }
+
+      });
+    } else {
+      alert("Please fill in all fields");
+    }
+  });
 
 });

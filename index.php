@@ -46,14 +46,15 @@
                   <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#books">Genre</a></li>
                   <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#review">Review</a></li>
                   <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" a href="http://findareview.herokuapp.com">FindAReview</a></li>
-                  <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" a href="/webpages/About.html">About</a></li>
+                  <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" a href="webpages/About.html">About</a></li>
 
 
                   <div class="ui-widget nav navbar-nav" id="search-wrapper">
                      <div class="input-group ">
-                    <form class="form-inline mr-auto">
-                       <input class="form-control" type="text" id="search" placeholder="Search" aria-label="Search">
+                    <div class="form-inline mr-auto">
+                       <input class="form-control" type="text" id="search" placeholder="Search" aria-label="Search" maxlength="40">
                        <style>#ui-id-1 {z-index: 9999;}</style>
+
                        <script type="text/javascript">
                           $(function() {
                             $("#search").autocomplete({
@@ -62,8 +63,8 @@
                             });
                           });
                        </script>
-                       <button class="btn btn-light btn-rounded btn-sm my-0 ml-sm-2" id="searchBtn" type="submit">Find A Book</button>
-                    </form>
+                       <button class="btn btn-light btn-rounded btn-sm my-0 ml-sm-2" id="searchBtn" >Find A Book</button>
+                    </div>
                   </div>
                 </div>
                </ul>
