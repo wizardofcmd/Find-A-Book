@@ -611,24 +611,6 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
       <!-- Core theme JS-->
       <script src="./js/scripts.js"></script>
-      <script>
-         $(document).ready(function() {
-           $('#btn_save').click(function() {
-             var data = $('#user_form').serialize() + '&btn_save=btn_save';
-             var bName = $('#bookInput').val();
-             var uComment = $('#reviewInput').val();
-             $.ajax({
-               url: 'php/process.php',
-               type: 'post',
-               data: {bName:bName,uComment:uComment},
-               success: function(response) {
-                 //$('#mesg').text(response);
-                 $('#bookInput').val('');
-                 $('#reviewInput').val('');
-               }
-             });
-           });
-         });
-      </script>
+    
    </body>
 </html>
