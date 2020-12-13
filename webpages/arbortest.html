@@ -7,41 +7,12 @@
   <script src="../js/arbor.js"></script>
   <script src="../js/graphics.js"></script>
   <script src="../js/render_0.js"></script>
+  <script src="../js/arbortest.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Testing</title>
 </head>
 <body>
   <canvas id="viewport" width="800" height="600"></canvas>
-  <script language="javascript" type="text/javascript">
-    var sys = arbor.ParticleSystem(1000, 400,1);
-    sys.parameters({gravity:true});
-    sys.renderer = Renderer("#viewport");
-
-    var data = {
-      nodes:{
-        animals:{'color':'red','shape':'dot','label':'Animals'},
-        dog:{'color':'green','shape':'dot','label':'dog'},
-        cat:{'color':'blue','shape':'dot','label':'cat'}
-      },
-      edges:{
-        animals:{ dog:{'color':'green'}, cat:{} }
-      }
-    };
-    sys.graft(data);
-    setTimeout(function(){
-      var postLoadData = {
-        nodes:{
-          joe:{'color':'orange','shape':'dot','label':'joe'},
-          fido:{'color':'green','shape':'dot','label':'fido'},
-          fluffy:{'color':'blue','shape':'dot','label':'fluffy'}
-        },
-        edges:{
-          dog:{ fido:{} },
-          cat:{ fluffy:{} },
-          joe:{ fluffy:{},fido:{} }
-        }
-      };
-      sys.graft(postLoadData);},10000);
-  </script>
+  
 </body>
 </html>

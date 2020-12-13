@@ -146,7 +146,7 @@ function ajax($this) {
       ratings[0] = ratings_undef;
 
 
-
+      // remove characters that interfere with the link
       var y = image_links1.map(s => s.slice(1));
       console.log(y);
       console.log(image_links);
@@ -224,7 +224,7 @@ function loadcanvas(id) {
   canvas.id = "viewport";
   canvas.width = "1108";
   canvas.height = "688";
-  canvas.class = "model-content"
+  canvas.class = "modal-content"
   div.appendChild(canvas);
 }
 // Still don't know how to refresh so instead, delete the canvas

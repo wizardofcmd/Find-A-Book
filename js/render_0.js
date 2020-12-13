@@ -42,7 +42,7 @@
           else ctx.fillStyle = "rgba(0,0,0,.2)"
           if (node.data.color=='none') ctx.fillStyle = "white"
 
-          if (node.data.shape=='dot'){
+          if (node.data.shape=='dot' ){
             gfx.oval(pt.x-w/2, pt.y-w/2, w,w, {fill:ctx.fillStyle})
             nodeBoxes[node.name] = [pt.x-w/2, pt.y-w/2, w,w]
           }else{
@@ -50,15 +50,23 @@
             nodeBoxes[node.name] = [pt.x-w/2, pt.y-11, w, 22]
           }
 
+
+
           // draw the text
           if (label){
             ctx.font = "12px Helvetica"
             ctx.textAlign = "center"
-            ctx.fillStyle = "white"
+            ctx.fillStyle = "black"
             if (node.data.color=='none') ctx.fillStyle = '#333333'
-            ctx.fillText(label||"", pt.x, pt.y+4)
-            ctx.fillText(label||"", pt.x, pt.y+4)
+            ctx.fillText(label||"", pt.x, pt.y-5)
+            if(node.data.label == 'Sentiment:') ctx.fillText(node.data.sentiment, pt.x, pt.y+20)
+            if(node.data.label == 'Negativity:') ctx.fillText(node.data.neg, pt.x, pt.y+20)
+            if(node.data.label == 'Neutrality:') ctx.fillText(node.data.neu, pt.x, pt.y+20)
+            if(node.data.label == 'Positivity:') ctx.fillText(node.data.pos, pt.x, pt.y+20)
+            if(node.data.label == 'Compound:') ctx.fillText(node.data.compound, pt.x, pt.y+20)
+
           }
+
         })
 
 

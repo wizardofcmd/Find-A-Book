@@ -46,7 +46,7 @@
                <ul class="navbar-nav ml-auto">
                   <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#books">Choice</a></li>
                   <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#review">Review</a></li>
-                  <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" a href="../webpages/About.html">About</a></li>
+                  <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" a href="../Find-A-Book/webpages/About.html">About</a></li>
                   <div class="ui-widget nav navbar-nav" id="search-wrapper">
                      <div class="input-group ">
                     <form class="form-inline mr-auto">
@@ -472,6 +472,25 @@
             </div>
          </div>
       </section>
+
+
+ <!-- working on button ... tryna make a function so that if the fieds are empty this comes up, when the submit button is pressed-->
+      <script>
+      $('button').click(function(){
+        $('.alert').addClass("show");
+        $('.alert').removeClass("hide");
+        $('.alert').addClass("showAlert");
+        setTimeout(function(){
+          $('.alert').removeClass("show");
+          $('.alert').addClass("hide");
+        },5000);
+      });
+      $('.close-btn').click(function(){
+        $('.alert').removeClass("show");
+        $('.alert').addClass("hide");
+      });
+    </script>
+
       <!-- Reviews Section End Here -->
       <!-- Footer-->
       <footer class="footer text-center">
@@ -557,7 +576,7 @@
                         <div id="canvasDiv1"></div>
                         <div class="col-lg-8">
                            <!-- Feeling Lucky Content-->
-                           <button value="btn_ran_val" class="btn btn-info " id="btn_ran_id" onclick="absolutelyDestroyCanvas('viewport');loadcanvas('canvasDiv1');">Shuffle</button>
+                           <button value="btn_ran_val" class="btn btn-info " id="btn_ran_id" onclick="absolutelyDestroyCanvas('viewport');loadcanvas('canvasDiv1');ajaxa($())">Shuffle</button>
                            <div class="divider-custom">
                               <div class="divider-custom-line"></div>
                               <button class="btn btn-primary" data-dismiss="modal" onclick="absolutelyDestroyCanvas('viewport')">
