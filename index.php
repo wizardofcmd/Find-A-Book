@@ -13,6 +13,7 @@
       <script src="./js/renderer.js"></script>
       <script src="./js/buttons.js"></script>
       <script src="./js/captcha.js"></script>
+      <script src="./js/Autocomplete.js"></script>
       <script src="https://www.google.com/recaptcha/api.js?render=6LeyOgAaAAAAAHzYyg8vAl-YZpnisHKTzUBoXs5Y"></script>
       <!-- Favicon -->
       <link rel="icon" type="image/x-icon" href="./assets/img/icon.png" />
@@ -49,16 +50,9 @@
                   <div class="ui-widget nav navbar-nav" id="search-wrapper">
                      <div class="input-group ">
                     <form class="form-inline mr-auto">
-                       <input class="form-control" type="text" id="search" placeholder="Search" aria-label="Search">
+                       <input class="form-control" type="text" id="search" placeholder="Search" aria-label="Search" >
                        <style>#ui-id-1 {z-index: 9999;}</style>
-                       <script type="text/javascript">
-                          $(function() {
-                            $("#search").autocomplete({
-                              source: 'php/search.php',
 
-                            });
-                          });
-                       </script>
                        <button class="btn btn-light btn-rounded btn-sm my-0 ml-sm-2" id="searchBtn" type="submit">Find A Book</button>
                     </form>
                   </div>
