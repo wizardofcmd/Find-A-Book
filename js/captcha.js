@@ -27,7 +27,8 @@ $(document).ready(function(){
                 if(result == 'true'){
                   savetodatabase();
                 }else{
-                  alert("Please Try Again");
+                  console.log('mata');
+                  alertt();
                 }
 
 
@@ -55,3 +56,17 @@ $(document).ready(function(){
 
 
          });
+function alertt() {
+          $('.alertt').addClass("show");
+          $('.alertt').removeClass("hide");
+          $('.alertt').addClass("showAlert");
+          setTimeout(function(){
+            $('.alertt').removeClass("show");
+            $('.alertt').addClass("hide");
+          },5000);
+
+        $('.close-btn').click(function(){
+          $('.alertt').removeClass("show");
+          $('.alertt').addClass("hide");
+        });
+      }
