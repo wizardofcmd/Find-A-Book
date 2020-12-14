@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<!--
+Template obtained from startbootstrap.com. Open source code linked below.
+Everything regarding css and scripts.js for scrolling has been obtained
+from them.
+Tweaks have been made to the index.html and styles.css to better suit our
+website.
+https://github.com/startbootstrap/startbootstrap-freelancer
+-->
 <html lang="en">
    <head>
       <meta charset="utf-8" />
