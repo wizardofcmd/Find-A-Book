@@ -1,6 +1,4 @@
-function error(){
-  alert("Please fill in all fields");
-}
+
 $(document).ready(function(){
          	setInterval(function(){
          	grecaptcha.ready(function() {
@@ -13,7 +11,7 @@ $(document).ready(function(){
           $('#btn_save').click(function(){
 
             if(($('#bookInput').val() == "")||($('#reviewInput').val() == "")){
-              setTimeout(error(),5000);
+                alert("Please fill in all fields");
               console.log("Fields empty");
 
 

@@ -24,6 +24,7 @@ function ajaxa(){
 		random_string+=character.charAt(Math.floor(Math.random()*character.length))
 	}
 	book_data = random_string;
+	console.log("here");
 	$.ajax({
     type: "POST",
     url: './php/randhandler.php',
