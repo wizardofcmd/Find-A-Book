@@ -1,3 +1,6 @@
+function error(){
+  alert("Please fill in all fields");
+}
 $(document).ready(function(){
          	setInterval(function(){
          	grecaptcha.ready(function() {
@@ -10,35 +13,39 @@ $(document).ready(function(){
           $('#btn_save').click(function(){
 
             if(($('#bookInput').val() == "")||($('#reviewInput').val() == "")){
-              alert("Please fill in all fields");
+              setTimeout(error(),5000);
+
+
             }else{
               var book = $('#bookInput').val();
               var comment = $('#reviewInput').val();
-            }
-            var action = $('#action').val();
-            var token = $('#token').val();
-            $.ajax({
-              type:"POST",
-              url:"./php/captcha.php",
-              dataType:"json",
-              data:{
-                book:book,
-                comment:comment,
-                action:action,
-                token:token
-              },
-              success:function(data){
-                var result = data['success'];
-                if(result == 'true'){
-                  savetodatabase();
-                }else{
-                  console.log('mata');
-                  alertt();
+              var action = $('#action').val();
+              var token = $('#token').val();
+              $.ajax({
+                type:"POST",
+                url:"./php/captcha.php",
+                dataType:"json",
+                data:{
+                  book:book,
+                  comment:comment,
+                  action:action,
+                  token:token
+                },
+                success:function(data){
+                  var result = data['success'];
+                  if(result == 'true'){
+                    savetodatabase();
+                  }else{
+                    console.log('mata');
+                    alert("Please Try Again");
+                  }
+
+
                 }
+              });
+            }
 
 
-              }
-            });
           })
 
 
@@ -57,21 +64,4 @@ $(document).ready(function(){
               }
             });
           }
-
-
-
          });
-function alertt() {
-          $('.alertt').addClass("show");
-          $('.alertt').removeClass("hide");
-          $('.alertt').addClass("showAlert");
-          setTimeout(function(){
-            $('.alertt').removeClass("show");
-            $('.alertt').addClass("hide");
-          },5000);
-
-        $('.close-btn').click(function(){
-          $('.alertt').removeClass("show");
-          $('.alertt').addClass("hide");
-        });
-      }
