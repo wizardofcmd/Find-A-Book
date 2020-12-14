@@ -14,9 +14,11 @@ $(document).ready(function(){
 
             if(($('#bookInput').val() == "")||($('#reviewInput').val() == "")){
               setTimeout(error(),5000);
+              console.log("Fields empty");
 
 
             }else{
+              console.log("Submitting");
               var book = $('#bookInput').val();
               var comment = $('#reviewInput').val();
               var action = $('#action').val();
@@ -36,11 +38,9 @@ $(document).ready(function(){
                   if(result == 'true'){
                     savetodatabase();
                   }else{
-                    console.log('mata');
+                    console.log('User is a bot');
                     alert("Please Try Again");
                   }
-
-
                 }
               });
             }
